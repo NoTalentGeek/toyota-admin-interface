@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/login-signup.css' />
-  </head>
-  <body>
-
-
+<head>
+<title>Toyota Realtime Admin Interface</title>
+	<link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css' />
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/login-signup.css' />
+</head>
+<body>
 	<div class="container">
-    	<div class="row">
+		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
+								<a href="#" class="active" id="login-form-link">
+									Login
+								</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="#" id="register-form-link">Register</a>
+								<a href="#" id="register-form-link">
+									Register
+								</a>
 							</div>
 						</div>
 						<hr>
@@ -27,22 +29,50 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="http://dummy.com/" method="post" role="form" style="display: block;">
+								<form
+									action="http://dummy.com/"
+									id="login-form"
+									method="post"
+									role="form"
+									style="display: block;"
+								>
 
 
 
 
 
 									<div class="form-group">
-										<input type="text" name="admin_email" id="admin_email" tabindex="1" class="form-control" placeholder="Admin Email" value="">
+										<input
+											class="form-control"
+											id="admin_email"
+											name="admin_email"
+											placeholder="Admin Email"
+											tabindex="1"
+											type="text"
+											value=""
+										>
 									</div>
 									<div class="form-group">
-										<input type="password" name="admin_password" id="admin_password" tabindex="2" class="form-control" placeholder="Admin Password">
+										<input
+											class="form-control"
+											id="admin_password"
+											name="admin_password"
+											placeholder="Admin Password"
+											tabindex="2"
+											type="password"
+										>
 									</div>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											<div class="col-sm-offset-3 col-sm-6">
+												<input
+													class="btn btn-login form-control"
+													id="login-submit"
+													name="login-submit"
+													tabindex="4"
+													type="submit"
+													value="Log In"
+												>
 											</div>
 										</div>
 									</div>
@@ -59,25 +89,62 @@
 
 
 									<div class="form-group">
-										<input type="text" name="String_Name" id="String_Name" tabindex="1" class="form-control" placeholder="Admin Name" value="">
+										<input
+											class="form-control"
+											id="String_Name"
+											name="String_Name"
+											placeholder="Admin Name"
+											tabindex="1"
+											type="text"
+											value=""
+										>
 									</div>
 									<div class="form-group">
-										<input type="email" name="String_Email" id="String_Email" tabindex="1" class="form-control" placeholder="Admin Email Address" value="">
+										<input
+											class="form-control"
+											id="String_Email"
+											name="String_Email"
+											placeholder="Admin Email Address"
+											tabindex="1"
+											type="email"
+											value=""
+										>
 									</div>
 									<div class="form-group">
-										<input type="password" name="String_Password" id="String_Password" tabindex="2" class="form-control" placeholder="Admin Password">
+										<input
+											class="form-control"
+											id="String_Password"
+											name="String_Password"
+											placeholder="Admin  Password"
+											tabindex="2"
+											type="password"
+										>
 									</div>
 									<div class="form-group">
-										<input type="password" name="admin_password_confirm" id="admin_password_confirm" tabindex="2" class="form-control" placeholder="Confirm Admin Password">
+										<input
+											class="form-control"
+											id="admin_password_confirm"
+											name="admin_password_confirm"
+											placeholder="Confirm Admin Password"
+											tabindex="2"
+											type="password"
+										>
 									</div>
-									<div class="form-group">
+										<div class="form-group">
 										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											<div class="col-sm-offset-3 col-sm-6">
+												<input
+													class="btn btn-register form-control"
+													id="register-submit"
+													name="register-submit"
+													tabindex="4"
+													type="submit"
+													value="Register Now"
+												>
 											</div>
 										</div>
 									</div>
-								
+
 
 
 
@@ -93,7 +160,6 @@
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="javascripts/login-signup.js"></script>
-
-  </body>
+	<script src="javascripts/login-signup.js"></script>
+</body>
 </html>
