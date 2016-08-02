@@ -18,12 +18,12 @@
             padding-right: 1rem !important;
         }
         .container-fluid, .row{
-            background-color: grey;
             height: 100%;
             margin: 0 !important;
             padding: 0 !important;
         }
         body, html{
+            background: red;
             height: 100%;
             margin: 0 !important;
             padding: 0 !important;
@@ -39,10 +39,10 @@
       <div class="ntg-container row">
         <div class="board ntg-container-fill">
             <div class="ntg-container row">
-                <div class="col-sm-4 ntg-container-fill" style="border: solid; padding: 0 !important;">Hello.</div>
-                <div class="col-sm-8 ntg-container-fill" style="border: solid; padding: 0 !important;">
+                <div class="col-sm-3 ntg-container-fill" style="border: solid; padding: 0 !important;">Hello.</div>
+                <div class="col-sm-9 ntg-container-fill" style="border: solid; padding: 0 !important;">
                     <div class="ntg-container row" style="height: 60% !important;">
-                        <div class="col-sm-6 ntg-container-fill" style="border: solid; padding: 0 !important;">Hello.</div>
+                        <div class="col-sm-6 ntg-container-fill" id="map" style="border: solid; padding: 0 !important;"></div>
                         <div class="col-sm-6 ntg-container-fill" style="border: solid; padding: 0 !important;">Hello.</div>
                     </div>
                     <div class="ntg-container row" style="height: 40% !important;">
@@ -54,6 +54,16 @@
       </div>
     </div>
 
+    <script>
+        var map;
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtpkvsY7CV5nf5oPWGvSEfiiWT-RCTlk0&callback=initMap" async defer></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 </body>
