@@ -1,15 +1,17 @@
-var Number_Port         = 3000;
-var Object_BodyParser   = require("body-parser");
-var Object_CookieParser = require("cookie-parser");
-var Object_Express      = require("express");
-var Object_Mongoose     = require("mongoose");
-var Object_Morgan       = require("morgan");
-var Object_Path         = require("path");
-var Object_ServeFavicon = require("serve-favicon");
+var Number_Port             = 3000;
+var Object_BodyParser       = require("body-parser");
+var Object_CookieParser     = require("cookie-parser");
+var Object_Express          = require("express");
+var Object_ExpressSession   = require("express-session");
+var Object_Flash            = require("connect-flash");
+var Object_Mongoose         = require("mongoose");
+var Object_MongoStore       = require("connect-mongo")(Object_ExpressSession);
+var Object_Morgan           = require("morgan");
+var Object_Passport         = require("passport");
+var Object_Path             = require("path");
+var Object_ServeFavicon     = require("serve-favicon");
 //These variables below is mostly for API routings.
 var index_              = require("./server/routes/index");
-var page_main_          = require("./server/routes/page_main");
-var Route_Admin_        = require("./server/routes/Route_Admin");
 var users_              = require("./server/routes/users");
 //Kick start ExpressJS application.
 var Object_App          = Object_Express();
@@ -26,8 +28,6 @@ Object_App.use(Object_Express.static(Object_Path.join(__dirname, "public")));
 Object_App.use(Object_Morgan("dev"));
 //Set up API routings.
 Object_App.use("/", index_);
-Object_App.use("/api/admins", Route_Admin_);
-Object_App.use("/page_main", page_main_);
 Object_App.use("/users", users_);
 /*Initialize configuration JavaScript file.
 This is mostly for MongoDB connection.*/
@@ -39,6 +39,26 @@ Otherwise "throw" a console message.*/
 Object_Mongoose.connection.on("error", function(){
     console.error("MongoDB Connection Error. Make sure MongoDB is running.");
 });
+//Setting up passport.
+require("./server/configs/Passport")(Object_Passport);
+//Generating secret for session.
+Object_App.use(
+    Object_ExpressSession(
+        {
+            resave              : true,
+            saveUninitialized   : true,
+            secret              : "sometextgoeshere",
+            store               : new Object_MongoStore({
+                url             : Config_.url,
+                collection      : "sessions"
+            })
+        }
+    )
+);
+//Init passport authentication.
+Object_App.use(Object_Passport.initialize());
+//Persistent login session.
+Object_App.use(Object_Passport.session());
 //Catch missing/unknown routing to 404 error handler.
 Object_App.use(
     function(

@@ -8,12 +8,14 @@ module.exports = function(_Object_Passport){
     _Object_Passport.serializeUser(function(_Model_Admin, _Function_Done){
         _Function_Done(null, _Model_Admin.id);
     });
+    console.log("1.");
     //Deserialize the admin for this session.
     _Object_Passport.deserializeUser(function(_Object_ID, _Function_Done){
         Model_Admin_.findById(_Object_ID, function(_Object_Error, _Model_Admin){
             _Function_Done(_Object_Error, _Model_Admin);
         });
     });
+    console.log("2.");
     //Local strategy.
     _Object_Passport.use("local-login", new Object_Passport_LocalStrategy(
         {
@@ -27,9 +29,11 @@ module.exports = function(_Object_Passport){
             _String_Password,
             _Function_Done
         ){
+            console.log("3.");
             if(_String_Email){
                 _String_Email = _String_Email.toLowerCase();
             }
+            console.log("4.");
             //Async.
             process.nextTick(function(){
                 Model_Admin_.findOne({ "Admin_String_Email": _String_Email },
@@ -64,6 +68,7 @@ module.exports = function(_Object_Passport){
             });
         }
     ));
+    console.log("5.");
     //Local signup strategy.
     _Object_Passport.use("local-signup", new Object_Passport_LocalStrategy(
         {
@@ -77,9 +82,11 @@ module.exports = function(_Object_Passport){
             _String_Password,
             _Function_Done
         ){
+            console.log("6.");
             if(_String_Email){
                 _String_Email = _String_Email.toLowerCase();
             }
+            console.log("7.");
             process.nextTick(function() {
                 //If an admin already logged in into the system.
                 if (!_Object_Request.user) {
@@ -114,4 +121,5 @@ module.exports = function(_Object_Passport){
             });
         }
     ));
+    console.log("8.");
 };
