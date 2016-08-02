@@ -97,7 +97,9 @@ module.exports = function(_Object_Passport){
                             console.log("On process to create a new admin account.");
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
-                            Model_Admin_Temporary.Admin_String_Email = _String_Email;
+                            Model_Admin_Temporary.Admin_String_Email    = _String_Email;
+                            Model_Admin_Temporary.Admin_String_Location = _Object_Request.param("Admin_String_Location_SignUp");
+                            Model_Admin_Temporary.Admin_String_Name     = _Object_Request.param("Admin_String_Name_SignUp");
                             Model_Admin_Temporary.Admin_String_Password = Model_Admin_Temporary.generateHash(_String_Password);
                             Model_Admin_Temporary.save(function(_Object_Error){
                                 if(_Object_Error){
