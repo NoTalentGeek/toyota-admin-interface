@@ -1,11 +1,15 @@
-var express = require('express');
-var router = express.Router();
+var Object_Express 	= require("express");
+var Object_Router 	= Object_Express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+/*Get the home page.*/
+Object_Router.get("/", 
+	function(
+		_Object_Request,
+		_Object_Respond,
+		_Object_Next
+	){
+		_Object_Respond.render("index");
+	}
+);
 
-module.exports = router;
-var Object_Express = require
-var Object_Router
+module.exports = Object_Router;
