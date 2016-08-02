@@ -3,7 +3,6 @@ var Object_BodyParser       = require("body-parser");
 var Object_CookieParser     = require("cookie-parser");
 var Object_Express          = require("express");
 var Object_ExpressSession   = require("express-session");
-var Object_Flash            = require("connect-flash");
 var Object_Mongoose         = require("mongoose");
 var Object_MongoStore       = require("connect-mongo")(Object_ExpressSession);
 var Object_Morgan           = require("morgan");
