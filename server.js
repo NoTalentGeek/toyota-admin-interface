@@ -10,11 +10,11 @@ var Object_Passport         = require("passport");
 var Object_Path             = require("path");
 var Object_ServeFavicon     = require("serve-favicon");
 //These variables below is mostly for API routings.
-var index_              = require("./server/routes/index");
-var Route_Admin_        = require("./server/routes/Route_Admin");
-var users_              = require("./server/routes/users");
+var index_                  = require("./server/routes/index");
+var Route_Admin_            = require("./server/routes/Route_Admin");
+var users_                  = require("./server/routes/users");
 //Kick start ExpressJS application.
-var Object_App          = Object_Express();
+var Object_App              = Object_Express();
 //View engine setup.
 Object_App.set("views", Object_Path.join(__dirname, "server/views"));
 Object_App.set("view engine", "ejs");
