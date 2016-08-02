@@ -8,6 +8,7 @@ var Object_Path         = require("path");
 var Object_ServeFavicon = require("serve-favicon");
 //These variables below is mostly for API routings.
 var index_              = require("./server/routes/index");
+var page_main_          = require("./server/routes/page_main");
 var Route_Admin_        = require("./server/routes/Route_Admin");
 var users_              = require("./server/routes/users");
 //Kick start ExpressJS application.
@@ -26,6 +27,7 @@ Object_App.use(Object_Morgan("dev"));
 //Set up API routings.
 Object_App.use("/", index_);
 Object_App.use("/api/admins", Route_Admin_);
+Object_App.use("/page_main", page_main_);
 Object_App.use("/users", users_);
 /*Initialize configuration JavaScript file.
 This is mostly for MongoDB connection.*/
