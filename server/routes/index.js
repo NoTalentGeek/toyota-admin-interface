@@ -29,7 +29,6 @@ Object_Router.get("/logout", function(_Object_Request, _Object_Respond){
 });
 //Login Post.
 Object_Router.post("/login", Object_Passport.authenticate("local-login", {
-    //Success go to Profile Page / Fail go to login page
     failureRedirect : "/",
     successRedirect : "/page_main"
 }));

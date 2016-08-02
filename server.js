@@ -12,6 +12,7 @@ var Object_Path             = require("path");
 var Object_ServeFavicon     = require("serve-favicon");
 //These variables below is mostly for API routings.
 var index_              = require("./server/routes/index");
+var Route_Admin_        = require("./server/routes/Route_Admin");
 var users_              = require("./server/routes/users");
 //Kick start ExpressJS application.
 var Object_App          = Object_Express();
@@ -26,9 +27,6 @@ Object_App.use(Object_BodyParser.urlencoded({ extended: false }));
 Object_App.use(Object_CookieParser());
 Object_App.use(Object_Express.static(Object_Path.join(__dirname, "public")));
 Object_App.use(Object_Morgan("dev"));
-//Set up API routings.
-Object_App.use("/", index_);
-Object_App.use("/users", users_);
 /*Initialize configuration JavaScript file.
 This is mostly for MongoDB connection.*/
 var Config_ = require("./server/configs/Config.js");
@@ -59,6 +57,10 @@ Object_App.use(
 Object_App.use(Object_Passport.initialize());
 //Persistent login session.
 Object_App.use(Object_Passport.session());
+//Set up API routings.
+Object_App.use("/", index_);
+Object_App.use("/api/admins", Route_Admin_);
+Object_App.use("/users", users_);
 //Catch missing/unknown routing to 404 error handler.
 Object_App.use(
     function(

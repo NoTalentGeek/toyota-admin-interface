@@ -10,6 +10,7 @@ var Object_Schema_Admin         = new Object_Schema({
 });
 //Generate a hash.
 Object_Schema_Admin.methods.generateHash = function(_String_Password){
+    console.log("Test.");
     return Object_BCrypt.hashSync(
         _String_Password,
         Object_BCrypt.genSaltSync(8),

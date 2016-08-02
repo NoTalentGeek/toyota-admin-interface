@@ -36,33 +36,34 @@ module.exports = function(_Object_Passport){
             console.log("4.");
             //Async.
             process.nextTick(function(){
+                console.log("XD.");
                 Model_Admin_.findOne({ "Admin_String_Email": _String_Email },
                     function(_Object_Error, _Model_Admin){
+                        console.log("LOL.");
                         if(_Object_Error){
+                            console.log("Error.");
                             return _Function_Done(_Object_Error);
                         }
                         //Check if _Model_Admin the client requested is exist.
                         if(!_Model_Admin){
+                            console.log("No admin exist.");
                             return _Function_Done(
                                 null,
-                                false,
-                                _Object_Request.flash(
-                                    "loginMessage",
-                                    "No such admin found."
-                                )
+                                false
                             );
                         }
                         //If the admin is exist but the password is wrong.
                         if(!_Model_Admin.validPassword(_String_Password)){
+                            console.log("Wrong password.");
                             return _Function_Done(
                                 null,
-                                false,
-                                _Object_Request.flash(
-                                    "loginMessage",
-                                    "Wrong password"
-                                )
+                                false
                             );
                         }
+                        else{
+                            return _Function_Done(null, _Model_Admin);
+                        }
+                        console.log("Finish");
                     }
                 );
             });
@@ -90,21 +91,21 @@ module.exports = function(_Object_Passport){
             process.nextTick(function() {
                 //If an admin already logged in into the system.
                 if (!_Object_Request.user) {
-                    Model_Admin_.findOne({ "Admin_String_Email": email }, function(_Object_Error, _Model_Admin) {
+                    Model_Admin_.findOne({ "Admin_String_Email": _String_Email }, function(_Object_Error, _Model_Admin) {
                         //If error.
                         if(_Object_Error)
                             return _Function_Done(_Object_Error);
 
                         //Check email.
                         if(_Model_Admin){
-                            return _Function_Done(null, false, _Object_Request.flash('signupMessage', 'Wohh! the email is already taken.'));
+                            return _Function_Done(null, false);
                         }
                         else{
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
 
-                            Model_Admin_Temporary.local.email = email;
-                            Model_Admin_Temporary.local.password = Model_Admin_Temporary.generateHash(password);
+                            Model_Admin_Temporary.Admin_String_Email = _String_Email;
+                            Model_Admin_Temporary.Admin_String_Password = Model_Admin_Temporary.generateHash(_String_Password);
                             Model_Admin_Temporary.save(function(_Object_Error){
                                 if (_Object_Error)
                                     throw _Object_Error;
