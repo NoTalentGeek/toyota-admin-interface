@@ -1,79 +1,94 @@
-var express = require("express");
-var path = require("path");
-var favicon = require("serve-favicon");
-var logger = require("morgan");
-var cookieParser = require("cookie-parser");
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-
-var routes = require("./server/routes/index");
-var users = require("./server/routes/users");
-var Route_Admin = require("./server/routes/Route_Admin");
-
-var app = express();
-
-// view engine setup
-app.set("views", path.join(__dirname, "server/views"));
-app.set("view engine", "ejs");
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/", routes);
-app.use("/users", users);
-app.use("/api/admins", Route_Admin);
-
+var Number_Port         = 3000;
+var Object_BodyParser   = require("body-parser");
+var Object_CookieParser = require("cookie-parser");
+var Object_Express      = require("express");
+var Object_Mongoose     = require("mongoose");
+var Object_Morgan       = require("morgan");
+var Object_Path         = require("path");
+var Object_ServeFavicon = require("serve-favicon");
+//These variables below is mostly for API routings.
+var index_              = require("./server/routes/index");
+var Route_Admin_        = require("./server/routes/Route_Admin");
+var users_              = require("./server/routes/users");
+//Kick start ExpressJS application.
+var Object_App          = Object_Express();
+//View engine setup.
+Object_App.set("views", Object_Path.join(__dirname, "server/views"));
+Object_App.set("view engine", "ejs");
+/*Setting up modules that have been imported.
+Uncomment after placing your favicon in /public.*/
+//Object_App.use(favicon(Object_Path.join(__dirname, "public", "favicon.ico")));
+Object_App.use(Object_BodyParser.json());
+Object_App.use(Object_BodyParser.urlencoded({ extended: false }));
+Object_App.use(Object_CookieParser());
+Object_App.use(Object_Express.static(Object_Path.join(__dirname, "public")));
+Object_App.use(Object_Morgan("dev"));
+//Set up API routings.
+Object_App.use("/", index_);
+Object_App.use("/api/admins", Route_Admin_);
+Object_App.use("/users", users_);
+/*Initialize configuration JavaScript file.
+This is mostly for MongoDB connection.*/
 var Config_ = require("./server/configs/Config.js");
-//Connect to the database.
-mongoose.connect(Config_.url);
-//Check if the database connection is okay.
-mongoose.connection.on("error", function(){
-  console.error("MongoDB Connection Error. Make sure MongoDB is running.");
-})
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error("Not Found");
-  err.status = 404;
-  next(err);
+//Connect to database.
+Object_Mongoose.connect(Config_.url);
+/*Check if the database connection is okay.
+Otherwise "throw" a console message.*/
+Object_Mongoose.connection.on("error", function(){
+    console.error("MongoDB Connection Error. Make sure MongoDB is running.");
 });
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get("env") === "development") {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render("error", {
-      message: err.message,
-      error: err
-    });
-  });
+//Catch missing/unknown routing to 404 error handler.
+Object_App.use(
+    function(
+        _Object_Request,
+        _Object_Respond,
+        _Object_Next
+    ){
+      var Error_ = new Error("Not found.");
+      Error_.status = 404;
+      _Object_Next(Error_);
+    }
+);
+/*Simple error handlers.
+Development error handler.*/
+if(Object_App.get("env") === "development"){
+    Object_App.use(
+        function(
+            _Object_Error,
+            _Object_Request,
+            _Object_Respond,
+            _Object_Next
+        ){
+            _Object_Respond.render("error", {
+                error: _Object_Error,
+                message: _Object_Error.message
+            });
+            _Object_Respond.status(_Object_Error.status || 500);
+        }
+    );
 }
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render("error", {
-    message: err.message,
-    error: {}
-  });
-});
-
-
-module.exports = app;
-
-app.set("port", process.env.PORT || 3000);
-var server = app.listen(app.get("port"), function(){
+//Production error.
+Object_App.use(
+    function(
+        _Object_Error,
+        _Object_Request,
+        _Object_Respond,
+        _Object_Next
+    ){
+        _Object_Respond.render("error", {
+            error: _Object_Error,
+            message: {}
+        });
+        _Object_Respond.status(_Object_Error.status || 500);
+    }
+);
+//Export this ExpressJS main application object as module.
+module.exports = Object_App;
+//Setting up port connection to NodeJS server.
+Object_App.set("port", process.env.PORT || Number_Port);
+var Object_Server = Object_App.listen(Object_App.get("port"), function(){
     console.log(
         "Express server listening on port " +
-        server.address().port
+        Object_Server.address().port
     );
 });
