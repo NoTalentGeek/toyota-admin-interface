@@ -8,14 +8,12 @@ module.exports = function(_Object_Passport){
     _Object_Passport.serializeUser(function(_Model_Admin, _Function_Done){
         _Function_Done(null, _Model_Admin.id);
     });
-    console.log("1.");
     //Deserialize the admin for this session.
     _Object_Passport.deserializeUser(function(_Object_ID, _Function_Done){
         Model_Admin_.findById(_Object_ID, function(_Object_Error, _Model_Admin){
             _Function_Done(_Object_Error, _Model_Admin);
         });
     });
-    console.log("2.");
     //Local strategy.
     _Object_Passport.use("local-login", new Object_Passport_LocalStrategy(
         {
@@ -29,24 +27,20 @@ module.exports = function(_Object_Passport){
             _String_Password,
             _Function_Done
         ){
-            console.log("3.");
             if(_String_Email){
                 _String_Email = _String_Email.toLowerCase();
             }
-            console.log("4.");
             //Async.
             process.nextTick(function(){
-                console.log("XD.");
                 Model_Admin_.findOne({ "Admin_String_Email": _String_Email },
                     function(_Object_Error, _Model_Admin){
-                        console.log("LOL.");
                         if(_Object_Error){
-                            console.log("Error.");
+                            console.log("Error happened when logging in.");
                             return _Function_Done(_Object_Error);
                         }
                         //Check if _Model_Admin the client requested is exist.
                         if(!_Model_Admin){
-                            console.log("No admin exist.");
+                            console.log("The admin email requested is not found in the database.");
                             return _Function_Done(
                                 null,
                                 false
@@ -54,22 +48,21 @@ module.exports = function(_Object_Passport){
                         }
                         //If the admin is exist but the password is wrong.
                         if(!_Model_Admin.validPassword(_String_Password)){
-                            console.log("Wrong password.");
+                           console.log("Wrong password.");
                             return _Function_Done(
                                 null,
                                 false
                             );
                         }
                         else{
+                            console.log("Successfully logging in.");
                             return _Function_Done(null, _Model_Admin);
                         }
-                        console.log("Finish");
                     }
                 );
             });
         }
     ));
-    console.log("5.");
     //Local signup strategy.
     _Object_Passport.use("local-signup", new Object_Passport_LocalStrategy(
         {
@@ -83,32 +76,33 @@ module.exports = function(_Object_Passport){
             _String_Password,
             _Function_Done
         ){
-            console.log("6.");
             if(_String_Email){
                 _String_Email = _String_Email.toLowerCase();
             }
-            console.log("7.");
             process.nextTick(function() {
-                //If an admin already logged in into the system.
+                //If there is no admin logged in.
                 if (!_Object_Request.user) {
                     Model_Admin_.findOne({ "Admin_String_Email": _String_Email }, function(_Object_Error, _Model_Admin) {
                         //If error.
-                        if(_Object_Error)
+                        if(_Object_Error){
+                            console.log("Error happened when signing up.");
                             return _Function_Done(_Object_Error);
-
+                        }
                         //Check email.
                         if(_Model_Admin){
+                            console.log("There is an admin with same email exist in the database. Pick different email.");
                             return _Function_Done(null, false);
                         }
                         else{
+                            console.log("On process to create a new admin account.");
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
-
                             Model_Admin_Temporary.Admin_String_Email = _String_Email;
                             Model_Admin_Temporary.Admin_String_Password = Model_Admin_Temporary.generateHash(_String_Password);
                             Model_Admin_Temporary.save(function(_Object_Error){
-                                if (_Object_Error)
+                                if(_Object_Error){
                                     throw _Object_Error;
+                                }
 
                                 return _Function_Done(null, Model_Admin_Temporary);
                             });
@@ -117,10 +111,10 @@ module.exports = function(_Object_Passport){
 
                 }
                 else{
+                    //A new admin is succesfully created.
                     return _Function_Done(null, _Object_Request.user);
                 }
             });
         }
     ));
-    console.log("8.");
 };
