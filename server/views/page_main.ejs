@@ -215,12 +215,31 @@
 
 
 
-                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; padding: 0 !important;">
-<ul id="ntg-ul-chat"></ul>
-<form id="ntg-form-message-send">
-<input autocomplete="off" id="ntg-input-chat"/>
-<button type="submit">Send.</button>
-</form>
+                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; padding: 0 !important; position: relative;">
+                            <!--
+                            <ul id="ntg-ul-chat"></ul>
+                            <form id="ntg-form-message-send">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="ntg-input-chat" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Send.</button>
+                                    </span>
+                                </div>
+                            </form>
+                            -->
+                            <div style="height: 87%; min-height: 87%; overflow-y: auto;">
+                                <ul class="list-group" id="ntg-ul-chat" style="margin: 0 !important;"></ul>
+                            </div>
+                            <div style="height: 13%; min-height: 13%;">
+                                <form id="ntg-form-message-send">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="ntg-input-chat" placeholder="Type your message.">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Send.</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
 
 
@@ -251,16 +270,18 @@
         }
         var Object_SocketIO_Client = io();
         $("#ntg-form-message-send").submit(function(_Object_Event){
-            console.log("Alola.");
-            Object_SocketIO_Client.emit(
-                "ntg_event_message_sent_to_server",
-                $("#ntg-input-chat").val()
-            );
+            var String_MessageNew = $("#ntg-input-chat").val();
+            if(String_MessageNew){
+                Object_SocketIO_Client.emit(
+                    "ntg_event_message_sent_to_server",
+                    $("#ntg-input-chat").val()
+                );
+            }
             $("#ntg-input-chat").val(""); //Empty the send message text field.
             return false;
         });
         Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_DataReceived){
-            $("#ntg-ul-chat").append($("<li class='text-left'>").text(_Object_DataReceived));
+            $("#ntg-ul-chat").append($("<li class='list-group-item text-left'>").text(_Object_DataReceived));
         });
     </script>
 </body>
