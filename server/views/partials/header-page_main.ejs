@@ -5,7 +5,7 @@
         navbar-fixed-top
     "
 >
-    <div class="container">
+    <div class="container-fluid" style="margin-left: 2rem !important; margin-right: 2rem !important;">
         <div class="navbar-header">
                 <button
                     aria-controls="navbar"
@@ -24,7 +24,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a
-                class="navbar-brand text-center"
+                class="hidden-sm navbar-brand text-center"
                 href="/"
             >
                 Toyota Realtime Admin Interface
@@ -40,7 +40,7 @@
             <ul 
                 class="
                     nav
-                    navbar-nav
+                    navbar-nav  
                 "
             >
                 <li class="active">
@@ -61,6 +61,91 @@
                     navbar-right
                 "
             >
+
+
+
+
+
+                <li class="dropdown">
+                    <div
+                        class="input-group"
+                        style="
+                            margin-top: 8px;
+                            width: 300px;
+                        "
+                    >
+                        <div class="input-group-btn search-panel">
+                            <button
+                                class="
+                                    btn
+                                    btn-default
+                                    dropdown-toggle
+                                "
+                                data-toggle="dropdown"
+                                type="button"
+                            >
+                                <span id="search_concept">Filter.</span><span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#admin">
+                                        Admin.
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#car">
+                                        Car.
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#user">
+                                        User.
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#workshop">
+                                        Workshop.
+                                    </a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#anything">
+                                        Anything.
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <input 
+                            id="search_param"
+                            name="search_param" 
+                            type="hidden" 
+                            value="all" 
+                        >
+                        <input 
+                            class="form-control" 
+                            name="x" 
+                            placeholder="Search."
+                            type="text" 
+                        >
+                        <span class="input-group-btn">
+                            <button
+                                class="
+                                    btn
+                                    btn-default
+                                "
+                                type="button"
+                            >
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </li>
+
+
+
+
+
                 <li class="dropdown">
                     <a
                         aria-expanded="false"
