@@ -115,3 +115,22 @@ var Object_Server = Object_App.listen(Object_App.get("port"), function(){
         Object_Server.address().port
     );
 });
+/*Looped function per 0.5 second.
+I will just use the Arduino C convention here :)).*/
+var Number_UpdateSpeedInMilliSecond = 500;
+var Boolean_TriggerVoidSetup = true;
+function Void_Setup(){
+    console.log("This should be just printed once.");
+}
+function Void_Loop(){
+    if(Boolean_TriggerVoidSetup == true){
+        Void_Setup();
+        Boolean_TriggerVoidSetup = false;
+    }
+
+    console.log("Testing.");
+}
+setInterval(
+    Void_Loop,
+    Number_UpdateSpeedInMilliSecond
+);
