@@ -215,19 +215,8 @@
 
 
 
-                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; padding: 0 !important; position: relative;">
-                            <!--
-                            <ul id="ntg-ul-chat"></ul>
-                            <form id="ntg-form-message-send">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="ntg-input-chat" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Send.</button>
-                                    </span>
-                                </div>
-                            </form>
-                            -->
-                            <div style="height: 87%; min-height: 87%; overflow-y: auto;">
+                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" id="ntg-container-chat" style="border: solid; border-color: #222034; padding: 0 !important; position: relative;">
+                            <div id="ntg-div-chat" style="height: 87%; min-height: 87%; overflow-y: auto;">
                                 <ul class="list-group" id="ntg-ul-chat" style="margin: 0 !important;"></ul>
                             </div>
                             <div style="height: 13%; min-height: 13%;">
@@ -282,6 +271,8 @@
         });
         Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_DataReceived){
             $("#ntg-ul-chat").append($("<li class='list-group-item text-left'>").text(_Object_DataReceived));
+            var Object_Element = document.getElementById("ntg-div-chat");
+            Object_Element.scrollTop = Object_Element.scrollHeight;
         });
     </script>
 </body>

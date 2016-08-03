@@ -135,20 +135,14 @@ Object_SocketIO_Server.on("connection", function
         the server.*/
     _Object_Socket.on("ntg_event_message_sent_to_server",
         function(_Object_DataReceived){
+            var String_ChatMessage = _Object_Socket.id + ": " + _Object_DataReceived;
             //Display a feedback into the server's console.
-            console.log(
-                _Object_Socket.id +
-                ": " +
-                _Object_DataReceived
-            );
-
-            //We are going to broadcast the received message.
-            var Object_DataSent = _Object_DataReceived;
+            console.log(String_ChatMessage);
             /*Then we broadcasted the message to all client.
             This is only for development purposes.*/
             Object_SocketIO_Server.emit(
                 "ntg_event_message_sent_to_server",
-                Object_DataSent
+                String_ChatMessage
             );
         }
     );
