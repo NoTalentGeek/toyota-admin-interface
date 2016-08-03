@@ -128,7 +128,11 @@ function Void_Loop(){
         Boolean_TriggerVoidSetup = false;
     }
 
-    console.log("Testing.");
+    console.log(
+        "This should be happened every " +
+        Number_UpdateSpeedInMilliSecond + 
+        " millisecond."
+    );
 }
 setInterval(
     Void_Loop,
