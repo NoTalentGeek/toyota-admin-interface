@@ -9,6 +9,7 @@ var Object_Morgan           = require("morgan");
 var Object_Passport         = require("passport");
 var Object_Path             = require("path");
 var Object_ServeFavicon     = require("serve-favicon");
+var Object_SocketIO         = require("socket.io");
 //These variables below is mostly for API routings.
 var index_                  = require("./server/routes/index");
 var Route_Admin_            = require("./server/routes/Route_Admin");
@@ -115,6 +116,48 @@ var Object_Server = Object_App.listen(Object_App.get("port"), function(){
         Object_Server.address().port
     );
 });
+//Setting up Socket.IO server object.
+var Object_SocketIO_Server = Object_SocketIO(Object_Server);
+/*SocketIO connection management.
+The default event name for if there is a connection
+    established is "connection".*/
+Object_SocketIO_Server.on("connection", function
+    (_Object_Socket){
+    /*Listen on "disconnect" event.
+    This codes below will only be executed if there is a
+        user leave the web application (or he/she just
+        refresh the web page).*/
+    _Object_Socket.on("disconnect", function(){
+        console.log(_Object_Socket.id + " is disconnected.");
+    });
+
+    /*Custom event when there is a message sent into
+        the server.*/
+    _Object_Socket.on("ntg_event_message_sent_to_server",
+        function(_Object_DataReceived){
+            //Display a feedback into the server's console.
+            console.log(
+                _Object_Socket.id +
+                ": " +
+                _Object_DataReceived
+            );
+
+            //We are going to broadcast the received message.
+            var Object_DataSent = _Object_DataReceived;
+            /*Then we broadcasted the message to all client.
+            This is only for development purposes.*/
+            Object_SocketIO_Server.emit(
+                "ntg_event_message_sent_to_server",
+                Object_DataSent
+            );
+        }
+    );
+
+    /*This console message below will be executed if there
+        is a user enters/starts our web application
+        (refreshing the web pages count).*/
+    console.log(_Object_Socket.id + " is connected.");
+});
 /*Looped function per 0.5 second.
 I will just use the Arduino C convention here :)).*/
 var Number_UpdateSpeedInMilliSecond = 500;
@@ -128,11 +171,13 @@ function Void_Loop(){
         Boolean_TriggerVoidSetup = false;
     }
 
+    /*
     console.log(
         "This should be happened every " +
         Number_UpdateSpeedInMilliSecond + 
         " millisecond."
     );
+    */
 }
 setInterval(
     Void_Loop,

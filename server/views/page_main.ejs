@@ -117,7 +117,7 @@
 
                     <aside class="sidebar">
                         <nav class="sidebar-nav">
-                            <ul class="metismenu" id="menu">
+                            <ul class="metismenu" id="ntg-side-menu">
                                 <li class="active">
                                     <a href="/page_main">Admin.<span class="glyphicon arrow"></span></a>
                                     <ul aria-expanded="true" class="collapse in">
@@ -215,7 +215,13 @@
 
 
 
-                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; padding: 0 !important;">Chat.</div>
+                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; padding: 0 !important;">
+<ul id="ntg-ul-chat"></ul>
+<form id="ntg-form-message-send">
+<input autocomplete="off" id="ntg-input-chat"/>
+<button type="submit">Send.</button>
+</form>
+                        </div>
 
 
 
@@ -233,8 +239,9 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="javascripts/socket.io-1.4.5.js"></script>
     <script>
-        $("#menu").metisMenu({ toggle: false });
+        $("#ntg-side-menu").metisMenu({ toggle: false });
         var Object_Map;
         function initMap(){
             Object_Map = new google.maps.Map(document.getElementById("ntg-id-map-google"), {
@@ -242,6 +249,19 @@
                 zoom: 8
             });
         }
+        var Object_SocketIO_Client = io();
+        $("#ntg-form-message-send").submit(function(_Object_Event){
+            console.log("Alola.");
+            Object_SocketIO_Client.emit(
+                "ntg_event_message_sent_to_server",
+                $("#ntg-input-chat").val()
+            );
+            $("#ntg-input-chat").val(""); //Empty the send message text field.
+            return false;
+        });
+        Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_DataReceived){
+            $("#ntg-ul-chat").append($("<li class='text-left'>").text(_Object_DataReceived));
+        });
     </script>
 </body>
 </html>
