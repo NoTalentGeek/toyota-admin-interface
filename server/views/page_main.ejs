@@ -47,7 +47,7 @@
         .sidebar {
   display: block;
   float: left;
-  width: 250px;
+  width: 100%;
   background: #333;
 }
 .content {
@@ -76,20 +76,30 @@
 .sidebar-nav ul a {
   padding: 10px 20px;
   color: #aaa;
+  background-color: #45283C;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
 }
-.sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active {
-  color: #fff;
+.sidebar-nav ul a:hover{
+  background-color: rgba(255, 255, 255, 0.2);
   text-decoration: none;
 }
 .sidebar-nav ul ul a {
   padding: 10px 30px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #663931;
 }
-.sidebar-nav ul ul a:hover, .sidebar-nav ul ul a:focus, .sidebar-nav ul ul a:active {
+.sidebar-nav ul ul ul a {
+  padding: 10px 40px;
+  background-color: #8F563B;
+}
+.sidebar-nav ul ul a:hover{
   background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+.sidebar-nav ul ul ul a:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
 }
 .sidebar-nav-item {
   padding-left: 5px;
@@ -123,90 +133,64 @@
 
 
 
-                <div class="col-sm-3 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; overflow: auto; padding: 0 !important;">
+                <div class="col-sm-3 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; overflow-y: auto; padding: 0 !important;">
 
 
 
 
 
-<aside class="sidebar">
-      <nav class="sidebar-nav">
-        <ul class="metismenu" id="menu">
-          <li class="">
-            <a href="http://mm.onokumus.com/index.html#" aria-expanded="false">Menu 0 <span class="fa arrow"></span></a>
-            <ul aria-expanded="false" class="collapse" style="height: 0px;">
-              <li><a href="http://mm.onokumus.com/index.html#">item 0.1</a></li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 0.2</a></li>
-              <li><a href="http://onokumus.com/">onokumus</a></li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 0.4</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="http://mm.onokumus.com/index.html#" aria-expanded="false">Menu 1 <span class="glyphicon arrow"></span></a>
-            <ul aria-expanded="false" class="collapse">
-              <li><a href="http://mm.onokumus.com/index.html#">item 1.1</a></li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 1.2</a></li>
-              <li>
-                <a href="http://mm.onokumus.com/index.html#" aria-expanded="false">Menu 1.3 <span class="fa plus-times"></span></a>
-                <ul aria-expanded="false" class="collapse">
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.3.1</a></li>
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.3.2</a></li>
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.3.3</a></li>
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.3.4</a></li>
-                </ul>
-              </li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 1.4</a></li>
-              <li>
-                <a href="http://mm.onokumus.com/index.html#" aria-expanded="false">Menu 1.5 <span class="fa plus-minus"></span></a>
-                <ul aria-expanded="false" class="collapse">
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.5.1</a></li>
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.5.2</a></li>
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.5.3</a></li>
-                  <li><a href="http://mm.onokumus.com/index.html#">item 1.5.4</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="http://mm.onokumus.com/index.html#" aria-expanded="false">Menu 2 <span class="glyphicon arrow"></span></a>
-            <ul aria-expanded="false" class="collapse">
-              <li><a href="http://mm.onokumus.com/index.html#">item 2.1</a></li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 2.2</a></li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 2.3</a></li>
-              <li><a href="http://mm.onokumus.com/index.html#">item 2.4</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-                    <!--
-                    <ul class="list-group metismenu" id="menu">
-                        <li class="active list-group-item">
-                            <a href="#" aria-expanded="true">Admin.</a>
-                            <ul class="list-group">
-                                <li class="list-group-item">Admin 1.</li>
-                                <li class="list-group-item">Admin 2.</li>
-                                <li class="list-group-item">Admin 3.</li>
+                    <aside class="sidebar">
+                        <nav class="sidebar-nav">
+                            <ul class="metismenu" id="menu">
+                                <li class="active">
+                                    <a href="/page_main">Admin.<span class="glyphicon arrow"></span></a>
+                                    <ul aria-expanded="true" class="collapse in">
+                                        <li><a href="/page_main">Admin 1.</a></li>
+                                        <li><a href="/page_main">Admin 2.</a></li>
+                                        <li><a href="/page_main">Admin 3.</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="/page_main">User.<span class="glyphicon arrow"></span></a>
+                                    <ul class="collapse">
+                                        <li class="active">
+                                            <a href="/page_main">User 1.<span class="glyphicon arrow"></span></a>
+                                            <ul class="collapse in">
+                                                <li><a>Avanza.</a></li>
+                                                <li><a>Fortuner.</a></li>
+                                                <li><a>Kijang Innova.</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="/page_main">User 2.<span class="glyphicon arrow"></span></a>
+                                            <ul class="collapse in">
+                                                <li><a>Avanza.</a></li>
+                                                <li><a>Fortuner.</a></li>
+                                                <li><a>Kijang Innova.</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="/page_main">User 3.<span class="glyphicon arrow"></span></a>
+                                            <ul class="collapse in">
+                                                <li><a>Avanza.</a></li>
+                                                <li><a>Fortuner.</a></li>
+                                                <li><a>Kijang Innova.</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="/page_main">Workshop.<span class="glyphicon arrow"></span></a>
+                                    <ul class="collapse in">
+                                        <li><a href="/page_main">Workshop 1.</a></li>
+                                        <li><a href="/page_main">Workshop 2.</a></li>
+                                        <li><a href="/page_main">Workshop 3.</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                        <li class="list-group list-group-item">
-                            <a href="#" aria-expanded="true">User.</a>
-                            <ul class="list-group">
-                                <li class="list-group-item">User 1.</li>
-                                <li class="list-group-item">User 2.</li>
-                                <li class="list-group-item">User 3.</li>
-                            </ul>
-                        </li>
-                        <li class="list-group list-group-item">
-                            <a href="#" aria-expanded="true">Workshop.</a>
-                            <ul class="list-group">
-                                <li class="list-group-item">Workshop 1.</li>
-                                <li class="list-group-item">Workshop 2.</li>
-                                <li class="list-group-item">Workshop 3.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    -->
+                        </nav>
+                    </aside>
+
 
 
 
