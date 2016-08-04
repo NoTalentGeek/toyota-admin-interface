@@ -1,3 +1,24 @@
+<style>
+    @media (max-width: 1150px){
+        .ntg-display-none-max-1150{
+            display: none;
+        }
+    }
+    @media (max-width: 865px){
+        .ntg-display-none-max-865{
+            display: none;
+        }
+    }
+    @media (min-width: 930px) and (max-width: 1150px){
+        .ntg-display-inline-min-930-and-max-1150{
+            display: inline !important;
+        }
+    }
+    .ntg-display-none{
+        display: none;
+    }
+</style>
+
 <nav
     class="
         navbar 
@@ -24,7 +45,13 @@
                 <span class="icon-bar"></span>
             </button>
             <a
-                class="hidden-sm navbar-brand text-center"
+                class="navbar-brand text-center ntg-display-inline-min-930-and-max-1150 ntg-display-none"
+                href="/"
+            >
+                <strong>TRAC</strong>
+            </a>
+            <a
+                class="navbar-brand text-center ntg-display-none-max-1150"
                 href="/"
             >
                 Toyota Realtime Admin Interface
@@ -49,8 +76,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="page_overview">
+                    <a href="/page_overview">
                         Overview.
+                    </a>
+                </li>
+                <li>
+                    <a href="/page_form">
+                        Forms.
                     </a>
                 </li>
             </ul>
@@ -68,10 +100,10 @@
 
                 <li class="dropdown">
                     <div
-                        class="input-group"
+                        class="input-group ntg-display-none-max-865"
                         style="
                             margin-top: 8px;
-                            width: 200px;
+                            width: 300px;
                         "
                     >
                         <div class="input-group-btn search-panel">
