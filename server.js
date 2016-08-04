@@ -157,7 +157,7 @@ I will just use the Arduino C convention here :)).*/
 var Number_UpdateSpeedInMilliSecond = 500;
 var Boolean_TriggerVoidSetup = true;
 function Void_Setup(){
-    console.log("This should be just printed once.");
+    //console.log("This should be just printed once.");
 }
 function Void_Loop(){
     if(Boolean_TriggerVoidSetup == true){

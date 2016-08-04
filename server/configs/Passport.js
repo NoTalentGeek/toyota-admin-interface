@@ -56,6 +56,10 @@ module.exports = function(_Object_Passport){
                         }
                         else{
                             console.log("Successfully logging in.");
+                            console.log("=====TESTING LOGGED ADMIN=====");
+                            console.log(_Model_Admin); //_Model_Admin is apparently a table variable.
+                            console.log(_Model_Admin.Admin_String_Email);
+                            console.log("=====TESTING LOGGED ADMIN=====");
                             return _Function_Done(null, _Model_Admin);
                         }
                     }
