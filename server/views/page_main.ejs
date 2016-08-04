@@ -243,12 +243,19 @@
     </div>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtpkvsY7CV5nf5oPWGvSEfiiWT-RCTlk0&callback=initMap" async defer></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <script src="javascripts/socket.io-1.4.5.js"></script>
     <script>
+
+
+
+
+
+        //Retrieve the name of the logged in admin. 
+        var String_NameDisplay = <%-JSON.stringify(String_NameDisplay)%>;
+        console.log(String_NameDisplay);
 
 
 
@@ -281,7 +288,7 @@
             if(String_MessageNew){ //Do simple string validation before sending message to chat server.
                 Object_SocketIO_Client.emit(
                     "ntg_event_message_sent_to_server",
-                    $("#ntg-input-chat").val()
+                    String_NameDisplay + ": " + $("#ntg-input-chat").val()
                 );
             }
             $("#ntg-input-chat").val(""); //Empty the send message text field.
@@ -301,5 +308,6 @@
 
 
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtpkvsY7CV5nf5oPWGvSEfiiWT-RCTlk0&callback=initMap" async defer></script>
 </body>
 </html>

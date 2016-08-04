@@ -37,6 +37,11 @@ Otherwise "throw" a console message.*/
 Object_Mongoose.connection.on("error", function(){
     console.error("MongoDB Connection Error. Make sure MongoDB is running.");
 });
+
+
+
+
+
 //Setting up passport.
 require("./server/configs/Passport")(Object_Passport);
 //Generating secret for session.
@@ -57,6 +62,11 @@ Object_App.use(
 Object_App.use(Object_Passport.initialize());
 //Persistent login session.
 Object_App.use(Object_Passport.session());
+
+
+
+
+
 //Set up API routings.
 Object_App.use("/", index_);
 Object_App.use("/api/admins", Route_Admin_);
@@ -135,7 +145,8 @@ Object_SocketIO_Server.on("connection", function
         the server.*/
     _Object_Socket.on("ntg_event_message_sent_to_server",
         function(_Object_DataReceived){
-            var String_ChatMessage = _Object_Socket.id + ": " + _Object_DataReceived;
+            var String_ChatMessage = _Object_DataReceived;
+            //var String_ChatMessage = _Object_Socket.id + ": " + _Object_DataReceived;
             //Display a feedback into the server's console.
             console.log(String_ChatMessage);
             /*Then we broadcasted the message to all client.
