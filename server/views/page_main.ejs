@@ -308,13 +308,15 @@
             var String_PutThisInChatBox = null;
             //If this user received its own message, that just sent.
             if(String_NameDisplay == Array_String_Received[0]){
-                String_PutThisInChatBox = Array_String_Received[0] + ": " + Array_String_Received[1];
-                $("#ntg-ul-chat").append($("<li class='list-group-item text-left'>").text(String_PutThisInChatBox));
+                $("#ntg-ul-chat").append($("<li class='list-group-item text-left'><strong>" + Array_String_Received[0] + ":</strong> " + Array_String_Received[1] + "</li>"));
             }
             else if(String_NameDisplay != Array_String_Received[0]){
-                //String_PutThisInChatBox = Array_String_Received[0] + ": " + Array_String_Received[1];
+                /*
+                String_PutThisInChatBox = Array_String_Received[0] + ": " + Array_String_Received[1];
                 String_PutThisInChatBox = Array_String_Received[1] + " :" + Array_String_Received[0];
                 $("#ntg-ul-chat").append($("<li class='list-group-item text-right'>").text(String_PutThisInChatBox));
+                */
+                $("#ntg-ul-chat").append($("<li class='list-group-item text-right'>" + Array_String_Received[1]  + "<strong> :" + Array_String_Received[0] + "</li>"));
             }
             
 
