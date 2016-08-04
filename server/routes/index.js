@@ -60,7 +60,7 @@ function Boolean_LoggedIn(
         */
         //Compose variable that will display in the chat or in the administration page.
         /*
-        var String_NameDisplay =
+        var String_NameDispl    ay =
             _Object_Request.user.Admin_String_Name +
             " (" +
             _Object_Request.user.Admin_String_Email +

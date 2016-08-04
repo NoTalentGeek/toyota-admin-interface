@@ -255,7 +255,6 @@
 
         //Retrieve the name of the logged in admin. 
         var String_NameDisplay = <%-JSON.stringify(String_NameDisplay)%>;
-        console.log(String_NameDisplay);
 
 
 
@@ -283,12 +282,13 @@
 
         //SocketIO chat object and logic.
         var Object_SocketIO_Client = io();
+        var String_Delimeter = "*!@#^%$&*(*!@#^%$&*(*!@#^%$&*(";
         $("#ntg-form-message-send").submit(function(_Object_Event){
             var String_MessageNew = $("#ntg-input-chat").val();
             if(String_MessageNew){ //Do simple string validation before sending message to chat server.
                 Object_SocketIO_Client.emit(
                     "ntg_event_message_sent_to_server",
-                    String_NameDisplay + ": " + $("#ntg-input-chat").val()
+                    String_NameDisplay + String_Delimeter + $("#ntg-input-chat").val()
                 );
             }
             $("#ntg-input-chat").val(""); //Empty the send message text field.
@@ -296,7 +296,27 @@
         });
         //These codes below happened if this object received message.
         Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_DataReceived){
-            $("#ntg-ul-chat").append($("<li class='list-group-item text-left'>").text(_Object_DataReceived));
+            var String_Received = _Object_DataReceived;
+            var Array_String_Received = String_Received.split(String_Delimeter);
+
+            //Testing string received, then split it into 2 to prepare right and left chat alignment.
+            console.log("=====TEST SPLIT=====");
+            console.log(Array_String_Received[0]);
+            console.log(Array_String_Received[1]);
+            console.log("=====TEST SPLIT=====");
+
+            var String_PutThisInChatBox = null;
+            //If this user received its own message, that just sent.
+            if(String_NameDisplay == Array_String_Received[0]){
+                String_PutThisInChatBox = Array_String_Received[0] + ": " + Array_String_Received[1];
+                $("#ntg-ul-chat").append($("<li class='list-group-item text-left'>").text(String_PutThisInChatBox));
+            }
+            else if(String_NameDisplay != Array_String_Received[0]){
+                //String_PutThisInChatBox = Array_String_Received[0] + ": " + Array_String_Received[1];
+                String_PutThisInChatBox = Array_String_Received[1] + " :" + Array_String_Received[0];
+                $("#ntg-ul-chat").append($("<li class='list-group-item text-right'>").text(String_PutThisInChatBox));
+            }
+            
 
             //These two lines of codes are for scrolling the chat box to the newest chat received.
             var Object_Element = document.getElementById("ntg-div-chat");
