@@ -71,7 +71,7 @@
                         class="input-group"
                         style="
                             margin-top: 8px;
-                            width: 300px;
+                            width: 200px;
                         "
                     >
                         <div class="input-group-btn search-panel">
@@ -155,9 +155,29 @@
                         href="/profile"
                         role="button"
                     >
-                        Profile.<span class="caret"></span>
+                        <div
+                            style="
+                                overflow-x: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                width: 100px;
+                            "
+                        >
+                            <%= String_NameDisplay %><span class="caret"></span>
+                        </div>
                     </a>
                     <ul class="dropdown-menu">
+                        <li>
+                            <style>
+                                a:hover#ntg-a-string-name-display{
+                                    background-color: none;
+                                    background: none;
+                                }
+                            </style>
+                            <a id="ntg-a-string-name-display">
+                                <%= String_NameDisplay %>
+                            </a>
+                        </li>
                         <li>
                             <a href="/page_setting">
                                 Settings.
