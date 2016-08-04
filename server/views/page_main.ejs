@@ -249,7 +249,19 @@
     <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <script src="javascripts/socket.io-1.4.5.js"></script>
     <script>
+
+
+
+
+
+        //Metis menu activator.
         $("#ntg-side-menu").metisMenu({ toggle: false });
+
+
+
+
+
+        //Google map object initialization.
         var Object_Map;
         function initMap(){
             Object_Map = new google.maps.Map(document.getElementById("ntg-id-map-google"), {
@@ -257,10 +269,16 @@
                 zoom: 8
             });
         }
+
+
+
+
+
+        //SocketIO chat object and logic.
         var Object_SocketIO_Client = io();
         $("#ntg-form-message-send").submit(function(_Object_Event){
             var String_MessageNew = $("#ntg-input-chat").val();
-            if(String_MessageNew){
+            if(String_MessageNew){ //Do simple string validation before sending message to chat server.
                 Object_SocketIO_Client.emit(
                     "ntg_event_message_sent_to_server",
                     $("#ntg-input-chat").val()
@@ -269,11 +287,19 @@
             $("#ntg-input-chat").val(""); //Empty the send message text field.
             return false;
         });
+        //These codes below happened if this object received message.
         Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_DataReceived){
             $("#ntg-ul-chat").append($("<li class='list-group-item text-left'>").text(_Object_DataReceived));
+
+            //These two lines of codes are for scrolling the chat box to the newest chat received.
             var Object_Element = document.getElementById("ntg-div-chat");
             Object_Element.scrollTop = Object_Element.scrollHeight;
         });
+
+
+
+
+
     </script>
 </body>
 </html>
