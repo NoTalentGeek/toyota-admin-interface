@@ -28,25 +28,23 @@ Object_Router.get("/", function(_Object_Request, _Object_Respond){
 }); 
 Object_Router.get("/:model_admin_id", 
     function(_Object_Request, _Object_Respond){ 
-    Model_Admin_.findById(_Object_Request.params.model_admin_id, 
-        function(_Object_Error, _Model_Admin){ 
-        if(_Object_Error){ 
-            _Object_Respond.send(_Object_Error); 
-        } 
-        _Object_Respond.json(_Model_Admin); 
-    }); 
-}); 
-//Here we create new instance of admin. 
+        Model_Admin_.findById(_Object_Request.params.model_admin_id, 
+        function(_Object_Error, _Model_Admin){
+            if(_Object_Error){ 
+                _Object_Respond.send(_Object_Error); 
+            } 
+            _Object_Respond.json(_Model_Admin); 
+        }); 
+    });
+/* PENDING: I do not think these codes below is necessary anymore.
+Here we create new instance of admin.
 Object_Router.post("", function(_Object_Request, _Object_Respond){ 
-    console.log("1"); 
     var Model_Admin_Temp = new Model_Admin_(); 
-    console.log("2"); 
     Model_Admin_Temp.Admin_Bool_Available   = _Object_Request.body.Admin_Bool_Available; 
     Model_Admin_Temp.Admin_String_Email     = _Object_Request.body.Admin_String_Email; 
     Model_Admin_Temp.Admin_String_Location  = _Object_Request.body.Admin_String_Location; 
     Model_Admin_Temp.Admin_String_Name      = _Object_Request.body.Admin_String_Name; 
     Model_Admin_Temp.Admin_String_Password  = _Object_Request.body.Admin_String_Password; 
-    console.log("3"); 
     Model_Admin_Temp.save(function(_Object_Error){ 
         if(_Object_Error){ 
             _Object_Respond.send(_Object_Error); 
@@ -55,8 +53,8 @@ Object_Router.post("", function(_Object_Request, _Object_Respond){
  
         _Object_Respond.json({ message: "Admin successfully created." }); 
     }); 
-    console.log("4"); 
-}); 
+    console.log("An admin added into the database."); 
+});*/
 //Update an admin. 
 Object_Router.put("/:/:speaker_id", function(_Object_Request, _Object_Respond){ 
     Model_Admin_.findById(req.params.model_admin_id, 
@@ -81,4 +79,4 @@ Object_Router.put("/:/:speaker_id", function(_Object_Request, _Object_Respond){
     }); 
 }); 
 //Exports all the routes to Object_Router variable. 
-module.exports = Object_Router
+module.exports = Object_Router;

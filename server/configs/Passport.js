@@ -98,7 +98,7 @@ module.exports = function(_Object_Passport){
                             return _Function_Done(null, false);
                         }
                         else{
-                            console.log("On process to create a new admin account.");
+                            console.log("A new admin object is created.");
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
                             Model_Admin_Temporary.Admin_String_Email    = _String_Email;
@@ -117,7 +117,8 @@ module.exports = function(_Object_Passport){
 
                 }
                 else{
-                    //A new admin is succesfully created.
+                    //A new admin is successfully created.
+                    console.log("There is an admin logged in.");
                     return _Function_Done(null, _Object_Request.user);
                 }
             });

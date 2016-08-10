@@ -10,7 +10,6 @@ var Object_Schema_Admin         = new Object_Schema({
 });
 //Generate a hash.
 Object_Schema_Admin.methods.generateHash = function(_String_Password){
-    console.log("Test.");
     return Object_BCrypt.hashSync(
         _String_Password,
         Object_BCrypt.genSaltSync(8),
@@ -23,3 +22,9 @@ Object_Schema_Admin.methods.validPassword = function(_String_Password){
 };
 //Create the model and then expose it to our application.
 module.exports = Object_Mongoose.model("Admin", Object_Schema_Admin);
+/*Making some getters and setters.
+Object_Schema_Admin.methods.Boolean_Get_Admin_Bool_Available = function(){ return this.Admin_Bool_Available; };
+Object_Schema_Admin.methods.String_Get_Admin_String_Email = function(){ return this.Admin_String_Email; };
+Object_Schema_Admin.methods.String_Get_Admin_String_Location = function(){ return this.Admin_String_Location; };
+Object_Schema_Admin.methods.String_Get_Admin_String_Name = function(){ return this.Admin_String_Name; };
+Object_Schema_Admin.methods.String_Get_Admin_String_Password = function(){ return this.Admin_String_Password; };*/

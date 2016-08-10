@@ -31,7 +31,7 @@ Object_App.use(Object_Morgan("dev"));
 This is mostly for MongoDB connection.*/
 var Config_ = require("./server/configs/Config.js");
 //Connect to database.
-Object_Mongoose.connect(Config_.url);
+var Object_Database = Object_Mongoose.connect(Config_.url);
 /*Check if the database connection is okay.
 Otherwise "throw" a console message.*/
 Object_Mongoose.connection.on("error", function(){
@@ -169,6 +169,29 @@ var Number_UpdateSpeedInMilliSecond = 500;
 var Boolean_TriggerVoidSetup = true;
 function Void_Setup(){
     //console.log("This should be just printed once.");
+
+    //Taking the admin model.
+    var Model_Admin_ = require("./server/models/Model_Admin");
+    Model_Admin_.findOneAndUpdate({ "Admin_String_Email": "mikael.pratama@yahoo.com"  }, {$set:{"Admin_String_Name":"Test Pratama"}}, function(err, doc){
+        if(err){
+            console.log("Something wrong when updating data!");
+        }
+
+        console.log(doc);
+    });
+
+    var String_Model_Admin_Name_Temporary = "";
+    Model_Admin_.findOne({ "Admin_String_Email": "mikael.pratama@yahoo.com" },
+        function(_Object_Error, _Model_Admin){
+            if(_Object_Error){
+                console.log("Error happened.");
+            }
+            else{
+                String_Model_Admin_Name_Temporary = _Model_Admin.Admin_String_Name;
+                console.log(_Model_Admin.Admin_String_Name);
+            }
+        }
+    );
 }
 function Void_Loop(){
     if(Boolean_TriggerVoidSetup == true){
