@@ -26,7 +26,7 @@ var Object_ServeFavicon = require("serve-favicon");
 var Object_SocketIO = require("socket.io");
 //Initialize configuration JavaScript file.
 //This is mostly for MongoDB connection.
-var Config_ = require("./server/configs/Config_Remote.js");
+var Config_ = require("./server/configs/Config_Localjs");
 
 
 
