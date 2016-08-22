@@ -1,5 +1,5 @@
 //Database URL.
 module.exports = {
-    //"url": "mongodb://notalentgeek:asd@ds042729.mlab.com:42729/database_trac"
-    "url": "mongodb://localhost:27017/database_main"
+    "url": "mongodb://notalentgeek:asd@ds044229.mlab.com:44229/database_toyota_admin_interface_mean"
+    //"url": "mongodb://localhost:27017/database_main"
 };
