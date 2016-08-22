@@ -1,0 +1,191 @@
+#ntg-div-chat-tool{
+    /*The default text input for Bootstrap is
+        32px.*/
+    height: 32px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+#ntg-div-chat-box{
+    /*The 40px was from 32px text input
+        plus additional manual fix.*/
+    height: calc(100% - 43px);
+}
+#ntg-div-dim-screen{
+    background: #222034;
+    height: 100%;
+    left:0;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:0;
+    width: 100%;
+    z-index: 999;
+}
+#ntg-div-google-maps-main > div{
+    /*This is the hacky way to get Google Maps
+        with rounded corners.*/
+    border-radius: 10px;
+}
+#ntg-div-metis-menu{
+    /*The pxs here are manual fix.*/
+    padding-right: 3px;
+}
+#ntg-div-title-align-center{
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.ntg-debug-align-item-left{
+    align-items: left; 
+}
+.ntg-debug-align-item-right{
+    align-items: right; 
+}
+.ntg-debug-body-setting-1{
+    background: #222034;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.ntg-debug-body-setting-2{
+    background: #222034;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.ntg-debug-border{
+    border: solid;
+}
+.ntg-debug-div-background-and-border-setting-1{
+    background: #9BADB7;
+    border: solid #222034;
+    border-radius: 10px;
+}
+.ntg-debug-div-content-setting-1{
+    /*Here, 50px is the default height for navbar
+        in Bootstrap.
+    There is a weird things happened in here,
+        if you put this as an inline it will
+        work without !important parameter.
+    However, putting this in external cSS
+        will require !important parameter.*/
+    height: calc(100% - 51px) !important;
+    margin-top: 51px;
+}
+.ntg-debug-float-none{
+    float: none;
+}
+.ntg-debug-dimension-height-percent-10{
+    height: 10%;
+}
+.ntg-debug-dimension-height-percent-100{
+    height: 100%;
+}
+.ntg-debug-dimension-height-percent-20{
+    height: 20%;
+}
+.ntg-debug-dimension-height-percent-50{
+    height: 50%;
+}
+.ntg-debug-dimension-height-percent-80{
+    height: 80%;
+}
+.ntg-debug-dimension-height-pixel-200{
+    height: 200px;
+}
+.ntg-debug-dimension-height-pixel-44{
+    /*This is mainly used to fix the height
+        of select box in Bootstrap.*/
+    height: 44px;
+}
+.ntg-debug-dimension-width-percent-100{
+    width: 100%;
+}
+.ntg-debug-display-none{
+    display: none;
+}
+.ntg-debug-display-table{
+    display: table;
+}
+.ntg-debug-margin-0{
+    margin: 0;
+}
+.ntg-debug-margin-bottom-0{
+    margin-bottom: 0;
+}
+.ntg-debug-margin-side-px-1{
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.ntg-debug-margin-side-px-15{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.ntg-debug-margin-top-px-3{
+    margin-top: 3px;
+}
+.ntg-debug-margin-top-px-7{
+    margin-top: 7px;
+}
+.ntg-debug-navbar-account-setting-1{
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ntg-debug-navbar-table-cell-setting-1{
+    display: table-cell;
+    float: none;
+    vertical-align: middle;
+}
+.ntg-debug-overflow-y-auto{
+    overflow-y: auto;
+}
+.ntg-debug-overflow-y-hidden{
+    overflow-y: hidden !important;
+}
+.ntg-debug-padding-side-0{
+    /*Only add this class to the child elements.
+    Never add this class to a container or a parent.
+    Otherwise, a Y - Axis overflow will happen.*/
+    padding-left: 0;
+    padding-right: 0;
+}
+.ntg-debug-padding-bottom-px-3{
+    padding-bottom: 3px;
+}
+.ntg-debug-padding-left-px-0{
+    padding-left: 0;
+}
+.ntg-debug-padding-left-px-4-5{
+    padding-left: 4.5px;
+}
+.ntg-debug-padding-left-px-6-5{
+    padding-left: 6.5px;
+}
+.ntg-debug-padding-left-px-9{
+    padding-left: 9px;
+}
+.ntg-debug-padding-right-px-0{
+    padding-right: 0;
+}
+.ntg-debug-padding-right-px-4-5{
+    padding-right: 4.5px;
+}
+.ntg-debug-padding-right-px-6-5{
+    padding-right: 6.5px;
+}
+.ntg-debug-padding-right-px-9{
+    padding-right: 9px;
+}
+.ntg-debug-radius-left{
+    /*!important parameter is a must for a reason.*/
+    border-radius: 5px 0px 0px 5px !important;
+}
+.ntg-debug-radius-right{
+    /*!important parameter is a must for a reason.*/
+    border-radius: 0px 5px 5px 0px !important;
+}
+a,
+div,
+p{
+    word-wrap: break-word;
+}

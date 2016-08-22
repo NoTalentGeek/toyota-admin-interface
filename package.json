@@ -1,6 +1,7 @@
 {
   "author": "notalentgeek",
   "dependencies": {
+    "async": "^2.0.1",
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.0.0",
     "connect-mongo": "^0.4.1",

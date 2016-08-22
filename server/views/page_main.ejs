@@ -1,171 +1,1024 @@
-<!DOCTYPE html>
-<html>
+<html
+    ng-app="ng_app_page_main"
+>
 <head>
-<title>Toyota Realtime Admin Interface</title>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/bower_components/metisMenu/dist/metisMenu.min.css" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <style>
-    .container-fluid,
-    .row{
-        height: 100%;
-        margin: 0 !important;
-        padding: 0 !important; }
-    .content{
-        display: block;
-        overflow: hidden;
-        width: auto; }
-    .list-group-item{
-        color: #000000; }
-    .ntg-container-fill{
-        height: 100%;
-        margin: 0 !important;
-        padding-bottom: 3px !important;
-        padding-left: 6px !important;
-        padding-right: 3px !important;
-        padding-top: 54px !important; }
-    .ntg-container{
-        box-sizing: border-box;
-        margin: 0 !important; }
-    .ntg-div-background{
-        background: #F8F8F8; }
-    .ntg-dropdown-background.active{
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important; }
-    .ntg-dropdown-background{
-        background: #F8F8F8 !important; }
-        border: none;
-    .sidebar{
-        background: #333;
-        display: block;
-        float: left;
-        width: 100%; }
-    .sidebar-nav a,
-    .sidebar-nav a:active,
-    .sidebar-nav a:focus,
-    .sidebar-nav a:hover{
-        outline: none; }
-    .sidebar-nav ul a{
-        background-color: #45283C;
-        border-top: 1px solid rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
-        color: #aaa;
-        padding: 10px 20px;
-        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5); }
-    .sidebar-nav ul a:hover{
-        background-color: rgba(255, 255, 255, 0.2);
-        text-decoration: none; }
-    .sidebar-nav ul li, .sidebar-nav ul a{
-        display: block; }
-    .sidebar-nav ul ul a{
-        background-color: #663931;
-        padding: 10px 30px; }
-    .sidebar-nav ul ul a:hover{
-        background-color: rgba(255, 255, 255, 0.2);
-        text-decoration: none; }
-    .sidebar-nav ul ul ul a{
-        background-color: #8F563B;
-        padding: 10px 40px; }
-    .sidebar-nav ul ul ul a:hover{
-        background-color: rgba(255, 255, 255, 0.2);
-        text-decoration: none; }
-    .sidebar-nav ul{
-        list-style: none;
-        margin: 0;
-        padding: 0; }
-    .sidebar-nav{
-        background-image: -webkit-linear-gradient(left, color-stop(#333333 10px), color-stop(#222222 10px));
-        background-image: linear-gradient(to right, #333333 10px, #222222 10px);
-        background-repeat: repeat-x;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff333333', endColorstr='#ff222222', GradientType=1); }
-    .sidebar-nav-item{
-        padding-left: 5px; }
-    .sidebar-nav-item-icon{
-        padding-right: 5px; }
-    body, html{
-        background: #222034 !important;
-        height: 100%;
-        margin: 0 !important;
-        padding: 0 !important; }
-    </style>
+    <%- include /partials/import_css_and_title %>
 </head>
-<body>
-
-
-
-    <header>
-        <% include /partials/header-page_main %>
-    </header>
-
-
-
-    <div class="container-fluid">
-      <div class="ntg-container row">
-        <div class="ntg-container-fill">
-            <div class="ntg-container row">
+<body
+    class="
+        ntg-debug-body-setting-1
+    "
+>
 
 
 
 
 
-                <div class="col-sm-3 img-rounded ntg-container-fill" style="overflow-y: auto; padding: 0 !important;">
+    <!--|||||||||||||||||||||||||NAVBAR|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR|||||||||||||||||||||||||-->
+    <nav
+        class="
+            navbar
+            navbar-default
+            navbar-fixed-top
+            ntg-debug-dimension-width-percent-100
+            ntg-debug-display-table
+            ntg-debug-margin-0
+            ntg-debug-padding-side-0
+        "
+    >
 
 
 
 
 
-                    <aside class="sidebar">
-                        <nav class="sidebar-nav">
-                            <ul class="metismenu" id="ntg-side-menu">
-                                <li class="active">
-                                    <a href="/page_main">Admin.<span class="glyphicon arrow"></span></a>
-                                    <ul aria-expanded="true" class="collapse in">
-                                        <li><a href="/page_main">Admin 1.</a></li>
-                                        <li><a href="/page_main">Admin 2.</a></li>
-                                        <li><a href="/page_main">Admin 3.</a></li>
-                                    </ul>
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT|||||||||||||||||||||||||-->
+        <div
+            class="
+                ntg-debug-align-item-left
+                ntg-debug-navbar-table-cell-setting-1
+            "
+        >
+
+
+
+
+
+            <!--|||||||||||||||||||||||||NAVBAR TITLE|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE|||||||||||||||||||||||||-->
+            <div
+                class="
+                    navbar-header
+                "
+            >
+                <a
+                    class="
+                        navbar-brand
+                    "
+                >
+                    Toyota Real Time Admin Interface.
+                </a>
+            </div>
+            <!--|||||||||||||||||||||||||NAVBAR TITLE END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||NAVBAR TITLE END|||||||||||||||||||||||||-->
+
+
+
+
+
+            <ul
+                class="
+                    nav
+                    navbar-nav
+                "
+            >
+                <li
+                    class="
+                        nav-item
+                    "
+                >
+                    <a
+                        class="
+                            nav-link
+                        "
+                        href="/page_main"
+                    >
+                        Main Page.
+                    </a>
+                </li>
+                <li
+                    class="
+                        nav-item
+                    "
+                >
+                    <a
+                        class="
+                            nav-link
+                        "
+                        href="/page_overview"
+                    >
+                        Overview.
+                    </a>
+                </li>
+
+
+
+
+
+
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM|||||||||||||||||||||||||-->
+                <li
+                    class="
+                        dropdown
+                    "
+                >
+                    <a
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown"
+                        role="button"
+                    >
+                        Forms.
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/page_edit_register_car">Car Form.</a>
+                        </li>
+                        <li>
+                            <a href="/page_edit_register_user">User Form.</a>
+                        </li>
+                        <li>
+                            <a href="/page_edit_register_workshop">Workshop Form.</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU LEFT DROPDOWN FORM END|||||||||||||||||||||||||-->
+
+
+
+
+
+            </ul>
+
+
+
+
+
+        </div>
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU LEFT END|||||||||||||||||||||||||-->
+
+
+
+
+
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT|||||||||||||||||||||||||-->
+        <div
+            class="
+                ntg-debug-align-item-right
+                ntg-debug-navbar-table-cell-setting-1
+            "
+        >
+
+
+
+
+
+            <ul
+                class="
+                    nav
+                    navbar-nav
+                    navbar-right
+                    ntg-debug-margin-side-px-15
+                "
+            >
+
+
+
+
+
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR|||||||||||||||||||||||||-->
+                <li
+                    class="
+                        dropdown
+                        ntg-debug-margin-top-px-7
+                    "
+                >
+
+
+
+
+
+                    <div
+                        class="
+                            input-group
+                        "
+                    >
+                        <span
+                            class="
+                                input-group-btn
+                            "
+                        >
+                            <button
+                                class="
+                                    btn
+                                    btn-default
+                                    dropdown-toggle
+                                    form-control
+                                    ntg-debug-radius-left
+                                "
+                                data-toggle="dropdown"
+                                type="button"
+                            >
+                                Filter.
+                            </button>
+                            <ul
+                                class="
+                                    dropdown-menu
+                                " 
+                                role="menu"
+                            >
+
+
+
+                                <li>
+                                    <a
+                                        href="#admin"
+                                    >
+                                        Admin.
+                                    </a>
                                 </li>
-                                <li class="active">
-                                    <a href="/page_main">User.<span class="glyphicon arrow"></span></a>
-                                    <ul class="collapse">
-                                        <li class="active">
-                                            <a href="/page_main">User 1.<span class="glyphicon arrow"></span></a>
-                                            <ul class="collapse in">
-                                                <li><a>Avanza.</a></li>
-                                                <li><a>Fortuner.</a></li>
-                                                <li><a>Kijang Innova.</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="active">
-                                            <a href="/page_main">User 2.<span class="glyphicon arrow"></span></a>
-                                            <ul class="collapse in">
-                                                <li><a>Avanza.</a></li>
-                                                <li><a>Fortuner.</a></li>
-                                                <li><a>Kijang Innova.</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="active">
-                                            <a href="/page_main">User 3.<span class="glyphicon arrow"></span></a>
-                                            <ul class="collapse in">
-                                                <li><a>Avanza.</a></li>
-                                                <li><a>Fortuner.</a></li>
-                                                <li><a>Kijang Innova.</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+
+
+
+                                <li>
+                                    <a
+                                        href="#car"
+                                    >
+                                        Car.
+                                    </a>
                                 </li>
-                                <li class="active">
-                                    <a href="/page_main">Workshop.<span class="glyphicon arrow"></span></a>
-                                    <ul class="collapse in">
-                                        <li><a href="/page_main">Workshop 1.</a></li>
-                                        <li><a href="/page_main">Workshop 2.</a></li>
-                                        <li><a href="/page_main">Workshop 3.</a></li>
-                                    </ul>
+
+
+
+                                <li>
+                                    <a
+                                        href="#user"
+                                    >
+                                        User.
+                                    </a>
                                 </li>
+
+
+
+                                <li>
+                                    <a
+                                        href="#workshop"
+                                    >
+                                        Workshop.
+                                    </a>
+                                </li>
+
+
+
+                                <li class="divider">
+                                </li>
+
+
+
+                                <li>
+                                    <a
+                                        href="#anything"
+                                    >
+                                        Anything.
+                                    </a>
+                                </li>
+
+
+
                             </ul>
-                        </nav>
-                    </aside>
+                        </span>
+
+
+
+
+
+                        <input
+                            class="form-control"
+                            placeholder="Search."
+                            type="text"
+                        >
+
+
+
+
+
+                        <span
+                            class="
+                                input-group-btn
+                            "
+                        >
+                        <div>
+                            <button
+                                class="
+                                    btn
+                                    btn-default
+                                    form-control
+                                    ntg-debug-radius-right
+                                " 
+                                type="button"
+                            >
+                                Search.
+                            </button>
+                            </div>
+                        </span>
+
+
+
+
+
+                    </div>
+                </li>
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT SEARCH BAR END|||||||||||||||||||||||||-->
+
+
+
+
+
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE|||||||||||||||||||||||||-->
+                <li
+                    class="
+                        dropdown
+                    "
+                >
+                    <a
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown"
+                        role="button"
+                    >
+                        <div
+                            class="
+                                ntg-debug-navbar-account-setting-1
+                            "
+                        >
+                            <%= String_NameDisplay %>.
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/page_setting">
+                                Settings.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout_admin">
+                                Log Out.
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT PROFILE END|||||||||||||||||||||||||-->
+
+
+
+
+
+            </ul>
+
+
+
+
+
+        </div>
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT END|||||||||||||||||||||||||-->
+        <!--|||||||||||||||||||||||||NAVBAR MENU RIGHT END|||||||||||||||||||||||||-->
+
+
+
+
+
+    </nav>
+    <!--|||||||||||||||||||||||||NAVBAR END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||NAVBAR END|||||||||||||||||||||||||-->
+
+
+
+
+
+    <!--|||||||||||||||||||||||||CONTENT|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT|||||||||||||||||||||||||-->
+    <div
+        class="
+            container-fluid
+            ntg-debug-dimension-height-percent-100
+            ntg-debug-div-content-setting-1
+        "
+        id="ntg-div-content"
+    >
+
+
+
+
+
+        <div class="row">
+
+
+
+
+
+            <!--|||||||||||||||||||||||||METIS MENU|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU|||||||||||||||||||||||||-->
+            <div
+                class="
+                    col-xs-3
+                    ntg-debug-dimension-height-percent-100
+                    ntg-debug-overflow-y-auto
+                    ntg-debug-padding-side-0
+                "
+                id="ntg-div-metis-menu"
+            >
+                <aside
+                    class="
+                        sidebar
+                    "
+                >
+                    <nav
+                        class="
+                            sidebar-nav
+                        "
+                        id="ntg-metis-menu"
+                    >
+                        <ul
+                            class="metismenu"
+                        >
+
+
+
+
+
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN|||||||||||||||||||||||||-->
+                            <li
+                                class="
+                                    active
+                                "
+                            >
+                                <a
+                                    href="
+                                        /page_main
+                                    "
+                                >
+                                    Admin.
+                                    <span
+                                        class="
+                                            arrow glyphicon
+                                        "
+                                    >
+                                    </span>
+                                </a>
+
+
+
+
+
+                                <ul
+                                    aria-expanded="true"
+                                    class="
+                                        collapse in
+                                    "
+                                    ng-controller="ng_controller_page_main_repeat_admin"
+                                    ng-cloak
+                                >
+                                    <li
+                                        ng-repeat="_Model_Admin in categories"
+                                    >
+                                        <a
+                                            href="/page_main"
+                                        >
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>Name</p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>{{_Model_Admin.Admin_String_Name}}.</p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>Email</p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>{{_Model_Admin.Admin_String_Email}}.</p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>Location</p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>{{_Model_Admin.Admin_String_Location}}.</p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p
+                                                        class="
+                                                            ntg-debug-margin-bottom-0
+                                                        "
+                                                    >
+                                                        Available
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p
+                                                        class="
+                                                            ntg-debug-margin-bottom-0
+                                                        "
+                                                    >
+                                                        {{_Model_Admin.Admin_Bool_Available}}.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+
+
+
+                            </li>
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU ADMIN END|||||||||||||||||||||||||-->
+
+
+
+
+
+                            <!--|||||||||||||||||||||||||METIS MENU USER|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER|||||||||||||||||||||||||-->
+                            <li
+                                class="
+                                    active
+                                "
+                            >
+                                <a
+                                    href="/page_main"
+                                >
+                                    User.<span class="arrow glyphicon"></span>
+                                </a>
+
+
+
+
+
+                                <ul
+                                    aria-expanded="true"
+                                    class="
+                                        collapse in
+                                    "
+                                    ng-controller="ng_controller_page_main_repeat_user"
+                                    ng-cloak
+                                >
+                                    <li
+                                        ng-repeat="_Model_User in categories"
+                                    >
+                                        <a
+                                            href="/page_main"
+                                        >
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>Name</p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>{{_Model_User.User_String_Name}}.</p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p
+                                                        class="
+                                                            ntg-debug-margin-bottom-0
+                                                        "
+                                                    >
+                                                        Email
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    
+                                                    <p
+                                                        class="
+                                                            ntg-debug-margin-bottom-0
+                                                        "
+                                                    >
+                                                        {{_Model_User.User_String_Email}}.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+
+
+
+                            </li>
+                            <!--|||||||||||||||||||||||||METIS MENU USER END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU USER END|||||||||||||||||||||||||-->
+
+
+
+
+
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP|||||||||||||||||||||||||-->
+                            <li
+                                class="
+                                    active
+                                "
+                            >
+                                <a
+                                    href="/page_main"
+                                >
+                                    Workshop.<span class="arrow glyphicon"></span>
+                                </a>
+
+
+
+                                <ul
+                                    aria-expanded="true"
+                                    class="
+                                        collapse in
+                                    "
+                                    ng-controller="ng_controller_page_main_repeat_workshop"
+                                    ng-cloak
+                                >
+                                    <li
+                                        ng-repeat="_Model_Workshop in categories"
+                                    >
+                                        <a
+                                            href="/page_main"
+                                        >
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>Name</p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>{{_Model_Workshop.Workshop_String_Name}}.</p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>Latitude</p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p>{{_Model_Workshop.Workshop_Number_Latitude}}.</p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div
+                                                class="
+                                                    row
+                                                "
+                                            >
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    <p
+                                                        class="
+                                                            ntg-debug-margin-bottom-0
+                                                        "
+                                                    >
+                                                        Longitude
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        col-xs-6
+                                                    "
+                                                >
+                                                    
+                                                    <p
+                                                        class="
+                                                            ntg-debug-margin-bottom-0
+                                                        "
+                                                    >
+                                                        {{_Model_Workshop.Workshop_Number_Longitude}}.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+
+
+
+                            </li>
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP END|||||||||||||||||||||||||-->
+                            <!--|||||||||||||||||||||||||METIS MENU WORKSHOP END|||||||||||||||||||||||||-->
+
+
+
+
+
+                        </ul>
+                    </nav>
+                </aside>
+
+
+
+
+
+            </div>
+            <!--|||||||||||||||||||||||||METIS MENU END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU END|||||||||||||||||||||||||-->
+            <!--|||||||||||||||||||||||||METIS MENU END|||||||||||||||||||||||||-->
+
+
+
+
+
+            <div
+                class="
+                    col-xs-9
+                    ntg-debug-dimension-height-percent-100
+                "
+            >
+
+
+
+
+                <div class="row">
+
+
+
+
+
+                    <!--|||||||||||||||||||||||||OBD|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD|||||||||||||||||||||||||-->
+                    <div
+                        class="
+                            col-xs-6
+                            ntg-debug-dimension-height-percent-50
+                            ntg-debug-div-background-and-border-setting-1
+                            ntg-debug-margin-top-px-3
+                            ntg-debug-padding-side-0
+                        "
+                    >
+                    </div>
+                    <!--|||||||||||||||||||||||||OBD END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||OBD END|||||||||||||||||||||||||-->
+
+
+
+
+
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS|||||||||||||||||||||||||-->
+                    <div
+                        class="
+                            col-xs-6
+                            ntg-debug-dimension-height-percent-50
+                            ntg-debug-div-background-and-border-setting-1
+                            ntg-debug-margin-top-px-3
+                            ntg-debug-padding-side-0
+                        "
+                        id="ntg-div-google-maps-main"
+                    >
+                    </div>
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS END|||||||||||||||||||||||||-->
+                    <!--|||||||||||||||||||||||||GOOGLE MAPS END|||||||||||||||||||||||||-->
 
 
 
@@ -177,58 +1030,85 @@
 
 
 
-                <div class="col-sm-9 ntg-container-fill" style="padding: 0 !important;">
-                    <div class="ntg-container row" style="height: 60% !important;">
+                <!--|||||||||||||||||||||||||CHAT|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT|||||||||||||||||||||||||-->
+                <div class="row">
+                    <div
+                        class="
+                            col-xs-12
+                            ntg-debug-dimension-height-percent-50
+                            ntg-debug-padding-bottom-px-3
+                            ntg-debug-padding-side-0
+                        "
+                    >
 
 
-
-
-
-                        <div class="col-sm-6 img-rounded ntg-container-fill ntg-div-background" style="border: solid; border-color: #222034; padding: 0 !important;">OBD information.</div>
 
 
 
                         <div
-                            class="
-                                col-sm-6 
-                                img-rounded 
-                                ntg-container-fill 
-                                ntg-div-background
+                            class=" 
+                                ntg-debug-div-background-and-border-setting-1
+                                ntg-debug-overflow-y-auto
                             "
-                            id="ntg-id-map-google"
-                            style="
-                                border-color: #222034 !important;
-                                border: solid;
-                                padding: 0 !important;
-                            "
+                            id="ntg-div-chat-box"
                         >
+                            <ul
+                                class="
+                                    list-group
+                                    ntg-debug-margin-0
+                                "
+                                id="ntg-ul-chat-message"
+                            >
+                            </ul>
                         </div>
 
 
 
 
 
-                    </div>
-                    <div class="ntg-container row" style="height: 40% !important;">
-
-
-
-
-
-                        <div class="col-sm-12 img-rounded ntg-container-fill ntg-div-background" id="ntg-container-chat" style="border: solid; border-color: #222034; padding: 0 !important; position: relative;">
-                            <div id="ntg-div-chat" style="height: 87%; min-height: 87%; overflow-y: auto;">
-                                <ul class="list-group" id="ntg-ul-chat" style="margin: 0 !important;"></ul>
-                            </div>
-                            <div style="height: 13%; min-height: 13%;">
-                                <form id="ntg-form-message-send">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="ntg-input-chat" placeholder="Type your message.">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">Send.</button>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
+                        <div
+                            id="ntg-div-chat-tool"
+                        >
+                            <form
+                                id="ntg-form-chat-tool"
+                            >
+                                <div
+                                    class="
+                                        input-group
+                                    "
+                                >
+                                    <input
+                                        class="
+                                            form-control
+                                            ntg-debug-radius-left
+                                        "
+                                        id="ntg-input-chat-tool"
+                                        placeholder="Type your message."
+                                        type="text"
+                                    >
+                                    <span
+                                        class="
+                                            input-group-btn
+                                        "
+                                    >
+                                        <button
+                                            class="
+                                                btn
+                                                btn-default
+                                                form-control
+                                                ntg-debug-radius-right
+                                            "
+                                            type="submit"
+                                        >
+                                            Send.
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
 
 
@@ -237,94 +1117,88 @@
 
                     </div>
                 </div>
+                <!--|||||||||||||||||||||||||CHAT END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT END|||||||||||||||||||||||||-->
+                <!--|||||||||||||||||||||||||CHAT END|||||||||||||||||||||||||-->
+
+
+
+
             </div>
-        </div> 
-      </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
     </div>
+    <!--|||||||||||||||||||||||||CONTENT END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT END|||||||||||||||||||||||||-->
+    <!--|||||||||||||||||||||||||CONTENT END|||||||||||||||||||||||||-->
 
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-    <script src="javascripts/socket.io-1.4.5.js"></script>
+
+
+
+    <!--JavaScripts those are not necessarily to be in every document.-->
     <script>
-
-
-
-
-
-        //Retrieve the name of the logged in admin. 
+        //Set EJS parameters.
         var String_NameDisplay = <%-JSON.stringify(String_NameDisplay)%>;
+    </script>
 
 
 
 
 
-        //Metis menu activator.
-        $("#ntg-side-menu").metisMenu({ toggle: false });
+    <%- include /partials/import_js_bottom %>
 
 
 
 
 
-        //Google map object initialization.
-        var Object_Map;
-        function initMap(){
-            Object_Map = new google.maps.Map(document.getElementById("ntg-id-map-google"), {
-                center: { lat: -6.14, lng: 106.89 },
-                zoom: 15
+    <script>
+        var Object_Angular = angular.module("ng_app_page_main", []);
+
+
+
+
+
+        Object_Angular.controller("ng_controller_page_main_repeat_admin", function($scope,$http){
+            var Object_APIAdmin = "/api/admins";
+            $http.get(Object_APIAdmin).success(function(_Object_Response){
+                $scope.categories = _Object_Response;
             });
-        }
-
-
-
-
-
-        //SocketIO chat object and logic.
-        var Object_SocketIO_Client = io();
-        var String_Delimeter = "*!@#^%$&*(*!@#^%$&*(*!@#^%$&*(";
-        $("#ntg-form-message-send").submit(function(_Object_Event){
-            var String_MessageNew = $("#ntg-input-chat").val();
-            if(String_MessageNew){ //Do simple string validation before sending message to chat server.
-                Object_SocketIO_Client.emit(
-                    "ntg_event_message_sent_to_server",
-                    String_NameDisplay + String_Delimeter + $("#ntg-input-chat").val()
-                );
-            }
-            $("#ntg-input-chat").val(""); //Empty the send message text field.
-            return false;
         });
-        //These codes below happened if this object received message.
-        Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_DataReceived){
-            var String_Received = _Object_DataReceived;
-            var Array_String_Received = String_Received.split(String_Delimeter);
 
-            //Testing string received, then split it into 2 to prepare right and left chat alignment.
-            /*
-            console.log("=====TEST SPLIT=====");
-            console.log(Array_String_Received[0]);
-            console.log(Array_String_Received[1]);
-            console.log("=====TEST SPLIT=====");
-            */
 
-            var String_PutThisInChatBox = null;
-            //If this user received its own message, that just sent.
-            if(String_NameDisplay == Array_String_Received[0]){
-                $("#ntg-ul-chat").append($("<li class='list-group-item text-left'><strong>" + Array_String_Received[0] + ":</strong> " + Array_String_Received[1] + "</li>"));
-            }
-            else if(String_NameDisplay != Array_String_Received[0]){
-                /*
-                String_PutThisInChatBox = Array_String_Received[0] + ": " + Array_String_Received[1];
-                String_PutThisInChatBox = Array_String_Received[1] + " :" + Array_String_Received[0];
-                $("#ntg-ul-chat").append($("<li class='list-group-item text-right'>").text(String_PutThisInChatBox));
-                */
-                $("#ntg-ul-chat").append($("<li class='list-group-item text-right'>" + Array_String_Received[1]  + "<strong> :" + Array_String_Received[0] + "</li>"));
-            }
-            
 
-            //These two lines of codes are for scrolling the chat box to the newest chat received.
-            var Object_Element = document.getElementById("ntg-div-chat");
-            Object_Element.scrollTop = Object_Element.scrollHeight;
+
+
+        Object_Angular.controller("ng_controller_page_main_repeat_user", function($scope,$http){
+            var Object_APIUser = "/api/users";
+            $http.get(Object_APIUser).success(function(_Object_Response){
+                $scope.categories = _Object_Response;
+            });
+        });
+
+
+
+
+
+        Object_Angular.controller("ng_controller_page_main_repeat_workshop", function($scope,$http){
+            var Object_APIWorkshop = "/api/workshops";
+            $http.get(Object_APIWorkshop).success(function(_Object_Response){
+                $scope.categories = _Object_Response;
+            });
         });
 
 
@@ -332,6 +1206,16 @@
 
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtpkvsY7CV5nf5oPWGvSEfiiWT-RCTlk0&callback=initMap" async defer></script>
+
+
+
+
+
+    <!--JavaScripts those are not necessarily to be in every document.-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtpkvsY7CV5nf5oPWGvSEfiiWT-RCTlk0&callback=Void_InitGoogleMaps_Main" async defer></script>
+
+
+
+
 </body>
 </html>
