@@ -26,9 +26,7 @@ var Object_ServeFavicon = require("serve-favicon");
 var Object_SocketIO = require("socket.io");
 //Initialize configuration JavaScript file.
 //This is mostly for MongoDB connection.
-var Config_Local_ = require("./server/configs/Config_Local.js");
-var Config_Remote_ = require("./server/configs/Config_Remote.js");
-var Config_Used = undefined;
+var Config_ = require("./server/configs/Config_Remote.js");
 
 
 
@@ -129,124 +127,63 @@ Object_App.use(Object_Morgan("dev"));
 //|||||||||||||||||||||||||DATABASE CONNECTION|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION|||||||||||||||||||||||||
 //Connect to database.
-Object_Database = Object_Mongoose.connect(Config_Local_.url, function(_Object_Error){
+Object_Database = Object_Mongoose.connect(Config_.url, function(_Object_Error){
     //If the database connection failed.
     //I think this will be the same with
     //    Object_Mongoose.connection.on("error", function(){});
     if(_Object_Error){
-        console.log("MongoDB local connection cannot be established.");
+        console.log("MongoDB connection cannot be established.");
         console.log("Please check the configuration for MongoDB.");
-        console.log("Attempting to connecto to MongoDB remote.");
-
-        Object_Database = Object_Mongoose.connect(Config_Remote_.url, function(_Object_Error){
-
-            if(_Object_Error){
-
-                console.log("MongoDB remote connection cannot be established.");
-                console.log("Please check the configuration for MongoDB.");
-
-                throw(_Object_Error);
-
-            }
-            else{
-                console.log("Using remote MongoDB.");
-                Config_Used = Config_Remote_;
-                //If connection is successful then check to see if
-                //    there is an element in database.
-                Void_CheckCollectionEmpty(Array_Model_, 0);
-
-
-
-
-
-                //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-                //Setting up passport.
-                require("./server/configs/Passport")(Object_Passport);
-                //Generating secret for session.
-                Object_App.use(
-                    Object_ExpressSession(
-                        {
-                            resave: true,
-                            saveUninitialized: true,
-                            //This is the secret password generator key.
-                            //Don not you dare to change this code.
-                            //Or all password would not be working.
-                            secret: "123lolxd123",
-                            store: new Object_MongoStore({
-                                url: Config_Used.url,
-                                collection: "sessions"
-                            })
-                        }
-                    )
-                );
-                //Init passport authentication.
-                Object_App.use(Object_Passport.initialize());
-                //Persistent login session.
-                Object_App.use(Object_Passport.session());
-                //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-                //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-            }
-
-        });
+        throw _Object_Error;
     }
-    else{
-        console.log("Using local MongoDB.");
-        Config_Used = Config_Local_;
-        //If connection is successful then check to see if
-        //    there is an element in database.
-        Void_CheckCollectionEmpty(Array_Model_, 0);
 
-
-
-
-
-        //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
-        //Setting up passport.
-        require("./server/configs/Passport")(Object_Passport);
-        //Generating secret for session.
-        Object_App.use(
-            Object_ExpressSession(
-                {
-                    resave: true,
-                    saveUninitialized: true,
-                    //This is the secret password generator key.
-                    //Don not you dare to change this code.
-                    //Or all password would not be working.
-                    secret: "123lolxd123",
-                    store: new Object_MongoStore({
-                        url: Config_Used.url,
-                        collection: "sessions"
-                    })
-                }
-            )
-        );
-        //Init passport authentication.
-        Object_App.use(Object_Passport.initialize());
-        //Persistent login session.
-        Object_App.use(Object_Passport.session());
-        //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-        //|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
-    }
+    //If connection is successfull then check to see if
+    //    there is an element in database.
+    Void_CheckCollectionEmpty(Array_Model_, 0);
 });
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
+
+
+
+
+
+//|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
+//Setting up passport.
+require("./server/configs/Passport")(Object_Passport);
+//Generating secret for session.
+Object_App.use(
+    Object_ExpressSession(
+        {
+            resave: true,
+            saveUninitialized: true,
+            //This is the secret password generator key.
+            //Don not you dare to change this code.
+            //Or all password would not be working.
+            secret: "123lolxd123",
+            store: new Object_MongoStore({
+                url: Config_.url,
+                collection: "sessions"
+            })
+        }
+    )
+);
+//Init passport authentication.
+Object_App.use(Object_Passport.initialize());
+//Persistent login session.
+Object_App.use(Object_Passport.session());
+//|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
+//|||||||||||||||||||||||||PASSPORT END|||||||||||||||||||||||||
 
 
 
