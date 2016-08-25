@@ -639,7 +639,6 @@
                                                     class="
                                                         col-xs-6
                                                     "
-                                                    ng-if="ntg_ready"
                                                 >
                                                     <p
                                                         class="
@@ -1179,12 +1178,7 @@
         Object_Angular.controller("ng_controller_page_main_repeat_admin", function($scope, $http){
             var Object_APIAdmin = "/api/admins";
             $http.get(Object_APIAdmin).success(function(_Object_Response){
-                $scope.categories = _Object_Response;
-                console.log($scope.ntg_ready);
-                $scope.ntg_ready = true;
-                console.log("admin-data-is-ready");
-                console.log($scope.ntg_ready);
-                Object_Angular.directive("ntgChangeScanInnerHtml", Void_NTGChangeScanInnerHTML);
+                $scope.categories = _Object_Response;        
             });
         });
 
@@ -1214,24 +1208,15 @@
 
 
 
-        
-
-
-
-
-
-        console.log("test-3");
-        function Void_NTGChangeScanInnerHTML(){
-
-            console.log("test-2");
-
-            return{
-                link: function(
-                    _Object_Scope,
-                    _Object_Element,
-                    _Object_Attributes
-                ){
-
+        //PENDING: This directive code is not optimal.
+        //PENDING: See the link here for reference, http://stackoverflow.com/questions/25536514/run-directive-after-ng-repeat.
+        Object_Angular.directive("ntgChangeScanInnerHtml", ["$timeout", function($timeout){
+            return function(
+                _Object_Scope,
+                _Object_Element,
+                _Object_Attributes
+            ){
+                $timeout(function(){
                     switch(_Object_Element.text().trim()){
                         case "true.":
                             console.log("test-1");
@@ -1244,11 +1229,12 @@
                             console.log(_Object_Element.text().trim());
                         break;
                     }
-
-                }
+                }, 0);
             }
+        }]);
 
-        }
+
+
 
 
     </script>

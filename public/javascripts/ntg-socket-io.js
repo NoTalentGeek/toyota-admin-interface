@@ -10,8 +10,8 @@ Object_SocketIO_Client.on("ntg_event_offline_admin", function(_Object_DataReceiv
         .removeClass("ntg-debug-color-green");
 
     if(
-        document.getElementById(_Object_DataReceived).innerHTML === null ||
-        document.getElementById(_Object_DataReceived).innerHTML === undefined
+        document.getElementById(_Object_DataReceived).innerHTML !== null ||
+        document.getElementById(_Object_DataReceived).innerHTML !== undefined
     ){
         document.getElementById(_Object_DataReceived).innerHTML = "false.";
     }
@@ -26,8 +26,8 @@ Object_SocketIO_Client.on("ntg_event_online_admin", function(_Object_DataReceive
         .removeClass("ntg-debug-color-red");
 
     if(
-        document.getElementById(_Object_DataReceived).innerHTML === null ||
-        document.getElementById(_Object_DataReceived).innerHTML === undefined
+        document.getElementById(_Object_DataReceived).innerHTML !== null ||
+        document.getElementById(_Object_DataReceived).innerHTML !== undefined
     ){
         document.getElementById(_Object_DataReceived).innerHTML = "true.";
     }
