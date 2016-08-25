@@ -639,6 +639,7 @@
                                                     class="
                                                         col-xs-6
                                                     "
+                                                    ng-if="ntg_ready"
                                                 >
                                                     <p
                                                         class="
@@ -1169,8 +1170,7 @@
 
 
     <script>
-        var Object_Angular = angular.module("ng_app_page_main", [])
-            .directive("ntgChangeScanInnerHtml", Void_NTGChangeScanInnerHTML);
+        var Object_Angular = angular.module("ng_app_page_main", []);
 
 
 
@@ -1180,6 +1180,11 @@
             var Object_APIAdmin = "/api/admins";
             $http.get(Object_APIAdmin).success(function(_Object_Response){
                 $scope.categories = _Object_Response;
+                console.log($scope.ntg_ready);
+                $scope.ntg_ready = true;
+                console.log("admin-data-is-ready");
+                console.log($scope.ntg_ready);
+                Object_Angular.directive("ntgChangeScanInnerHtml", Void_NTGChangeScanInnerHTML);
             });
         });
 
@@ -1206,7 +1211,16 @@
         });
 
 
-        console.log("style-3");
+
+
+
+        
+
+
+
+
+
+        console.log("test-3");
         function Void_NTGChangeScanInnerHTML(){
 
             console.log("test-2");
