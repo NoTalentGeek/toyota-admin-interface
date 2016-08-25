@@ -1,9 +1,42 @@
+//Workshop in admin registration form.
+var Object_ResultWorkshopAdmin = undefined;
+angular.module("ng_app_page_login_register_admin", [])
+.controller(
+    "ng_controller_page_login_register_admin",
+    function($scope, $http){
+        $scope.ng_model_select_workshop = null;
+        $scope.ng_options_select_workshop = [];
+
+        $http(
+            {
+                data: { applicationId: 3 },
+                method: "GET",
+                url: "/api/workshops"
+            }
+        )
+        .success(
+            function(_Object_Result){
+                $scope.ng_options_select_workshop = _Object_Result;
+                Object_ResultWorkshopAdmin = _Object_Result;
+            }
+        );
+    }
+);
+$("#Admin_String_IDWorkshop_Register_Select").change(function(){
+    var Number_Index = $("#Admin_String_IDWorkshop_Register_Select").prop("selectedIndex");
+    $("#Admin_String_IDWorkshop_Register").val(Object_ResultWorkshopAdmin[Number_Index - 1]._id);
+});
+
+
+
+
+
 //Car.
 var Object_ResultCar = undefined;
 angular.module("ng_app_page_edit_register_car", [])
 .controller(
     "ng_controller_page_edit_register_car",
-    function ($scope, $http){
+    function($scope, $http){
         $scope.ng_model_select_car = null;
         $scope.ng_options_select_car = [];
 
@@ -15,7 +48,7 @@ angular.module("ng_app_page_edit_register_car", [])
             }
         )
         .success(
-            function (_Object_Result){
+            function(_Object_Result){
                 $scope.ng_options_select_car = _Object_Result;
                 Object_ResultCar = _Object_Result;
             }
@@ -35,7 +68,7 @@ var Object_ResultUser = undefined;
 angular.module("ng_app_page_edit_register_user", [])
 .controller(
     "ng_controller_page_edit_register_user",
-    function ($scope, $http){
+    function($scope, $http){
         $scope.ng_model_select_user = null;
         $scope.ng_options_select_user = [];
 
@@ -47,7 +80,7 @@ angular.module("ng_app_page_edit_register_user", [])
             }
         )
         .success(
-            function (_Object_Result){
+            function(_Object_Result){
                 $scope.ng_options_select_user = _Object_Result;
                 Object_ResultUser = _Object_Result;
             }
@@ -69,7 +102,7 @@ var Obejct_ResultWorkshop = undefined;
 angular.module("ng_app_page_edit_register_workshop", [])
 .controller(
     "ng_controller_page_edit_register_workshop",
-    function ($scope, $http){
+    function($scope, $http){
         $scope.ng_model_select_workshop = null;
         $scope.ng_options_select_workshop = [];
 
@@ -81,7 +114,7 @@ angular.module("ng_app_page_edit_register_workshop", [])
             }
         )
         .success(
-            function (_Object_Result){
+            function(_Object_Result){
                 $scope.ng_options_select_workshop = _Object_Result;
                 Obejct_ResultWorkshop = _Object_Result;
             }

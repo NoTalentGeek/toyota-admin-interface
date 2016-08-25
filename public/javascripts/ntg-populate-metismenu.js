@@ -55,14 +55,10 @@ Object_Angular.directive("ntgChangeScanInnerHtml", ["$timeout", function($timeou
         $timeout(function(){
             switch(_Object_Element.text().trim()){
                 case "true.":
-                    console.log("test-1");
                     _Object_Element.addClass("ntg-debug-color-green");
                 break;
                 case "false.":
                     _Object_Element.addClass("ntg-debug-color-red");
-                break;
-                default:
-                    console.log(_Object_Element.text().trim());
                 break;
             }
         }, 0);

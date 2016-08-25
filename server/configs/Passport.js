@@ -196,7 +196,7 @@ module.exports = function(_Object_Passport){
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
                             Model_Admin_Temporary.Admin_String_Email = _String_Email;
-                            Model_Admin_Temporary.Admin_String_LocationWorkshop = _Object_Request.param("Admin_String_LocationWorkshop_Register");
+                            Model_Admin_Temporary.Admin_String_IDWorkshop = _Object_Request.param("Admin_String_LocationWorkshop_Register");
                             Model_Admin_Temporary.Admin_String_Name = _Object_Request.param("Admin_String_Name_Register");
                             Model_Admin_Temporary.Admin_String_Password = Model_Admin_Temporary.Void_GenerateHash(_String_Password);
 

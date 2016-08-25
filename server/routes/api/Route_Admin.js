@@ -47,7 +47,7 @@ Object_Router.put("/:model_admin_id", function(_Object_Request, _Object_Respond)
  
         _Model_Admin.Admin_Bool_Available = _Object_Request.body.Admin_Bool_Available;
         _Model_Admin.Admin_String_Email = _Object_Request.body.Admin_String_Email;
-        _Model_Admin.Admin_String_LocationWorkshop = _Object_Request.body.Admin_String_LocationWorkshop;
+        _Model_Admin.Admin_String_IDWorkshop = _Object_Request.body.Admin_String_IDWorkshop;
         _Model_Admin.Admin_String_Name = _Object_Request.body.Admin_String_Name;
         _Model_Admin.Admin_String_Password = _Object_Request.body.Admin_String_Password;
  

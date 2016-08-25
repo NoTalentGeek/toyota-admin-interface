@@ -1,4 +1,6 @@
-<html>
+<html
+    ng-app="ng_app_page_login_register_admin"
+>
 <head>
     <%- include /partials/import_css_and_title %>
 </head>
@@ -6,6 +8,7 @@
     class="
         ntg-debug-body-setting-2
     "
+    ng-controller="ng_controller_page_login_register_admin"
 >
 
 
@@ -355,19 +358,44 @@
                                                 form-control
                                                 ntg-debug-dimension-height-pixel-44
                                             "
-                                            id="Admin_String_LocationWorkshop_Register"
-                                            name="Admin_String_LocationWorkshop_Register"
+                                            id="Admin_String_IDWorkshop_Register_Select"
+                                            name="Admin_String_IDWorkshop_Register_Select"
                                             placeholder="Admin Location"
                                             ng-model="ng_model_select_workshop"
                                             ng-options="
                                                 item._id as item.Workshop_String_Name
-                                                for item in ng_model_select_workshop
+                                                for item in ng_options_select_workshop
                                             "
                                         >
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <option
+                                                disabled
+                                                selected
+                                                value=""
+                                            >
+                                                Please select workshop location to edit.
+                                            </option>
                                         </select>
+                                    </div>
+
+
+
+
+
+                                    <div
+                                        class="
+                                            form-group
+                                        "
+                                    >
+                                        <input
+                                            class="
+                                                form-control
+                                            "
+                                            disabled
+                                            id="Admin_String_IDWorkshop_Register"
+                                            name="Admin_String_IDWorkshop_Register"
+                                            placeholder="Workshop ID"
+                                            type="text"
+                                        >
                                     </div>
 
 
