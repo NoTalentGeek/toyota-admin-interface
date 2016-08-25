@@ -464,7 +464,7 @@ function Void_CreateDummy(){
     var Model_Admin_Temporary1 = new Model_Admin_();
     Model_Admin_Temporary1.Admin_Bool_Available = false;
     Model_Admin_Temporary1.Admin_String_Email = "admin1@admin1";
-    Model_Admin_Temporary1.Admin_String_Location = "admin1";
+    Model_Admin_Temporary1.Admin_String_LocationWorkshop = "admin1";
     Model_Admin_Temporary1.Admin_String_Name = "admin1";
     Model_Admin_Temporary1.Admin_String_Password = Model_Admin_Temporary1.Void_GenerateHash("admin1");
     Model_Admin_Temporary1.save(function(_Object_Error){
@@ -479,7 +479,7 @@ function Void_CreateDummy(){
     var Model_Admin_Temporary2 = new Model_Admin_();
     Model_Admin_Temporary2.Admin_Bool_Available = false;
     Model_Admin_Temporary2.Admin_String_Email = "admin2@admin2";
-    Model_Admin_Temporary2.Admin_String_Location = "admin2";
+    Model_Admin_Temporary2.Admin_String_LocationWorkshop = "admin2";
     Model_Admin_Temporary2.Admin_String_Name = "admin2";
     Model_Admin_Temporary2.Admin_String_Password = Model_Admin_Temporary2.Void_GenerateHash("admin2");
     Model_Admin_Temporary2.save(function(_Object_Error){

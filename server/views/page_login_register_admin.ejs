@@ -247,7 +247,6 @@
                                             id="Admin_String_Email_LogIn"
                                             name="Admin_String_Email_LogIn"
                                             placeholder="Admin Email"
-                                            tabindex="1"
                                             type="text"
                                         >
                                     </div>
@@ -266,7 +265,6 @@
                                             id="Admin_String_Password_LogIn"
                                             name="Admin_String_Password_LogIn"
                                             placeholder="Admin Password"
-                                            tabindex="2"
                                             type="password"
                                         >
                                     </div>
@@ -287,7 +285,6 @@
                                             "
                                             id="login-submit"
                                             name="login-submit"
-                                            tabindex="3"
                                             type="submit"
                                             value="Log In."
                                         >
@@ -339,7 +336,6 @@
                                             id="Admin_String_Name_Register"
                                             name="Admin_String_Name_Register"
                                             placeholder="Admin Name"
-                                            tabindex="1"
                                             type="text"
                                             value=""
                                         >
@@ -354,17 +350,24 @@
                                             form-group
                                         "
                                     >
-                                        <input
+                                        <select
                                             class="
                                                 form-control
+                                                ntg-debug-dimension-height-pixel-44
                                             "
-                                            id="Admin_String_Location_Register"
-                                            name="Admin_String_Location_Register"
+                                            id="Admin_String_LocationWorkshop_Register"
+                                            name="Admin_String_LocationWorkshop_Register"
                                             placeholder="Admin Location"
-                                            tabindex="2"
-                                            type="text"
-                                            value=""
+                                            ng-model="ng_model_select_workshop"
+                                            ng-options="
+                                                item._id as item.Workshop_String_Name
+                                                for item in ng_model_select_workshop
+                                            "
                                         >
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
                                     </div>
 
 
@@ -383,7 +386,6 @@
                                             id="Admin_String_Email_Register"
                                             name="Admin_String_Email_Register"
                                             placeholder="Admin Email Address"
-                                            tabindex="3"
                                             type="email"
                                             value=""
                                         >
@@ -405,7 +407,6 @@
                                             id="Admin_String_Password_Register"
                                             name="Admin_String_Password_Register"
                                             placeholder="Admin  Password"
-                                            tabindex="4"
                                             type="password"
                                         >
                                     </div>
@@ -426,7 +427,6 @@
                                             id="Admin_String_Password_Confirm_Register"
                                             name="Admin_String_Password_Confirm_Register"
                                             placeholder="Confirm Admin Password"
-                                            tabindex="5"
                                             type="password"
                                         >
                                     </div>
@@ -449,7 +449,6 @@
                                                 "
                                                 id="register-submit"
                                                 name="register-submit"
-                                                tabindex="6"
                                                 type="submit"
                                                 value="Register."
                                             >
