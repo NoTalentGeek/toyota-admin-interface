@@ -55,6 +55,12 @@
 .ntg-debug-border{
     border: solid;
 }
+.ntg-debug-color-green{
+    color: green;
+}
+.ntg-debug-color-red{
+    color: red;
+}
 .ntg-debug-div-background-and-border-setting-1{
     background: #9BADB7;
     border: solid #222034;

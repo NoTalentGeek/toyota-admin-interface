@@ -643,7 +643,10 @@
                                                     <p
                                                         class="
                                                             ntg-debug-margin-bottom-0
+                                                            ntg-p-admin-bool-available
                                                         "
+                                                        ng-attr-id="{{_Model_Admin._id}}"
+                                                        ntg-change-scan-inner-html
                                                     >
                                                         {{_Model_Admin.Admin_Bool_Available}}.
                                                     </p>
@@ -1166,13 +1169,14 @@
 
 
     <script>
-        var Object_Angular = angular.module("ng_app_page_main", []);
+        var Object_Angular = angular.module("ng_app_page_main", [])
+            .directive("ntgChangeScanInnerHtml", Void_NTGChangeScanInnerHTML);
 
 
 
 
 
-        Object_Angular.controller("ng_controller_page_main_repeat_admin", function($scope,$http){
+        Object_Angular.controller("ng_controller_page_main_repeat_admin", function($scope, $http){
             var Object_APIAdmin = "/api/admins";
             $http.get(Object_APIAdmin).success(function(_Object_Response){
                 $scope.categories = _Object_Response;
@@ -1183,7 +1187,7 @@
 
 
 
-        Object_Angular.controller("ng_controller_page_main_repeat_user", function($scope,$http){
+        Object_Angular.controller("ng_controller_page_main_repeat_user", function($scope, $http){
             var Object_APIUser = "/api/users";
             $http.get(Object_APIUser).success(function(_Object_Response){
                 $scope.categories = _Object_Response;
@@ -1194,7 +1198,7 @@
 
 
 
-        Object_Angular.controller("ng_controller_page_main_repeat_workshop", function($scope,$http){
+        Object_Angular.controller("ng_controller_page_main_repeat_workshop", function($scope, $http){
             var Object_APIWorkshop = "/api/workshops";
             $http.get(Object_APIWorkshop).success(function(_Object_Response){
                 $scope.categories = _Object_Response;
@@ -1202,7 +1206,35 @@
         });
 
 
+        console.log("style-3");
+        function Void_NTGChangeScanInnerHTML(){
 
+            console.log("test-2");
+
+            return{
+                link: function(
+                    _Object_Scope,
+                    _Object_Element,
+                    _Object_Attributes
+                ){
+
+                    switch(_Object_Element.text().trim()){
+                        case "true.":
+                            console.log("test-1");
+                            _Object_Element.addClass("ntg-debug-color-green");
+                        break;
+                        case "false.":
+                            _Object_Element.addClass("ntg-debug-color-red");
+                        break;
+                        default:
+                            console.log(_Object_Element.text().trim());
+                        break;
+                    }
+
+                }
+            }
+
+        }
 
 
     </script>

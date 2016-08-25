@@ -26,7 +26,7 @@ var Object_ServeFavicon = require("serve-favicon");
 var Object_SocketIO = require("socket.io");
 //Initialize configuration JavaScript file.
 //This is mostly for MongoDB connection.
-var Config_ = require("./server/configs/Config_Localjs");
+var Config_ = require("./server/configs/Config_Local.js");
 
 
 
@@ -140,6 +140,7 @@ Object_Database = Object_Mongoose.connect(Config_.url, function(_Object_Error){
     //If connection is successfull then check to see if
     //    there is an element in database.
     Void_CheckCollectionEmpty(Array_Model_, 0);
+
 });
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION END|||||||||||||||||||||||||
@@ -564,6 +565,14 @@ function Void_CreateDummy(){
 //|||||||||||||||||||||||||FUNCTIONS TO INITIATES DUMMY DATABASE DATA END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||FUNCTIONS TO INITIATES DUMMY DATABASE DATA END|||||||||||||||||||||||||
 //|||||||||||||||||||||||||FUNCTIONS TO INITIATES DUMMY DATABASE DATA END|||||||||||||||||||||||||
+
+
+
+
+
+//Assign back some object.
+Route_General.Model_Admin_ = Model_Admin_;
+Route_General.Object_SocketIO_Server = Object_SocketIO_Server;
 
 
 
