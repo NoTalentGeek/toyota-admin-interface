@@ -14,6 +14,9 @@ var Boolean_TriggerVoidSetup = true; //A variable so that the setup function onl
 //Import variables.
 var Object_Async = require("async");
 var Object_BodyParser = require("body-parser");
+//Initialize configuration JavaScript file.
+//This is mostly for MongoDB connection.
+var Object_Config_MongoDB = require("./server/configs/Config_MongoDB_Local.js");
 var Object_CookieParser = require("cookie-parser");
 var Object_Express = require("express");
 var Object_ExpressSession = require("express-session");
@@ -24,9 +27,6 @@ var Object_Passport = require("passport");
 var Object_Path = require("path");
 var Object_ServeFavicon = require("serve-favicon");
 var Object_SocketIO = require("socket.io");
-//Initialize configuration JavaScript file.
-//This is mostly for MongoDB connection.
-var Config_ = require("./server/configs/Config_Local.js");
 
 
 
@@ -127,7 +127,7 @@ Object_App.use(Object_Morgan("dev"));
 //|||||||||||||||||||||||||DATABASE CONNECTION|||||||||||||||||||||||||
 //|||||||||||||||||||||||||DATABASE CONNECTION|||||||||||||||||||||||||
 //Connect to database.
-Object_Database = Object_Mongoose.connect(Config_.url, function(_Object_Error){
+Object_Database = Object_Mongoose.connect(Object_Config_MongoDB.url, function(_Object_Error){
     //If the database connection failed.
     //I think this will be the same with
     //    Object_Mongoose.connection.on("error", function(){});
@@ -158,7 +158,7 @@ Object_Database = Object_Mongoose.connect(Config_.url, function(_Object_Error){
 //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
 //|||||||||||||||||||||||||PASSPORT|||||||||||||||||||||||||
 //Setting up passport.
-require("./server/configs/Passport")(Object_Passport);
+require("./server/configs/Config_Passport")(Object_Passport);
 //Generating secret for session.
 Object_App.use(
     Object_ExpressSession(
@@ -170,7 +170,7 @@ Object_App.use(
             //Or all password would not be working.
             secret: "123lolxd123",
             store: new Object_MongoStore({
-                url: Config_.url,
+                url: Object_Config_MongoDB.url,
                 collection: "sessions"
             })
         }

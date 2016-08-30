@@ -1,9 +1,14 @@
-//Load Passport Local Strategy.
-var Object_Passport_LocalStrategy = require("passport-local").Strategy;
 //Load up the admin model.
 var Model_Admin_ = require("../../server/models/Model_Admin");
 var Model_Workshop_ = require("../../server/models/Model_Workshop");
+//Load Passport Local Strategy.
+var Object_Passport_LocalStrategy = require("passport-local").Strategy;
+//Take a reference of ObjectID from MongoDB module.
+//I need this to return an ObjectID from String
 var ObjectId_ = require('mongodb').ObjectID;
+
+
+
 
 
 function String_LogError(_String_MethodPlusVerbIng){
@@ -36,6 +41,9 @@ function String_LogSuccess(_String_Entry, _String_MethodPlusVerbTwo){
     console.log(String_);
     return String_;
 }
+
+
+
 
 
 //Export function.
@@ -207,15 +215,15 @@ module.exports = function(_Object_Passport){
                             //Here is where things get messy.
                             //Here I want to take the workshop name from the workshop id.
                             //Why workshop id andnot directly take the workshop name?
-                            //Because the _Object_Request.body.Admin_String_WorkshopID_Register return a string.
-                            //And the value taken from the <select></select> returns a string of _id.
+                            //Because the _Object_Request.body.Admin_String_WorkshopID_Register return a String.
+                            //And the value taken from the <select></select> returns a String of _id.
                             //That is why I reverse back to find the workshop name value within the database.
                             //Below I take the String ID.
                             var String_WorkshopID = _Object_Request.body.Admin_String_WorkshopID_Register;
                             var String_WorkshopName = undefined;
 
 
-                            //I am going to make the ID string back to ObjectID
+                            //I am going to make the ID String back to ObjectID
                             var ObjectId__Temporary = ObjectId_(String_WorkshopID);
 
 

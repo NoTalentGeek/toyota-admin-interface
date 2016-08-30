@@ -7,24 +7,14 @@ $("#ntg-form-chat-tool").submit(function(_Object_Event){
 
 
     _Object_Event.preventDefault();
-
-
-
-
-
     var String_MessageNew = $("#ntg-input-chat-tool").val(); //Take the value of the chat input.
-    if(String_MessageNew){ //Do simple string validation before sending message to chat server.
+    if(String_MessageNew){ //Do simple String validation before sending message to chat server.
         //Sent an SocketIO event with the value of chat input as a "parameter".
         Object_SocketIO_Client.emit(
             "ntg_event_message_sent_to_server",
             String_NameDisplay + String_Delimeter + $("#ntg-input-chat-tool").val()
         );
     }
-
-
-
-
-
     $("#ntg-input-chat-tool").val(""); //Empty the send message text input.
 
 
@@ -51,18 +41,13 @@ Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_D
 
 
     var String_Received = _Object_DataReceived;
-
-
-
-
-
     var Array_String_Received = String_Received.split(String_Delimeter);
 
 
 
 
 
-    //Testing string received, then split it into 2 to prepare right and left chat alignment.
+    //Testing String received, then split it into 2 to prepare right and left chat alignment.
     /*
     console.log("=====TEST SPLIT=====");
     console.log(Array_String_Received[0]);

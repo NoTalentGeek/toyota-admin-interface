@@ -27,14 +27,14 @@ function Void_Edit_And_Remove(
 
 
 
-        //Take the value in the string.
+        //Take the value in the String.
         String_ValueFromSelect = $(_String_IDSelectObject).val();
         //Specifically for PUT method we need to know the ID to the thing that is selected.
         //So everytime the select HTML value is changed, then changed the action URL value.
         //    according to the selected thing id.
-        //The result from String_ValueFromSelect is "string:id_here".
-        //Hence we need to remove the "string:".
-        $("#form-left").attr("action", _String_URLAPI + String_ValueFromSelect.split("string:").pop());
+        //The result from String_ValueFromSelect is "String:id_here".
+        //Hence we need to remove the "String:".
+        $("#form-left").attr("action", _String_URLAPI + String_ValueFromSelect.split("String:").pop());
 
 
 
@@ -71,7 +71,7 @@ function Void_Edit_And_Remove(
             dataType: "JSON", //This line is important/
             success: function(_Object_Result){ }, //What happened when the update process success.
             type: "PUT",
-            url: _String_URLAPI + String_ValueFromSelect.split("string:").pop()
+            url: _String_URLAPI + String_ValueFromSelect.split("String:").pop()
 
         });
 
@@ -102,7 +102,7 @@ function Void_Edit_And_Remove(
         $.ajax({
             success: function(_Object_Result){ },
             type: "DELETE",
-            url: _String_URLAPI + String_ValueFromSelect.split("string:").pop()
+            url: _String_URLAPI + String_ValueFromSelect.split("String:").pop()
         });
 
 
