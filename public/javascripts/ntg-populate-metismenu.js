@@ -46,7 +46,7 @@ Object_Angular.controller("ng_controller_page_main_repeat_workshop", function($s
 //    (offline or online).
 //The thing here is that I need to change the color after the document is taken from database.
 //Hence, I need the $timeout method here.
-Object_Angular.directive("ntgChangeScanInnerHtml", ["$timeout", function($timeout){
+Object_Angular.directive("ntgChangeScanInnerHtmlAvailable", ["$timeout", function($timeout){
     return function(
         _Object_Scope,
         _Object_Element,
@@ -61,6 +61,39 @@ Object_Angular.directive("ntgChangeScanInnerHtml", ["$timeout", function($timeou
                     _Object_Element.addClass("ntg-debug-color-red");
                 break;
             }
+        }, 0);
+    }
+}]);
+
+
+
+
+Object_Angular.directive("ntgChangeScanInnerHtmlWorkshop", ["$http", "$timeout", function($http, $timeout){
+    return function(
+        _Object_Scope,
+        _Object_Element,
+        _Object_Attributes
+    ){
+        $timeout(function(){
+            var String__id = _Object_Element.text().trim().split(".")[0]
+            var ObjectId_ = Object.Types.ObjectId(String__id);
+            console.log(String__id);
+            $("#" + String__id);
+
+            $http(
+                {
+                    data: { applicationId: 3 },
+                    method: "GET",
+                    params: { _id: String__id },
+                    url: "/api/workshops"
+                }
+            )
+            .success(
+                function(_Object_Result){
+                    console.log(_Object_Result);
+                    $("#" + String__id).val(_Object_Result.Workshop_String_Name);
+                }
+            );
         }, 0);
     }
 }]);
