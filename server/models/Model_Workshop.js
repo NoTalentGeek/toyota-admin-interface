@@ -1,9 +1,16 @@
 var Object_Mongoose = require("mongoose");
 var Object_Schema = Object_Mongoose.Schema;
 var Object_Schema_Workshop = new Object_Schema({
-    Workshop_Number_Latitude: {type: Number, default: 0.0 },
-    Workshop_Number_Longitude: {type: Number, default: 0.0 },
-    Workshop_String_Name: {type: String, default: "" }
+    Workshop_Array_String_SlotFriday: { default: [], type: Array },
+    Workshop_Array_String_SlotMonday: { default: [], type: Array },
+    Workshop_Array_String_SlotSaturday: { default: [], type: Array },
+    Workshop_Array_String_SlotSunday: { default: [], type: Array },
+    Workshop_Array_String_SlotThursday: { default: [], type: Array },
+    Workshop_Array_String_SlotTuesday: { default: [], type: Array },
+    Workshop_Array_String_SlotWednesday: { default: [], type: Array },
+    Workshop_Number_Latitude: { default: 0.0, type: Number },
+    Workshop_Number_Longitude: { default: 0.0, type: Number },
+    Workshop_String_Name: { default: "", type: String }
 });
 
 

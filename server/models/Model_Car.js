@@ -1,7 +1,7 @@
 var Object_Mongoose = require("mongoose");
 var Object_Schema = Object_Mongoose.Schema;
 var Object_Schema_Car = new Object_Schema({
-    Car_String_Name: {type: String, default: "" },
+    Car_String_Name: { default: "", type: String },
 });
 
 
