@@ -4,9 +4,10 @@ var Object_Schema = Object_Mongoose.Schema;
 var Object_Schema_Admin = new Object_Schema({
     Admin_Bool_Available: {type: Boolean, default: false },
     Admin_String_Email: {type: String, default: "" },
-    Admin_String_IDWorkshop: {type: String, default: "" },
     Admin_String_Name: {type: String, default: "" },
-    Admin_String_Password: {type: String, default: "" }
+    Admin_String_Password: {type: String, default: "" },
+    Admin_String_WorkshopID: {type: String, default: "" },
+    Admin_String_WorkshopName: {type: String, default: "" }
 });
 
 

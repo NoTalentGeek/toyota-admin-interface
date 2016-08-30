@@ -3,7 +3,7 @@
 //|||||||||||||||||||||||||VARIABLES|||||||||||||||||||||||||
 //|||||||||||||||||||||||||VARIABLES|||||||||||||||||||||||||
 //|||||||||||||||||||||||||VARIABLES|||||||||||||||||||||||||
-var Number_Port = 3000;
+var Number_Port = 3001;
 var Number_UpdateSpeedInMilliSecond = 500;
 var Boolean_TriggerVoidSetup = true; //A variable so that the setup function only triggered once.
 
@@ -461,35 +461,6 @@ function Void_CheckCollectionEmpty(_Array_Model_, _Number_Count){
 
 //Function that is used to fill database with dummy data.
 function Void_CreateDummy(){
-    var Model_Admin_Temporary1 = new Model_Admin_();
-    Model_Admin_Temporary1.Admin_Bool_Available = false;
-    Model_Admin_Temporary1.Admin_String_Email = "admin1@admin1";
-    Model_Admin_Temporary1.Admin_String_IDWorkshop = "admin1";
-    Model_Admin_Temporary1.Admin_String_Name = "admin1";
-    Model_Admin_Temporary1.Admin_String_Password = Model_Admin_Temporary1.Void_GenerateHash("admin1");
-    Model_Admin_Temporary1.save(function(_Object_Error){
-        if(_Object_Error){
-            throw _Object_Error;
-        }
-        console.log(Model_Admin_Temporary1.Admin_String_Name + " is created.");
-    });
-
-
-
-    var Model_Admin_Temporary2 = new Model_Admin_();
-    Model_Admin_Temporary2.Admin_Bool_Available = false;
-    Model_Admin_Temporary2.Admin_String_Email = "admin2@admin2";
-    Model_Admin_Temporary2.Admin_String_IDWorkshop = "admin2";
-    Model_Admin_Temporary2.Admin_String_Name = "admin2";
-    Model_Admin_Temporary2.Admin_String_Password = Model_Admin_Temporary2.Void_GenerateHash("admin2");
-    Model_Admin_Temporary2.save(function(_Object_Error){
-        if(_Object_Error){
-            throw _Object_Error;
-        }
-        console.log(Model_Admin_Temporary2.Admin_String_Name + " is created.");
-    });
-
-
     var Model_Car_Temporary1 = new Model_Car_();
     Model_Car_Temporary1.Car_String_Name = "car1";
     Model_Car_Temporary1.save(function(_Object_Error){
@@ -544,7 +515,23 @@ function Void_CreateDummy(){
         if(_Object_Error){
             throw _Object_Error;
         }
-        console.log(Model_Workshop_Temporary1.Workshop_String_Name + " is created.");
+        else{
+            console.log(Model_Workshop_Temporary1.Workshop_String_Name + " is created.");
+
+            var Model_Admin_Temporary1 = new Model_Admin_();
+            Model_Admin_Temporary1.Admin_Bool_Available = false;
+            Model_Admin_Temporary1.Admin_String_Email = "admin1@admin1";
+            Model_Admin_Temporary1.Admin_String_Name = "admin1";
+            Model_Admin_Temporary1.Admin_String_Password = Model_Admin_Temporary1.Void_GenerateHash("admin1");
+            Model_Admin_Temporary1.Admin_String_WorkshopID = Model_Workshop_Temporary1._id.toString();
+            Model_Admin_Temporary1.Admin_String_WorkshopName = Model_Workshop_Temporary1.Workshop_String_Name;
+            Model_Admin_Temporary1.save(function(_Object_Error){
+                if(_Object_Error){
+                    throw _Object_Error;
+                }
+                console.log(Model_Admin_Temporary1.Admin_String_Name + " is created.");
+            });
+        }
     });
 
 
@@ -557,7 +544,23 @@ function Void_CreateDummy(){
         if(_Object_Error){
             throw _Object_Error;
         }
-        console.log(Model_Workshop_Temporary2.Workshop_String_Name + " is created.");
+        else{
+            console.log(Model_Workshop_Temporary2.Workshop_String_Name + " is created.");
+
+            var Model_Admin_Temporary2 = new Model_Admin_();
+            Model_Admin_Temporary2.Admin_Bool_Available = false;
+            Model_Admin_Temporary2.Admin_String_Email = "admin2@admin2";
+            Model_Admin_Temporary2.Admin_String_Name = "admin2";
+            Model_Admin_Temporary2.Admin_String_Password = Model_Admin_Temporary2.Void_GenerateHash("admin2");
+            Model_Admin_Temporary2.Admin_String_WorkshopID = Model_Workshop_Temporary2._id.toString();
+            Model_Admin_Temporary2.Admin_String_WorkshopName = Model_Workshop_Temporary2.Workshop_String_Name;
+            Model_Admin_Temporary2.save(function(_Object_Error){
+                if(_Object_Error){
+                    throw _Object_Error;
+                }
+                console.log(Model_Admin_Temporary2.Admin_String_Name + " is created.");
+            });
+        }
     });
 }
 //|||||||||||||||||||||||||FUNCTIONS TO INITIATES DUMMY DATABASE DATA END|||||||||||||||||||||||||
@@ -573,7 +576,6 @@ function Void_CreateDummy(){
 //Assign back some object.
 Route_General.Model_Admin_ = Model_Admin_;
 Route_General.Object_SocketIO_Server = Object_SocketIO_Server;
-
 
 
 

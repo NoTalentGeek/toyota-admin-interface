@@ -22,9 +22,9 @@ angular.module("ng_app_page_login_register_admin", [])
         );
     }
 );
-$("#Admin_String_IDWorkshop_Register_Select").change(function(){
-    var Number_Index = $("#Admin_String_IDWorkshop_Register_Select").prop("selectedIndex");
-    $("#Admin_String_IDWorkshop_Register").val(Object_ResultWorkshopAdmin[Number_Index - 1]._id);
+$("#Admin_String_WorkshopName_Register").change(function(){
+    var Number_Index = $("#Admin_String_WorkshopName_Register").prop("selectedIndex");
+    $("#Admin_String_WorkshopID_Register").val(Object_ResultWorkshopAdmin[Number_Index - 1]._id);
 });
 
 

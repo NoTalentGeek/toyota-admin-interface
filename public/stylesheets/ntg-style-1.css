@@ -106,6 +106,9 @@
 .ntg-debug-dimension-width-percent-100{
     width: 100%;
 }
+.ntg-debug-dimension-width-pixel-100{
+    width: 100px;
+}
 .ntg-debug-display-none{
     display: none;
 }

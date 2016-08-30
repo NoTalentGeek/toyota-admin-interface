@@ -2,6 +2,8 @@
 var Object_Passport_LocalStrategy = require("passport-local").Strategy;
 //Load up the admin model.
 var Model_Admin_ = require("../../server/models/Model_Admin");
+var Model_Workshop_ = require("../../server/models/Model_Workshop");
+var ObjectId_ = require('mongodb').ObjectID;
 
 
 function String_LogError(_String_MethodPlusVerbIng){
@@ -195,37 +197,65 @@ module.exports = function(_Object_Passport){
                         else{
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
-                            console.log(_Object_Request.body);
                             Model_Admin_Temporary.Admin_String_Email = _String_Email;
-                            Model_Admin_Temporary.Admin_String_IDWorkshop = _Object_Request.body.Admin_String_IDWorkshop_Register;
                             Model_Admin_Temporary.Admin_String_Name = _Object_Request.body.Admin_String_Name_Register;
                             Model_Admin_Temporary.Admin_String_Password = Model_Admin_Temporary.Void_GenerateHash(_String_Password);
+                            Model_Admin_Temporary.Admin_String_WorkshopID = _Object_Request.body.Admin_String_WorkshopID_Register;
 
 
 
-                            String_LogSuccess(_String_Email, "registered");
+                            //Here is where things get messy.
+                            //Here I want to take the workshop name from the workshop id.
+                            //Why workshop id andnot directly take the workshop name?
+                            //Because the _Object_Request.body.Admin_String_WorkshopID_Register return a string.
+                            //And the value taken from the <select></select> returns a string of _id.
+                            //That is why I reverse back to find the workshop name value within the database.
+                            //Below I take the String ID.
+                            var String_WorkshopID = _Object_Request.body.Admin_String_WorkshopID_Register;
+                            var String_WorkshopName = undefined;
 
 
+                            //I am going to make the ID string back to ObjectID
+                            var ObjectId__Temporary = ObjectId_(String_WorkshopID);
 
-                            Model_Admin_Temporary.save(function(_Object_Error){
+
+                            //Accessing database is asynchronous method, then we need to wait it before we add.
+                            //    the new user into MongoDB database.
+                            //Find the workshop object in the database based on ObjectId__Temporary.
+                            Model_Workshop_.findOne({ _id: ObjectId__Temporary }, function(_Object_Error, _Model_Workshop_){
+
+                                //If the workshop mentioned is not available in the database throw an error.
+                                //However, this is not supposed to not happen at all.
                                 if(_Object_Error){
                                     throw _Object_Error;
                                 }
+                                //If the workshop object is found in the database then proceed to add the new
+                                //    admin into the database.
+                                else{
+                                    String_WorkshopName = _Model_Workshop_.Workshop_String_Name;  
+                                    Model_Admin_Temporary.Admin_String_WorkshopName = String_WorkshopName;
 
-                                return _Function_Done(null, Model_Admin_Temporary);
+
+
+                                    String_LogSuccess(_String_Email, "registered");
+
+
+
+                                    Model_Admin_Temporary.save(function(_Object_Error){
+                                        if(_Object_Error){
+                                            throw _Object_Error;
+                                        }
+
+                                        return _Function_Done(null, Model_Admin_Temporary);
+                                    });
+                                }
                             });
-
-
-
-
-
                         }
                     });
-
                 }
                 else{
                     //An admin is still logged in.
-                    String_LogErrorAnAdminLoggedIn()
+                    String_LogErrorAnAdminLoggedIn();
                     return _Function_Done(null, _Object_Request.user);
                 }
 
