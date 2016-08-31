@@ -95,10 +95,10 @@
 .ntg-debug-dimension-height-percent-80{
     height: 80%;
 }
-.ntg-debug-dimension-height-pixel-500{
+.ntg-debug-dimension-height-px-500{
     height: 500px;
 }
-.ntg-debug-dimension-height-pixel-45{
+.ntg-debug-dimension-height-px-45{
     /*This is mainly used to fix the height
         of select box in Bootstrap.*/
     height: 45px;
@@ -106,10 +106,10 @@
 .ntg-debug-dimension-width-percent-100{
     width: 100%;
 }
-.ntg-debug-dimension-width-pixel-100{
+.ntg-debug-dimension-width-px-100{
     width: 100px;
 }
-.ntg-debug-dimension-width-pixel-150{
+.ntg-debug-dimension-width-px-150{
     width: 150px;
 }
 .ntg-debug-display-none{
