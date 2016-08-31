@@ -6,7 +6,7 @@ var Object_Schema_Workshop = new Object_Schema({
 
 
     //For the workshop slot it will be filled with a JavaScript "struct"
-    //    the "struct" will be filled with Boolean_Occupied, String_TimeEnd, and
+    //    the "struct" will be filled with Boolean_Occupied, Number_Amount, String_TimeEnd, and
     //    String_TimeStart,
     Workshop_Array_Struct_SlotFriday: { default: [], type: Array },
     Workshop_Array_Struct_SlotMonday: { default: [], type: Array },
