@@ -109,6 +109,9 @@
 .ntg-debug-dimension-width-pixel-100{
     width: 100px;
 }
+.ntg-debug-dimension-width-pixel-150{
+    width: 150px;
+}
 .ntg-debug-display-none{
     display: none;
 }
@@ -184,6 +187,9 @@
 }
 .ntg-debug-padding-right-px-9{
     padding-right: 9px;
+}
+.ntg-debug-padding-top-px-17{
+    padding-top: 17px;
 }
 .ntg-debug-radius-left{
     /*!important parameter is a must for a reason.*/

@@ -1,4 +1,4 @@
-//For form animation.
+//For main form animation.
 $(function(){
 
 
@@ -29,4 +29,12 @@ $(function(){
 
 
 
+});
+
+
+
+
+//These codes below are for preventing buttons to stay focussed after click.
+$(".btn").mouseup(function(){
+    $(this).blur();
 });
