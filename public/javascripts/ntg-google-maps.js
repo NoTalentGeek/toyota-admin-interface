@@ -11,7 +11,7 @@ function Void_InitGoogleMaps_Main(){
 
 
 
-    Object_Map = new google.maps.Map(document.getElementById("ntg-div-google-maps-main"), {
+    Object_Map = new google.maps.Map(document.getElementById("ntg_div_google_maps_main"), {
         center: { lat: -6.21462, lng: 106.84513 },
         zoom: 15
     });
@@ -47,7 +47,6 @@ var Object_Marker_EditRegisterWorkshop_2;
 
 
 //Make sure to only use one marker and no more.
-//REUSE THE MARKER LUKE!!!!
 function Void_PlaceMarker_EditRegisterWorkshop_1(_Object_Location){
     if(Object_Marker_EditRegisterWorkshop_1){ //Check if the only marker object is a valid object.
         Object_Marker_EditRegisterWorkshop_1.setPosition(_Object_Location);
@@ -62,8 +61,8 @@ function Void_PlaceMarker_EditRegisterWorkshop_1(_Object_Location){
     var Number_OfficeSelectedLatitude = _Object_Location.lat();
     var Number_OfficeSelectedlongitude = _Object_Location.lng();
     console.log("Map 1 Latitude: " + Number_OfficeSelectedLatitude + " Map 1 Longitude: " + Number_OfficeSelectedlongitude);
-    var Object_TextInputLatitude = document.getElementById("Workshop_Number_Latitude_Edit");
-    var Object_TextInputLongitude = document.getElementById("Workshop_Number_Longitude_Edit");
+    var Object_TextInputLatitude = document.getElementById("workshop_number_latitude_edit");
+    var Object_TextInputLongitude = document.getElementById("workshop_number_longitude_edit");
     Object_TextInputLatitude.value = Number_OfficeSelectedLatitude;
     Object_TextInputLongitude.value = Number_OfficeSelectedlongitude;
 }
@@ -86,8 +85,8 @@ function Void_PlaceMarker_EditRegisterWorkshop_2(_Object_Location){
     var Number_OfficeSelectedLatitude = _Object_Location.lat();
     var Number_OfficeSelectedlongitude = _Object_Location.lng();
     console.log("Map 2 Latitude: " + Number_OfficeSelectedLatitude + " Map 2 Longitude: " + Number_OfficeSelectedlongitude);
-    var Object_TextInputLatitude = document.getElementById("Workshop_Number_Latitude_Register");
-    var Object_TextInputLongitude = document.getElementById("Workshop_Number_Longitude_Register");
+    var Object_TextInputLatitude = document.getElementById("workshop_number_latitude_register");
+    var Object_TextInputLongitude = document.getElementById("workshop_number_longitude_register");
     Object_TextInputLatitude.value = Number_OfficeSelectedLatitude;
     Object_TextInputLongitude.value = Number_OfficeSelectedlongitude;
 }
@@ -103,7 +102,7 @@ function Void_InitGoogleMaps_EditRegisterWorkshop(){
 
 
     //Deal with the edit workshop Google Maps.
-    Object_Map_EditRegisterWorkshop_1 = new google.maps.Map(document.getElementById("ntg-div-google-maps-edit-register-workshop-1"), {
+    Object_Map_EditRegisterWorkshop_1 = new google.maps.Map(document.getElementById("ntg_div_google_maps_edit_register_workshop_1"), {
         center: { lat: -6.21462, lng: 106.84513 },
         zoom: 15
     });
@@ -123,7 +122,7 @@ function Void_InitGoogleMaps_EditRegisterWorkshop(){
     //I did this so all .ejs files for each forms stay in the
     //    same structures.
     $(document).ready(function(){
-        $("#form-right").removeClass("ntg-debug-display-none");
+        $("#form_right").removeClass("ntg-debug-display-none");
         $(".ntg-debug-div-content-setting-1").addClass("ntg-debug-overflow-y-hidden");
     });
 
@@ -132,7 +131,7 @@ function Void_InitGoogleMaps_EditRegisterWorkshop(){
 
 
     //Deal with the register workshop Google Maps.
-    Object_Map_EditRegisterWorkshop_2 = new google.maps.Map(document.getElementById("ntg-div-google-maps-edit-register-workshop-2"), {
+    Object_Map_EditRegisterWorkshop_2 = new google.maps.Map(document.getElementById("ntg_div_google_maps_edit_register_workshop_2"), {
         center: { lat: -6.21462, lng: 106.84513 },
         zoom: 15
     });
@@ -142,8 +141,8 @@ function Void_InitGoogleMaps_EditRegisterWorkshop(){
     //I need to load the Google Maps first then hide it when the map is finished loading.
     //Otherwise the map will not load at all due to display: none;.
     google.maps.event.addListenerOnce(Object_Map_EditRegisterWorkshop_2, "idle", function(){
-        $("#form-right").hide();
-        $("#ntg-div-dim-screen").hide();
+        $("#form_right").hide();
+        $("#ntg_div_dim_screen").hide();
         $(".ntg-debug-overflow-y-hidden").removeClass("ntg-debug-overflow-y-hidden");
     });
 

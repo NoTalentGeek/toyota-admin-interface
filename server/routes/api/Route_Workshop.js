@@ -45,9 +45,9 @@ Object_Router.put("/:model_workshop_id", function(_Object_Request, _Object_Respo
             _Object_Respond.send(_Object_Error);
         } 
 
-        _Model_Workshop.Workshop_Number_Latitude = _Object_Request.body.Workshop_Number_Latitude_Edit;
-        _Model_Workshop.Workshop_Number_Longitude = _Object_Request.body.Workshop_Number_Longitude_Edit;
-        _Model_Workshop.Workshop_String_Name = _Object_Request.body.Workshop_String_Name_Edit;
+        _Model_Workshop.Workshop_Number_Latitude = _Object_Request.body.workshop_number_latitude_edit;
+        _Model_Workshop.Workshop_Number_Longitude = _Object_Request.body.workshop_number_longitude_edit;
+        _Model_Workshop.Workshop_String_Name = _Object_Request.body.workshop_string_name_edit;
 
         _Model_Workshop.save(function(_Object_Error){
             if(_Object_Error){

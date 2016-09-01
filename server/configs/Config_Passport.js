@@ -77,8 +77,8 @@ module.exports = function(_Object_Passport){
     _Object_Passport.use("local-login", new Object_Passport_LocalStrategy(
         {
             passReqToCallback: true,
-            passwordField: "Admin_String_Password_LogIn",
-            usernameField: "Admin_String_Email_LogIn"
+            passwordField: "admin_string_password_login",
+            usernameField: "admin_string_email_login"
         },
         function(
             _Object_Request,
@@ -171,8 +171,8 @@ module.exports = function(_Object_Passport){
     _Object_Passport.use("local-signup", new Object_Passport_LocalStrategy(
         {
             passReqToCallback: true,
-            passwordField: "Admin_String_Password_Register",
-            usernameField: "Admin_String_Email_Register"
+            passwordField: "admin_string_password_register",
+            usernameField: "admin_string_email_register"
         },
         function(
             _Object_Request,
@@ -206,20 +206,20 @@ module.exports = function(_Object_Passport){
                             //Create a new admin.
                             var Model_Admin_Temporary = new Model_Admin_();
                             Model_Admin_Temporary.Admin_String_Email = _String_Email;
-                            Model_Admin_Temporary.Admin_String_Name = _Object_Request.body.Admin_String_Name_Register;
+                            Model_Admin_Temporary.Admin_String_Name = _Object_Request.body.admin_string_name_register;
                             Model_Admin_Temporary.Admin_String_Password = Model_Admin_Temporary.Void_GenerateHash(_String_Password);
-                            Model_Admin_Temporary.Admin_String_WorkshopID = _Object_Request.body.Admin_String_WorkshopID_Register;
+                            Model_Admin_Temporary.Admin_String_WorkshopID = _Object_Request.body.admin_string_workshopid_register;
 
 
 
                             //Here is where things get messy.
                             //Here I want to take the workshop name from the workshop id.
                             //Why workshop id andnot directly take the workshop name?
-                            //Because the _Object_Request.body.Admin_String_WorkshopID_Register return a String.
+                            //Because the _Object_Request.body.admin_string_workshopid_register return a String.
                             //And the value taken from the <select></select> returns a String of _id.
                             //That is why I reverse back to find the workshop name value within the database.
                             //Below I take the String ID.
-                            var String_WorkshopID = _Object_Request.body.Admin_String_WorkshopID_Register;
+                            var String_WorkshopID = _Object_Request.body.admin_string_workshopid_register;
                             var String_WorkshopName = undefined;
 
 

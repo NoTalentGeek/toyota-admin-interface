@@ -220,7 +220,7 @@ Object_Router.post(String_RegisterCar,
     ){
         var Model_Car_ = require("../models/Model_Car");
         if (_Object_Request.isAuthenticated() == true){
-            Model_Car_.findOne({"Car_String_Name": _Object_Request.param("Car_String_Name_Register") }, function(_Object_Error, _Model_Car){
+            Model_Car_.findOne({"Car_String_Name": _Object_Request.param("car_string_name_register") }, function(_Object_Error, _Model_Car){
                 //If error.
                 if(_Object_Error){
                     String_LogError1("car");
@@ -232,7 +232,7 @@ Object_Router.post(String_RegisterCar,
                     _Object_Respond.redirect(String_PageEditRegisterCar);
                 }
                 //Check String validity, whether the String starts with white spaces and is null or undefined.
-                if(!_Object_Request.param("Car_String_Name_Register")){
+                if(!_Object_Request.param("car_string_name_register")){
                     String_LogValidityString();
                     _Object_Respond.redirect(String_PageEditRegisterCar);
                 }
@@ -244,7 +244,7 @@ Object_Router.post(String_RegisterCar,
 
                     //Inputting the model.
                     var Model_Car_Temp = new Model_Car_();
-                    Model_Car_Temp.Car_String_Name = _Object_Request.param("Car_String_Name_Register");
+                    Model_Car_Temp.Car_String_Name = _Object_Request.param("car_string_name_register");
 
 
 
@@ -256,7 +256,7 @@ Object_Router.post(String_RegisterCar,
                             throw _Object_Error;
                         }
                         else{
-                            String_LogSuccess(_Object_Request.param("Car_String_Name_Register"), "car");
+                            String_LogSuccess(_Object_Request.param("car_string_name_register"), "car");
                             _Object_Respond.redirect(String_PageEditRegisterCar);
                         }
                     });
@@ -290,7 +290,7 @@ Object_Router.post(String_RegisterUser,
     ){
         var Model_User_ = require("../models/Model_User");
         if (_Object_Request.isAuthenticated() == true){
-            Model_User_.findOne({"User_String_Email": _Object_Request.param("User_String_Email_Register") }, function(_Object_Error, _Model_User){
+            Model_User_.findOne({"User_String_Email": _Object_Request.param("user_string_email_register") }, function(_Object_Error, _Model_User){
                 //If error.
                 if(_Object_Error){
                     String_LogError1("user");
@@ -310,9 +310,9 @@ Object_Router.post(String_RegisterUser,
 
                     //Inputting the model.
                     var Model_User_Temp = new Model_User_();
-                    Model_User_Temp.User_String_Email = _Object_Request.param("User_String_Email_Register");
-                    Model_User_Temp.User_String_Name = _Object_Request.param("User_String_Name_Register");
-                    Model_User_Temp.User_String_Password = Model_User_Temp.Void_GenerateHash(_Object_Request.param("User_String_Password_Register"));
+                    Model_User_Temp.User_String_Email = _Object_Request.param("user_string_email_register");
+                    Model_User_Temp.User_String_Name = _Object_Request.param("user_string_name_register");
+                    Model_User_Temp.User_String_Password = Model_User_Temp.Void_GenerateHash(_Object_Request.param("user_string_password_register"));
 
 
 
@@ -324,7 +324,7 @@ Object_Router.post(String_RegisterUser,
                             throw _Object_Error;
                         }
                         else{
-                            String_LogSuccess(_Object_Request.param("User_String_Email_Register"), "user");
+                            String_LogSuccess(_Object_Request.param("user_string_email_register"), "user");
                             _Object_Respond.redirect(String_PageEditRegisterUser);
                         }
                     });
@@ -358,7 +358,7 @@ Object_Router.post("/register_workshop",
     ){
         var Model_Workshop_ = require("../models/Model_Workshop");
         if (_Object_Request.isAuthenticated() == true){
-            Model_Workshop_.findOne({"Workshop_String_Name": _Object_Request.param("Workshop_String_Name_Register") }, function(_Object_Error, _Model_Workshop){
+            Model_Workshop_.findOne({"Workshop_String_Name": _Object_Request.param("workshop_string_name_register") }, function(_Object_Error, _Model_Workshop){
                 //If error.
                 if(_Object_Error){
                     String_LogError1("workshop");
@@ -404,9 +404,9 @@ Object_Router.post("/register_workshop",
                     Model_Workshop_Temp.Workshop_Array_String_SlotThursday  = Array_String_SlotThursday;
                     Model_Workshop_Temp.Workshop_Array_String_SlotTuesday   = Array_String_SlotTuesday;
                     Model_Workshop_Temp.Workshop_Array_String_SlotWednesday = Array_String_SlotWednesday;
-                    Model_Workshop_Temp.Workshop_Number_Latitude            = _Object_Request.param("Workshop_Number_Latitude_Register");
-                    Model_Workshop_Temp.Workshop_Number_Longitude           = _Object_Request.param("Workshop_Number_Longitude_Register");
-                    Model_Workshop_Temp.Workshop_String_Name                = _Object_Request.param("Workshop_String_Name_Register");
+                    Model_Workshop_Temp.Workshop_Number_Latitude            = _Object_Request.param("workshop_number_latitude_register");
+                    Model_Workshop_Temp.Workshop_Number_Longitude           = _Object_Request.param("workshop_number_longitude_register");
+                    Model_Workshop_Temp.Workshop_String_Name                = _Object_Request.param("workshop_string_name_register");
 
 
 
@@ -418,7 +418,7 @@ Object_Router.post("/register_workshop",
                             throw _Object_Error;
                         }
                         else{
-                            String_LogSuccess(_Object_Request.param("Workshop_String_Name_Register"), "workshop");
+                            String_LogSuccess(_Object_Request.param("workshop_string_name_register"), "workshop");
                             _Object_Respond.redirect(String_PageEditRegisterWorkshop);
                         }
                     });
@@ -439,12 +439,12 @@ function Array_String_CheckHTMLComponentForSlot(
     _Object_Request,
     _String_Day
 ){
-    var String_IndexInputSlotAmount     = "ntg-div-workshop-slot-" + _String_Day + "-register-input-slot-amount-" + _Number_Index;
-    var String_IndexInputTimeEnd        = "ntg-div-workshop-slot-" + _String_Day + "-register-input-time-end-" + _Number_Index;
-    var String_IndexInputTimeStart      = "ntg-div-workshop-slot-" + _String_Day + "-register-input-time-start-" + _Number_Index;
-    var String_IndexMain                = "ntg-div-workshop-slot-" + _String_Day + "-register-" + _Number_Index;
+    var String_IndexInputSlotAmount     = "ntg_div_workshop_slot_" + _String_Day + "_register_input_slot_amount_" + _Number_Index;
+    var String_IndexInputTimeEnd        = "ntg_div_workshop_slot_" + _String_Day + "_register_input_time_end_" + _Number_Index;
+    var String_IndexInputTimeStart      = "ntg_div_workshop_slot_" + _String_Day + "_register_input_time_start_" + _Number_Index;
+    var String_IndexMain                = "ntg_div_workshop_slot_" + _String_Day + "_register_" + _Number_Index;
 
-console.log(_Object_Request.body.ntg-div-workshop-slot-monday-edit-input-time-start-1;
+console.log(_Object_Request.param(String_IndexInputSlotAmount));
 console.log(_Object_Request.param(String_IndexMain));
 
     //Check if the first HTML component is null or not.

@@ -34,7 +34,7 @@ function Void_Edit_And_Remove(
         //    according to the selected thing id.
         //The result from String_ValueFromSelect is "String:id_here".
         //Hence we need to remove the "String:".
-        $("#form-left").attr("action", _String_URLAPI + String_ValueFromSelect.split("String:").pop());
+        $("#form_left").attr("action", _String_URLAPI + String_ValueFromSelect.split("String:").pop());
 
 
 
@@ -59,13 +59,13 @@ function Void_Edit_And_Remove(
             //Just spam every possible value here.
             data: ({
 
-                "Car_String_Name_Edit": $("#Car_String_Name_Edit").val(),
-                "User_String_Email_Edit": $("#User_String_Email_Edit").val(),
-                "User_String_Name_Edit": $("#User_String_Name_Edit").val(),
-                "User_String_Password_Edit": $("#User_String_Password_Edit").val(),
-                "Workshop_Number_Latitude_Edit": $("#Workshop_Number_Latitude_Edit").val(),
-                "Workshop_Number_Longitude_Edit": $("#Workshop_Number_Longitude_Edit").val(),
-                "Workshop_String_Name_Edit": $("#Workshop_String_Name_Edit").val()
+                "car_string_name_edit": $("#car_string_name_edit").val(),
+                "user_string_email_edit": $("#user_string_email_edit").val(),
+                "user_string_name_edit": $("#user_string_name_edit").val(),
+                "user_string_password_edit": $("#user_string_password_edit").val(),
+                "workshop_number_latitude_edit": $("#workshop_number_latitude_edit").val(),
+                "workshop_number_longitude_edit": $("#workshop_number_longitude_edit").val(),
+                "workshop_string_name_edit": $("#workshop_string_name_edit").val()
 
             }),
             dataType: "JSON", //This line is important/
@@ -125,17 +125,17 @@ function Void_Edit_And_Remove(
 
 
 
-        $("#Car_String_Name_Edit").prop("value", "");
-        $("#ntg-select-car :nth-child(0)").prop("selected", true);
-        $("#ntg-select-user :nth-child(0)").prop("selected", true);
-        $("#ntg-select-workshop :nth-child(0)").prop("selected", true);
-        $("#User_String_Email_Edit").prop("value", "");
-        $("#User_String_Name_Edit").prop("value", "");
-        $("#User_String_Password_Edit").prop("value", "");
-        $("#User_String_Password_Confirm_Edit").prop("value", "");
-        $("#Workshop_Number_Latitude_Edit").prop("value", "");
-        $("#Workshop_Number_Longitude_Edit").prop("value", "");
-        $("#Workshop_String_Name_Edit").prop("value", "");
+        $("#car_string_name_edit").prop("value", "");
+        $("#ntg_select_car:nth_child(0)").prop("selected", true);
+        $("#ntg_select_user:nth_child(0)").prop("selected", true);
+        $("#ntg_select_workshop:nth_child(0)").prop("selected", true);
+        $("#user_string_email_edit").prop("value", "");
+        $("#user_string_name_edit").prop("value", "");
+        $("#user_string_password_edit").prop("value", "");
+        $("#user_string_password_confirm_edit").prop("value", "");
+        $("#workshop_number_latitude_edit").prop("value", "");
+        $("#workshop_number_longitude_edit").prop("value", "");
+        $("#workshop_string_name_edit").prop("value", "");
 
 
 
@@ -153,13 +153,13 @@ function Void_Edit_And_Remove(
 
 
 
-        $("#Car_String_Name_Register").prop("value", "");
-        $("#User_String_Email_Register").prop("value", "");
-        $("#User_String_Name_Register").prop("value", "");
-        $("#User_String_Password_Register").prop("value", "");
-        $("#Workshop_Number_Latitude_Register").prop("value", "");
-        $("#Workshop_Number_Longitude_Register").prop("value", "");
-        $("#Workshop_String_Name_Register").prop("value", "");
+        $("#car_string_name_register").prop("value", "");
+        $("#user_string_email_register").prop("value", "");
+        $("#user_string_name_register").prop("value", "");
+        $("#user_string_password_register").prop("value", "");
+        $("#workshop_number_latitude_register").prop("value", "");
+        $("#workshop_number_longitude_register").prop("value", "");
+        $("#workshop_string_name_register").prop("value", "");
 
 
 
@@ -179,29 +179,29 @@ function Void_Edit_And_Remove(
 
 //Make the control for car, user, and workshop.
 Void_Edit_And_Remove(
-    "#ntg-button-edit-car",
-    "#ntg-button-remove-car",
-    "#ntg-button-reset-car",
-    "#ntg-button-reset-car-register",
-    "#ntg-select-car",
+    "#ntg_button_edit_car",
+    "#ntg_button_remove_car",
+    "#ntg_button_reset_car",
+    "#ntg_button_reset_car_register",
+    "#ntg_select_car",
     "/api/cars/",
     "/page_edit_register_car"
 );
 Void_Edit_And_Remove(
-    "#ntg-button-edit-user",
-    "#ntg-button-remove-user",
-    "#ntg-button-reset-user",
-    "#ntg-button-reset-user-register",
-    "#ntg-select-user",
+    "#ntg_button_edit_user",
+    "#ntg_button_remove_user",
+    "#ntg_button_reset_user",
+    "#ntg_button_reset_user_register",
+    "#ntg_select_user",
     "/api/users/",
     "/page_edit_register_user"
 );
 Void_Edit_And_Remove(
-    "#ntg-button-edit-workshop",
-    "#ntg-button-remove-workshop",
-    "#ntg-button-reset-workshop",
-    "#ntg-button-reset-workshop-register",
-    "#ntg-select-workshop",
+    "#ntg_button_edit_workshop",
+    "#ntg_button_remove_workshop",
+    "#ntg_button_reset_workshop",
+    "#ntg_button_reset_workshop_register",
+    "#ntg_select_workshop",
     "/api/workshops/",
     "/page_edit_register_workshop"
 );

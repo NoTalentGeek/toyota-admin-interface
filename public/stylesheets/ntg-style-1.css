@@ -1,4 +1,4 @@
-#ntg-div-chat-tool{
+#ntg_div_chat_tool{
     /*The default text input for Bootstrap is
         32px.*/
     height: 32px;
@@ -6,12 +6,12 @@
     margin-right: 3px;
     margin-top: 3px;
 }
-#ntg-div-chat-box{
+#ntg_div_chat_box{
     /*The 40px was from 32px text input
         plus additional manual fix.*/
     height: calc(100% - 43px);
 }
-#ntg-div-dim-screen{
+#ntg_div_dim_screen{
     background: #222034;
     height: 100%;
     left:0;
@@ -22,16 +22,16 @@
     width: 100%;
     z-index: 999;
 }
-#ntg-div-google-maps-main > div{
+#ntg_div_google_maps_main > div{
     /*This is the hacky way to get Google Maps
         with rounded corners.*/
     border-radius: 10px;
 }
-#ntg-div-metis-menu{
+#ntg_div_metis_menu{
     /*The pxs here are manual fix.*/
     padding-right: 3px;
 }
-#ntg-div-title-align-center{
+#ntg_div_title_align_center{
     padding: 15px;
     text-align: center;
     width: 100%;

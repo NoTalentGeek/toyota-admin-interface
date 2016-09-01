@@ -23,7 +23,7 @@
 
     <!--
     <div
-        id="ntg-div-dim-screen"
+        id="ntg_div_dim_screen"
     >
     </div>
     -->
@@ -116,7 +116,7 @@
                                     class="
                                         active
                                     "
-                                    id="form-left-link"
+                                    id="form_left_link"
                                 >
                                     Edit.
                                 </a>
@@ -133,7 +133,7 @@
                             >
                                 <a
                                     href="#"
-                                    id="form-right-link"
+                                    id="form_right_link"
                                 >
                                     Register.
                                 </a>
@@ -199,7 +199,7 @@
                                     class="
                                         active
                                     "
-                                    id="form-left"
+                                    id="form_left"
                                     method="put"
                                     role="form"
                                 >
@@ -218,7 +218,7 @@
                                                 form-control
                                                 ntg-debug-dimension-height-px-45
                                             "
-                                            id="ntg-select-car"
+                                            id="ntg_select_car"
                                             ng-model="ng_model_select_car"
                                             ng-options="
                                                 item._id as item.Car_String_Name
@@ -243,8 +243,8 @@
                                             class="
                                                 form-control
                                             "
-                                            id="Car_String_Name_Edit"
-                                            name="Car_String_Name_Edit"
+                                            id="car_string_name_edit"
+                                            name="car_string_name_edit"
                                             placeholder="Car Name."
                                             type="text"
                                         >
@@ -252,9 +252,9 @@
 
 
                                     <%
-                                        var ntg_btn_edit="ntg-button-edit-car";
-                                        var ntg_btn_remove="ntg-button-remove-car";
-                                        var ntg_btn_reset="ntg-button-reset-car";
+                                        var ntg_btn_edit="ntg_button_edit_car";
+                                        var ntg_btn_remove="ntg_button_remove_car";
+                                        var ntg_btn_reset="ntg_button_reset_car";
                                     %>
                                     <%- include /partials/import_button_for_register_form %>
 
@@ -283,7 +283,7 @@
                                         ntg-debug-display-none
                                     "
                                     action="/register_car"
-                                    id="form-right"
+                                    id="form_right"
                                     method="post"
                                     role="form"
                                 >
@@ -301,8 +301,8 @@
                                             class="
                                                 form-control
                                             "
-                                            id="Car_String_Name_Register"
-                                            name="Car_String_Name_Register"
+                                            id="car_string_name_register"
+                                            name="car_string_name_register"
                                             placeholder="Car Name."
                                             type="text"
                                         >
@@ -347,7 +347,7 @@
                                                     override-btn-reset
                                                     form-control
                                                 "
-                                                id="ntg-button-reset-car-register"
+                                                id="ntg_button_reset_car_register"
                                                 type="button"
                                                 value="Reset."
                                             >

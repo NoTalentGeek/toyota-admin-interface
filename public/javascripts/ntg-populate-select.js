@@ -22,9 +22,9 @@ angular.module("ng_app_page_login_register_admin", [])
         );
     }
 );
-$("#Admin_String_WorkshopName_Register").change(function(){
-    var Number_Index = $("#Admin_String_WorkshopName_Register").prop("selectedIndex");
-    $("#Admin_String_WorkshopID_Register").val(Object_ResultWorkshopAdmin[Number_Index - 1]._id);
+$("#admin_string_workshopname_register").change(function(){
+    var Number_Index = $("#admin_string_workshopname_register").prop("selectedIndex");
+    $("#admin_string_workshopid_register").val(Object_ResultWorkshopAdmin[Number_Index - 1]._id);
 });
 
 
@@ -55,9 +55,9 @@ angular.module("ng_app_page_edit_register_car", [])
         );
     }
 );
-$("#ntg-select-car").change(function(){
-    var Number_Index = $("#ntg-select-car").prop("selectedIndex");
-    $("#Car_String_Name_Edit").val(Object_ResultCar[Number_Index - 1].Car_String_Name);
+$("#ntg_select_car").change(function(){
+    var Number_Index = $("#ntg_select_car").prop("selectedIndex");
+    $("#car_string_name_edit").val(Object_ResultCar[Number_Index - 1].Car_String_Name);
 });
 
 
@@ -87,10 +87,10 @@ angular.module("ng_app_page_edit_register_user", [])
         );
     }
 );
-$("#ntg-select-user").change(function(){
-    var Number_Index = $("#ntg-select-user").prop("selectedIndex");
-    $("#User_String_Email_Edit").val(Object_ResultUser[Number_Index - 1].User_String_Email);
-    $("#User_String_Name_Edit").val(Object_ResultUser[Number_Index - 1].User_String_Name);
+$("#ntg_select_user").change(function(){
+    var Number_Index = $("#ntg_select_user").prop("selectedIndex");
+    $("#user_string_email_edit").val(Object_ResultUser[Number_Index - 1].User_String_Email);
+    $("#user_string_name_edit").val(Object_ResultUser[Number_Index - 1].User_String_Name);
 });
 
 
@@ -123,11 +123,11 @@ angular.module("ng_app_page_edit_register_workshop", [])
 );
 //Specifically for workshop when there is change in the selector box
 //    also move the marker into the currently seelcted workshop.
-$("#ntg-select-workshop").change(function(){
-    var Number_Index = $("#ntg-select-workshop").prop("selectedIndex");
-    $("#Workshop_Number_Latitude_Edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude);
-    $("#Workshop_Number_Longitude_Edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude);
-    $("#Workshop_String_Name_Edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_String_Name);
+$("#ntg_select_workshop").change(function(){
+    var Number_Index = $("#ntg_select_workshop").prop("selectedIndex");
+    $("#workshop_number_latitude_edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude);
+    $("#workshop_number_longitude_edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude);
+    $("#workshop_string_name_edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_String_Name);
 
     if(Object_Marker_EditRegisterWorkshop_1 === undefined){
         Object_Marker_EditRegisterWorkshop_1 = new google.maps.Marker({

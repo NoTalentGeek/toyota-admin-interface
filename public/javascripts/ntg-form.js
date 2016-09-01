@@ -7,10 +7,10 @@ $(function(){
 
 
 
-    $("#form-left-link").click(function(_Object_Event){
-        $("#form-left").delay(100).fadeIn(100);
-        $("#form-right").fadeOut(100);
-        $("#form-right-link").removeClass("active");
+    $("#form_left_link").click(function(_Object_Event){
+        $("#form_left").delay(100).fadeIn(100);
+        $("#form_right").fadeOut(100);
+        $("#form_right_link").removeClass("active");
         $(this).addClass("active");
         _Object_Event.preventDefault();
     });
@@ -19,10 +19,10 @@ $(function(){
 
 
 
-    $("#form-right-link").click(function(_Object_Event){
-        $("#form-right").delay(100).fadeIn(100);
-        $("#form-left").fadeOut(100);
-        $("#form-left-link").removeClass("active");
+    $("#form_right_link").click(function(_Object_Event){
+        $("#form_right").delay(100).fadeIn(100);
+        $("#form_left").fadeOut(100);
+        $("#form_left_link").removeClass("active");
         $(this).addClass("active");
         _Object_Event.preventDefault();
     });
@@ -45,11 +45,11 @@ $(".btn").mouseup(function(){
 
 
 
-//These codes below are for removing the class of ntg-debug-padding-top-px-17
-//    for id of ntg-div-workshop-slot-monday-1 because there is additional
-//    bottom padding from a component above ntg-div-workshop-slot-monday-1.
-$("#ntg-div-workshop-slot-monday-edit-1").removeClass("ntg-debug-padding-top-px-17");
-$("#ntg-div-workshop-slot-monday-register-1").removeClass("ntg-debug-padding-top-px-17");
+//These codes below are for removing the class of ntg_debug_padding_top_px_17
+//    for id of ntg_div_workshop_slot_monday_1 because there is additional
+//    bottom padding from a component above ntg_div_workshop_slot_monday_1.
+$("#ntg_div_workshop_slot_monday_edit_1").removeClass("ntg_debug_padding_top_px_17");
+$("#ntg_div_workshop_slot_monday_register_1").removeClass("ntg_debug_padding_top_px_17");
 
 
 
@@ -81,12 +81,12 @@ function String_Slot(
     _String_Day,
     _String_Edit_Or_Register
 ){
-    var String_IndexButtonAdd           = "ntg-div-workshop-slot-" + _String_Day + "-" + _String_Edit_Or_Register + "-button-add-" + _Number_Index;
-    var String_IndexButtonDelete        = "ntg-div-workshop-slot-" + _String_Day + "-" + _String_Edit_Or_Register + "-button-delete-" + _Number_Index;
-    var String_IndexInputSlotAmount     = "ntg-div-workshop-slot-" + _String_Day + "-" + _String_Edit_Or_Register + "-input-slot-amount-" + _Number_Index;
-    var String_IndexInputTimeEnd        = "ntg-div-workshop-slot-" + _String_Day + "-" + _String_Edit_Or_Register + "-input-time-end-" + _Number_Index;
-    var String_IndexInputTimeStart      = "ntg-div-workshop-slot-" + _String_Day + "-" + _String_Edit_Or_Register + "-input-time-start-" + _Number_Index;
-    var String_IndexMain                = "ntg-div-workshop-slot-" + _String_Day + "-" + _String_Edit_Or_Register + "-" + _Number_Index;
+    var String_IndexButtonAdd           = "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register + "_button_add_" + _Number_Index;
+    var String_IndexButtonDelete        = "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register + "_button_delete_" + _Number_Index;
+    var String_IndexInputSlotAmount     = "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register + "_input_slot_amount_" + _Number_Index;
+    var String_IndexInputTimeEnd        = "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register + "_input_time_end_" + _Number_Index;
+    var String_IndexInputTimeStart      = "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register + "_input_time_start_" + _Number_Index;
+    var String_IndexMain                = "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register + "_" + _Number_Index;
     
 
 
@@ -99,7 +99,7 @@ function String_Slot(
 
 
 
-    return "<div class=' ntg-debug-padding-top-px-17 row ' id=" + String_IndexMain + " > <div class=' col-xs-6 ' > <div class=' input-group ' > <span class=' input-group-addon ntg-debug-dimension-width-px-150 ' > " + String_Day + ". </span> <input type='number' class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputTimeStart + " placeholder='HHMM' > <span class=' input-group-addon ' > - </span> <input type='number' class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputTimeEnd + " placeholder='HHMM' > </div> </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <input type='number' class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputSlotAmount + " placeholder='Slot Amount.' > </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <button class=' btn btn-default btn-success form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexButtonAdd + " type='button' > Add. </button> </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <button class=' btn btn-danger btn-default form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexButtonDelete + " type='button' > Delete. </button> </div> </div>";
+    return "<div class=' ntg_debug_padding_top_px_17 row ' id=" + String_IndexMain + " > <div class=' col_xs_6 ' > <div class=' input_group ' > <span class=' input_group_addon ntg_debug_dimension_width_px_150 ' > " + String_Day + ". </span> <input type='number' class=' form_control ntg_debug_dimension_height_px_45 ' id=" + String_IndexInputTimeStart + " placeholder='HHMM' > <span class=' input_group_addon ' > - </span> <input type='number' class=' form_control ntg_debug_dimension_height_px_45 ' id=" + String_IndexInputTimeEnd + " placeholder='HHMM' > </div> </div> <div class=' col_xs_2 ntg_debug_padding_left_px_0 ' > <input type='number' class=' form_control ntg_debug_dimension_height_px_45 ' id=" + String_IndexInputSlotAmount + " placeholder='Slot Amount.' > </div> <div class=' col_xs_2 ntg_debug_padding_left_px_0 ' > <button class=' btn btn_default btn_success form_control ntg_debug_dimension_height_px_45 ' id=" + String_IndexButtonAdd + " type='button' > Add. </button> </div> <div class=' col_xs_2 ntg_debug_padding_left_px_0 ' > <button class=' btn btn_danger btn_default form_control ntg_debug_dimension_height_px_45 ' id=" + String_IndexButtonDelete + " type='button' > Delete. </button> </div> </div>";
 };
 
 
@@ -127,11 +127,11 @@ function Void_ControlSlot(
 
             var Number_IndexComponent = Number_I + 1;
             //Controller for add button.
-            $("#ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-button-add-" + Number_IndexComponent).click(function(){
+            $("#ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_add_" + Number_IndexComponent).click(function(){
                 //Set the value to be increased by 1.
                 _Number_SlotVariable ++;
                 //Then append the element there.
-                $("#ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register).append(String_Slot(
+                $("#ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register).append(String_Slot(
                     _Number_SlotVariable,
                     _String_Day,
                     _String_Edit_Or_Register
@@ -144,7 +144,7 @@ function Void_ControlSlot(
             //Controller for delete button.
             //Make sure when the Number_IndexComponent is 1 delete button is to reset the form.
             if(Number_IndexComponent == 1){
-                $("#ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-button-delete-" + Number_IndexComponent).click(function(){
+                $("#ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_delete_" + Number_IndexComponent).click(function(){
                     var Input_SlotAmount1   = $($($($($(this).parent()).parent()).children()[1]).children()[0])
                     var Input_TimeEnd1      = $($($($($($(this).parent()).parent()).children()[0]).children()[0]).children()[1])
                     var Input_TimeStart1    = $($($($($($(this).parent()).parent()).children()[0]).children()[0]).children()[3])
@@ -154,8 +154,8 @@ function Void_ControlSlot(
                 });
             }
             else if(Number_IndexComponent != 1){
-                //$("#ntg-div-workshop-slot-tuesday-edit-button-delete-" + Number_IndexComponent).click(function(){
-                $("#ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-button-delete-" + Number_IndexComponent).click(function(){
+                //$("#ntg_div_workshop_slot_tuesday_edit_button_delete_" + Number_IndexComponent).click(function(){
+                $("#ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_delete_" + Number_IndexComponent).click(function(){
 
 
 
@@ -177,7 +177,7 @@ function Void_ControlSlot(
                     //I need to iterate through all remainding HTML component at set the ID back
                     //    accordingly.
                     //Create the loop first!
-                    var Array_Object_Child = $("#ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register).children();
+                    var Array_Object_Child = $("#ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register).children();
                     var Number_AmountChild = Array_Object_Child.length;
                     for(var Number_J = 0; Number_J < Number_AmountChild; Number_J ++){
 
@@ -197,12 +197,12 @@ function Void_ControlSlot(
                         var Input_SlotAmount1Non    = $($($(Array_Object_Child[Number_J]).children()[1]).children()[0]);
                         var Input_TimeEnd1Non       = $($($($(Array_Object_Child[Number_J]).children()[0]).children()[0]).children()[3]);
                         var Input_TimeStart1Non     = $($($($(Array_Object_Child[Number_J]).children()[0]).children()[0]).children()[1]);
-                        Button_Add1Non.attr         ("id", "ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-button-add-"          + Number_IndexComponentButton);
-                        Button_Remove1Non.attr      ("id", "ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-button-delete-"       + Number_IndexComponentButton);
-                        Div_Main1Non.attr           ("id", "ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-"                     + Number_IndexComponentButton);
-                        Input_SlotAmount1Non.attr   ("id", "ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-input-slot-amount-"   + Number_IndexComponentButton);
-                        Input_TimeEnd1Non.attr      ("id", "ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-input-time-end-"      + Number_IndexComponentButton);
-                        Input_TimeStart1Non.attr    ("id", "ntg-div-workshop-slot-" + _String_Day + "-"+ _String_Edit_Or_Register +"-input-time-start-"    + Number_IndexComponentButton);
+                        Button_Add1Non.attr         ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_add_"          + Number_IndexComponentButton);
+                        Button_Remove1Non.attr      ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_delete_"       + Number_IndexComponentButton);
+                        Div_Main1Non.attr           ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_"                     + Number_IndexComponentButton);
+                        Input_SlotAmount1Non.attr   ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_slot_amount_"   + Number_IndexComponentButton);
+                        Input_TimeEnd1Non.attr      ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_time_end_"      + Number_IndexComponentButton);
+                        Input_TimeStart1Non.attr    ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_time_start_"    + Number_IndexComponentButton);
                     
 
 

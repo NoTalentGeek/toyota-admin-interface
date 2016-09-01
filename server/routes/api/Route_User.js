@@ -45,9 +45,9 @@ Object_Router.put("/:model_user_id", function(_Object_Request, _Object_Respond){
             _Object_Respond.send(_Object_Error);
         } 
 
-        _Model_User.User_String_Email = _Object_Request.body.User_String_Email_Edit;
-        _Model_User.User_String_Name = _Object_Request.body.User_String_Name_Edit;
-        _Model_User.User_String_Password = _Model_User.Void_GenerateHash(_Object_Request.body.User_String_Password_Edit);
+        _Model_User.User_String_Email = _Object_Request.body.user_string_email_edit;
+        _Model_User.User_String_Name = _Object_Request.body.user_string_name_edit;
+        _Model_User.User_String_Password = _Model_User.Void_GenerateHash(_Object_Request.body.user_string_password_edit);
  
         _Model_User.save(function(_Object_Error){
             if(_Object_Error){

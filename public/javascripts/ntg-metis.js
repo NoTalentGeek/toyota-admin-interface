@@ -1,2 +1,2 @@
 //Metis menu activator.
-$("#ntg-metis-menu").metisMenu({ toggle: false });
+$("#ntg_metis_menu").metisMenu({ toggle: false });
