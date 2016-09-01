@@ -375,12 +375,38 @@ Object_Router.post("/register_workshop",
 
 
 
+                    //Initialize empty array.
+                    var Array_String_SlotFriday     = [];
+                    var Array_String_SlotMonday     = [];
+                    var Array_String_SlotSaturday   = [];
+                    var Array_String_SlotSunday     = [];
+                    var Array_String_SlotThursday   = [];
+                    var Array_String_SlotTuesday    = [];
+                    var Array_String_SlotWednesday  = [];
+                    Array_String_SlotFriday         = Array_String_CheckHTMLComponentForSlot(Array_String_SlotFriday, 1, _Object_Request, "friday");
+                    Array_String_SlotMonday         = Array_String_CheckHTMLComponentForSlot(Array_String_SlotMonday, 1, _Object_Request, "monday");
+                    Array_String_SlotSaturday       = Array_String_CheckHTMLComponentForSlot(Array_String_SlotSaturday, 1, _Object_Request, "saturday");
+                    Array_String_SlotSunday         = Array_String_CheckHTMLComponentForSlot(Array_String_SlotSunday, 1, _Object_Request, "sunday");
+                    Array_String_SlotThursday       = Array_String_CheckHTMLComponentForSlot(Array_String_SlotThursday, 1, _Object_Request, "thursday");
+                    Array_String_SlotTuesday        = Array_String_CheckHTMLComponentForSlot(Array_String_SlotTuesday, 1, _Object_Request, "tuesday");
+                    Array_String_SlotWednesday      = Array_String_CheckHTMLComponentForSlot(Array_String_SlotWednesday, 1, _Object_Request, "wednesday");
+
+
+
+
 
                     //Inputting the model.
                     var Model_Workshop_Temp = new Model_Workshop_();
-                    Model_Workshop_Temp.Workshop_Number_Latitude = _Object_Request.param("Workshop_Number_Latitude_Register");
-                    Model_Workshop_Temp.Workshop_Number_Longitude = _Object_Request.param("Workshop_Number_Longitude_Register");
-                    Model_Workshop_Temp.Workshop_String_Name = _Object_Request.param("Workshop_String_Name_Register");
+                    Model_Workshop_Temp.Workshop_Array_String_SlotFriday    = Array_String_SlotFriday;
+                    Model_Workshop_Temp.Workshop_Array_String_SlotMonday    = Array_String_SlotMonday;
+                    Model_Workshop_Temp.Workshop_Array_String_SlotSaturday  = Array_String_SlotSaturday;
+                    Model_Workshop_Temp.Workshop_Array_String_SlotSunday    = Array_String_SlotSunday;
+                    Model_Workshop_Temp.Workshop_Array_String_SlotThursday  = Array_String_SlotThursday;
+                    Model_Workshop_Temp.Workshop_Array_String_SlotTuesday   = Array_String_SlotTuesday;
+                    Model_Workshop_Temp.Workshop_Array_String_SlotWednesday = Array_String_SlotWednesday;
+                    Model_Workshop_Temp.Workshop_Number_Latitude            = _Object_Request.param("Workshop_Number_Latitude_Register");
+                    Model_Workshop_Temp.Workshop_Number_Longitude           = _Object_Request.param("Workshop_Number_Longitude_Register");
+                    Model_Workshop_Temp.Workshop_String_Name                = _Object_Request.param("Workshop_String_Name_Register");
 
 
 
@@ -401,6 +427,64 @@ Object_Router.post("/register_workshop",
         }
     }
 );
+
+
+
+
+
+//First check if the first HTML component is exist.
+function Array_String_CheckHTMLComponentForSlot(
+    _Array_String_,
+    _Number_Index,
+    _Object_Request,
+    _String_Day
+){
+    var String_IndexInputSlotAmount     = "ntg-div-workshop-slot-" + _String_Day + "-register-input-slot-amount-" + _Number_Index;
+    var String_IndexInputTimeEnd        = "ntg-div-workshop-slot-" + _String_Day + "-register-input-time-end-" + _Number_Index;
+    var String_IndexInputTimeStart      = "ntg-div-workshop-slot-" + _String_Day + "-register-input-time-start-" + _Number_Index;
+    var String_IndexMain                = "ntg-div-workshop-slot-" + _String_Day + "-register-" + _Number_Index;
+
+console.log(_Object_Request.body.ntg-div-workshop-slot-monday-edit-input-time-start-1;
+console.log(_Object_Request.param(String_IndexMain));
+
+    //Check if the first HTML component is null or not.
+    if(_Object_Request.param(String_IndexMain) != null){
+
+
+console.log("test-1");
+
+
+        //If the HTML component is exist then take value.
+        var String_IndexInputTimeStartTemporary = _Object_Request.param(String_IndexInputTimeStart);
+        var String_IndexInputTimeEndTemporary = _Object_Request.param(String_IndexInputTimeEnd);
+        var String_IndexInputSlotAmountTemporary = _Object_Request.param(String_IndexInputSlotAmount);
+
+
+
+
+
+        var Arrray_String_Temporary = [String_IndexInputTimeStartTemporary, String_IndexInputTimeEndTemporary, String_IndexInputSlotAmountTemporary];
+        //Add the array into the main array.
+        _Array_String_.push(Arrray_String_Temporary);
+        //Iterate through until the HTML component is null.
+        Array_String_CheckHTMLComponentForSlot(
+            _Array_String_,
+            (_Number_Index + 1),
+            _Object_Request,
+            _String_Day
+        );
+
+
+
+
+
+    }
+    //If the HTML component is a null then "kill" this function.
+    else if(_Object_Request.param(String_IndexMain) == null){
+        console.log(_Array_String_);
+        return _Array_String_;
+    }
+}
 
 
 
