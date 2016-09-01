@@ -397,6 +397,7 @@ Object_Router.post("/register_workshop",
 
                     //Inputting the model.
                     var Model_Workshop_Temp = new Model_Workshop_();
+                    console.log(Array_String_SlotMonday);
                     Model_Workshop_Temp.Workshop_Array_String_SlotFriday    = Array_String_SlotFriday;
                     Model_Workshop_Temp.Workshop_Array_String_SlotMonday    = Array_String_SlotMonday;
                     Model_Workshop_Temp.Workshop_Array_String_SlotSaturday  = Array_String_SlotSaturday;
@@ -442,22 +443,24 @@ function Array_String_CheckHTMLComponentForSlot(
     var String_IndexInputSlotAmount     = "ntg_div_workshop_slot_" + _String_Day + "_register_input_slot_amount_" + _Number_Index;
     var String_IndexInputTimeEnd        = "ntg_div_workshop_slot_" + _String_Day + "_register_input_time_end_" + _Number_Index;
     var String_IndexInputTimeStart      = "ntg_div_workshop_slot_" + _String_Day + "_register_input_time_start_" + _Number_Index;
-    var String_IndexMain                = "ntg_div_workshop_slot_" + _String_Day + "_register_" + _Number_Index;
 
-console.log(_Object_Request.param(String_IndexInputSlotAmount));
-console.log(_Object_Request.param(String_IndexMain));
+
+
+
 
     //Check if the first HTML component is null or not.
-    if(_Object_Request.param(String_IndexMain) != null){
+    if(_String_Day == "monday"){
+        console.log(_Object_Request.param(String_IndexInputTimeStart) !== null && _Object_Request.param(String_IndexInputTimeStart) !== undefined);
+    }
+    if(_Object_Request.param(String_IndexInputTimeStart) !== null && _Object_Request.param(String_IndexInputTimeStart) !== undefined){
 
 
-console.log("test-1");
 
 
         //If the HTML component is exist then take value.
-        var String_IndexInputTimeStartTemporary = _Object_Request.param(String_IndexInputTimeStart);
-        var String_IndexInputTimeEndTemporary = _Object_Request.param(String_IndexInputTimeEnd);
-        var String_IndexInputSlotAmountTemporary = _Object_Request.param(String_IndexInputSlotAmount);
+        var String_IndexInputTimeStartTemporary = _Object_Request.param(String_IndexInputTimeStart).toString();
+        var String_IndexInputTimeEndTemporary = _Object_Request.param(String_IndexInputTimeEnd).toString();
+        var String_IndexInputSlotAmountTemporary = _Object_Request.param(String_IndexInputSlotAmount).toString();
 
 
 
@@ -466,10 +469,12 @@ console.log("test-1");
         var Arrray_String_Temporary = [String_IndexInputTimeStartTemporary, String_IndexInputTimeEndTemporary, String_IndexInputSlotAmountTemporary];
         //Add the array into the main array.
         _Array_String_.push(Arrray_String_Temporary);
+        console.log(String_IndexInputSlotAmount + " " + _Array_String_);
         //Iterate through until the HTML component is null.
+        var Number_IndexNext = (_Number_Index + 1);
         Array_String_CheckHTMLComponentForSlot(
             _Array_String_,
-            (_Number_Index + 1),
+            Number_IndexNext,
             _Object_Request,
             _String_Day
         );
@@ -480,8 +485,8 @@ console.log("test-1");
 
     }
     //If the HTML component is a null then "kill" this function.
-    else if(_Object_Request.param(String_IndexMain) == null){
-        console.log(_Array_String_);
+    else{
+        console.log(String_IndexInputSlotAmount + "array-string:" + _Array_String_);
         return _Array_String_;
     }
 }
