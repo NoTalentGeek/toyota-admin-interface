@@ -36,6 +36,27 @@
     text-align: center;
     width: 100%;
 }
+#ntg_div_workshop_slot_friday_edit > div > div > div > span, #ntg_div_workshop_slot_friday_register > div > div > div > span{
+    background: #5FCDE4;
+}
+#ntg_div_workshop_slot_monday_edit > div > div > div > span, #ntg_div_workshop_slot_monday_register > div > div > div > span{
+    background: #FBF236;
+}
+#ntg_div_workshop_slot_saturday_edit > div > div > div > span, #ntg_div_workshop_slot_saturday_register > div > div > div > span{
+    background: #9BADB7;
+}
+#ntg_div_workshop_slot_sunday_edit > div > div > div > span, #ntg_div_workshop_slot_sunday_register > div > div > div > span{
+    background: #6ABE30;
+}
+#ntg_div_workshop_slot_thursday_edit > div > div > div > span, #ntg_div_workshop_slot_thursday_register > div > div > div > span{
+    background: #EEC39A;
+}
+#ntg_div_workshop_slot_tuesday_edit > div > div > div > span, #ntg_div_workshop_slot_tuesday_register > div > div > div > span{
+    background: #CBDBFC;
+}
+#ntg_div_workshop_slot_wednesday_edit > div > div > div > span, #ntg_div_workshop_slot_wednesday_register > div > div > div > span{
+    background: #99E550;
+}
 .ntg-debug-align-item-left{
     align-items: left; 
 }
