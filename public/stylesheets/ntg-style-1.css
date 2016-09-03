@@ -1,3 +1,15 @@
+:root{
+    /*Color pallete variables.*/
+    --color-background: #222034;
+    --color-background-panel: #9BADB7;
+    --color-form-workshop-friday: #5FCDE4;
+    --color-form-workshop-monday: #FBF236;
+    --color-form-workshop-saturday: #9BADB7;
+    --color-form-workshop-sunday: #6ABE30;
+    --color-form-workshop-thursday: #EEC39A;
+    --color-form-workshop-tuesday: #CBDBFC;
+    --color-form-workshop-wednesday: #99E550;
+}
 #ntg_div_chat_tool{
     /*The default text input for Bootstrap is
         32px.*/
@@ -12,7 +24,7 @@
     height: calc(100% - 43px);
 }
 #ntg_div_dim_screen{
-    background: #222034;
+    background: var(--color-background);
     height: 100%;
     left:0;
     margin:0;
@@ -37,25 +49,25 @@
     width: 100%;
 }
 #ntg_div_workshop_slot_friday_edit > div > div > div > span, #ntg_div_workshop_slot_friday_register > div > div > div > span{
-    background: #5FCDE4;
+    background: var(--color-form-workshop-friday);
 }
 #ntg_div_workshop_slot_monday_edit > div > div > div > span, #ntg_div_workshop_slot_monday_register > div > div > div > span{
-    background: #FBF236;
+    background: var(--color-form-workshop-monday);
 }
 #ntg_div_workshop_slot_saturday_edit > div > div > div > span, #ntg_div_workshop_slot_saturday_register > div > div > div > span{
-    background: #9BADB7;
+    background: var(--color-form-workshop-saturday);
 }
 #ntg_div_workshop_slot_sunday_edit > div > div > div > span, #ntg_div_workshop_slot_sunday_register > div > div > div > span{
-    background: #6ABE30;
+    background: var(--color-form-workshop-sunday);
 }
 #ntg_div_workshop_slot_thursday_edit > div > div > div > span, #ntg_div_workshop_slot_thursday_register > div > div > div > span{
-    background: #EEC39A;
+    background: var(--color-form-workshop-thursday);
 }
 #ntg_div_workshop_slot_tuesday_edit > div > div > div > span, #ntg_div_workshop_slot_tuesday_register > div > div > div > span{
-    background: #CBDBFC;
+    background: var(--color-form-workshop-tuesday);
 }
 #ntg_div_workshop_slot_wednesday_edit > div > div > div > span, #ntg_div_workshop_slot_wednesday_register > div > div > div > span{
-    background: #99E550;
+    background: var(--color-form-workshop-wednesday);
 }
 .ntg-debug-align-item-left{
     align-items: left; 
@@ -64,12 +76,12 @@
     align-items: right; 
 }
 .ntg-debug-body-setting-1{
-    background: #222034;
+    background: var(--color-background);
     overflow-x: hidden;
     overflow-y: hidden;
 }
 .ntg-debug-body-setting-2{
-    background: #222034;
+    background: var(--color-background);
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -83,8 +95,8 @@
     color: red;
 }
 .ntg-debug-div-background-and-border-setting-1{
-    background: #9BADB7;
-    border: solid #222034;
+    background: var(--color-background-panel);
+    border: solid var(--color-background);
     border-radius: 10px;
 }
 .ntg-debug-div-content-setting-1{
