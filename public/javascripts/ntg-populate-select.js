@@ -98,7 +98,7 @@ $("#ntg_select_user").change(function(){
 
 
 //Workshop.
-var Obejct_ResultWorkshop = undefined;
+var Object_ResultWorkshop = undefined;
 angular.module("ng_app_page_edit_register_workshop", [])
 .controller(
     "ng_controller_page_edit_register_workshop",
@@ -116,7 +116,7 @@ angular.module("ng_app_page_edit_register_workshop", [])
         .success(
             function(_Object_Result){
                 $scope.ng_options_select_workshop = _Object_Result;
-                Obejct_ResultWorkshop = _Object_Result;
+                Object_ResultWorkshop = _Object_Result;
             }
         );
     }
@@ -125,27 +125,77 @@ angular.module("ng_app_page_edit_register_workshop", [])
 //    also move the marker into the currently seelcted workshop.
 $("#ntg_select_workshop").change(function(){
     var Number_Index = $("#ntg_select_workshop").prop("selectedIndex");
-    $("#workshop_number_latitude_edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude);
-    $("#workshop_number_longitude_edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude);
-    $("#workshop_string_name_edit").val(Obejct_ResultWorkshop[Number_Index - 1].Workshop_String_Name);
 
+//PENDING: I need to delete all slot form before adding new ones.
+//Here I want to populate how many select out there.
+//First I need to know how many data entry are there per workshop PER DAY.
+//I will use this number to iterate the amount of necessary slot form.
+var Number_SlotFridayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotFriday.length;
+var Number_SlotMondayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotMonday.length;
+var Number_SlotSaturdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotSaturday.length;
+var Number_SlotSundayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotSunday.length;
+var Number_SlotThursdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotThursday.length;
+var Number_SlotTuesdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotTuesday.length;
+var Number_SlotWednesdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotWednesday.length;
+//Create array so that it is easy to manage codes.
+//Note that the index must be according to each array.
+//For example "friday" is at index 0, hence Number_SlotFridayEditLength should also at index 0.
+var Array_Number_SlotEditLenght = [
+    Number_SlotFridayEditLength,
+    Number_SlotMondayEditLength,
+    Number_SlotSaturdayEditLength,
+    Number_SlotSundayEditLength,
+    Number_SlotThursdayEditLength,
+    Number_SlotTuesdayEditLength,
+    Number_SlotWednesdayEditLength
+];
+var Array_String_Day = ["friday", "monday", "saturday", "sunday", "thursday", "tuesday", "wednesday"];
+var Array_String_DivSlot = [
+    "#ntg_div_workshop_slot_friday_edit",
+    "#ntg_div_workshop_slot_monday_edit",
+    "#ntg_div_workshop_slot_saturday_edit",
+    "#ntg_div_workshop_slot_sunday_edit",
+    "#ntg_div_workshop_slot_thursday_edit",
+    "#ntg_div_workshop_slot_tuesday_edit",
+    "#ntg_div_workshop_slot_wednesday_edit"
+];
+//Loop to create slot HTML component.
+for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
+    for(var Number_J = 0; Number_J < Array_Number_SlotEditLenght[Number_I]; Number_J ++){
+        var Number_IDTemporary = Number_J + 1;
+        if(Number_IDTemporary > 1){
+            $(Array_String_DivSlot[Number_I]).append(String_Slot(
+                Number_IDTemporary,
+                Array_String_Day[Number_I],
+                "edit"
+            ));
+        }
+    }
+}
+
+    $("#workshop_number_latitude_edit").val(Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude);
+    $("#workshop_number_longitude_edit").val(Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude);
+    $("#workshop_string_name_edit").val(Object_ResultWorkshop[Number_Index - 1].Workshop_String_Name);
+
+    //Because of Object_Marker_EditRegisterWorkshop_1 I need to load the Google Maps JavaScript file first then
+    //    set this JavaScript.
     if(Object_Marker_EditRegisterWorkshop_1 === undefined){
         Object_Marker_EditRegisterWorkshop_1 = new google.maps.Marker({
             map: Object_Map_EditRegisterWorkshop_1,
             position: new google.maps.LatLng(
-                Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude,
-                Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude
+                Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude,
+                Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude
             )
         });
     }
     else{
         Object_Marker_EditRegisterWorkshop_1.setPosition(new google.maps.LatLng(
-            Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude,
-            Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude
+            Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude,
+            Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude
         ));
     }
     Object_Map_EditRegisterWorkshop_1.panTo(new google.maps.LatLng(
-        Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude,
-        Obejct_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude
+        Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Latitude,
+        Object_ResultWorkshop[Number_Index - 1].Workshop_Number_Longitude
     ));
 });

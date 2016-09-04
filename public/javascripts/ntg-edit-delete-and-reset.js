@@ -51,7 +51,14 @@ function Void_Edit_And_Remove(
     $(_String_IDButtonEdit).click(function(){
 
 
-
+        //Edit workshop slot form.
+        var Array_String_WorkshopSlotMondayAmountChildren = $("#").children().length;
+        var Array_String_WorkshopSlotTuesdayAmountChildren = $("#").children().length;
+        var Array_String_WorkshopSlotWednesdayAmountChildren = $("#").children().length;
+        var Array_String_WorkshopSlotThursdayAmountChildren = $("#").children().length;
+        var Array_String_WorkshopSlotFridayAmountChildren = $("#").children().length;
+        var Array_String_WorkshopSlotSaturdayAmountChildren = $("#").children().length;
+        var Array_String_WorkshopSlotSundayAmountChildren = $("#").children().length;
 
 
         $.ajax({

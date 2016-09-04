@@ -23,6 +23,11 @@ var Object_Schema_Workshop = new Object_Schema({
     Workshop_Number_Latitude: { default: 0.0, type: Number },
     Workshop_Number_Longitude: { default: 0.0, type: Number },
     Workshop_String_Name: { default: "", type: String }
+
+
+
+
+
 });
 
 
