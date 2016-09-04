@@ -383,13 +383,13 @@ Object_Router.post("/register_workshop",
                     var Array_String_SlotThursday   = [];
                     var Array_String_SlotTuesday    = [];
                     var Array_String_SlotWednesday  = [];
-                    Array_String_SlotFriday         = Array_String_CheckHTMLComponentForSlot(Array_String_SlotFriday, 1, _Object_Request, "friday");
-                    Array_String_SlotMonday         = Array_String_CheckHTMLComponentForSlot(Array_String_SlotMonday, 1, _Object_Request, "monday");
-                    Array_String_SlotSaturday       = Array_String_CheckHTMLComponentForSlot(Array_String_SlotSaturday, 1, _Object_Request, "saturday");
-                    Array_String_SlotSunday         = Array_String_CheckHTMLComponentForSlot(Array_String_SlotSunday, 1, _Object_Request, "sunday");
-                    Array_String_SlotThursday       = Array_String_CheckHTMLComponentForSlot(Array_String_SlotThursday, 1, _Object_Request, "thursday");
-                    Array_String_SlotTuesday        = Array_String_CheckHTMLComponentForSlot(Array_String_SlotTuesday, 1, _Object_Request, "tuesday");
-                    Array_String_SlotWednesday      = Array_String_CheckHTMLComponentForSlot(Array_String_SlotWednesday, 1, _Object_Request, "wednesday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotFriday, 1, _Object_Request, "friday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotMonday, 1, _Object_Request, "monday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotSaturday, 1, _Object_Request, "saturday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotSunday, 1, _Object_Request, "sunday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotThursday, 1, _Object_Request, "thursday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotTuesday, 1, _Object_Request, "tuesday");
+                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotWednesday, 1, _Object_Request, "wednesday");
 
 
 
@@ -397,7 +397,6 @@ Object_Router.post("/register_workshop",
 
                     //Inputting the model.
                     var Model_Workshop_Temp = new Model_Workshop_();
-                    console.log(Array_String_SlotMonday);
                     Model_Workshop_Temp.Workshop_Array_String_SlotFriday    = Array_String_SlotFriday;
                     Model_Workshop_Temp.Workshop_Array_String_SlotMonday    = Array_String_SlotMonday;
                     Model_Workshop_Temp.Workshop_Array_String_SlotSaturday  = Array_String_SlotSaturday;
@@ -449,9 +448,6 @@ function Array_String_CheckHTMLComponentForSlot(
 
 
     //Check if the first HTML component is null or not.
-    if(_String_Day == "monday"){
-        console.log(_Object_Request.param(String_IndexInputTimeStart) !== null && _Object_Request.param(String_IndexInputTimeStart) !== undefined);
-    }
     if(_Object_Request.param(String_IndexInputTimeStart) !== null && _Object_Request.param(String_IndexInputTimeStart) !== undefined){
 
 
@@ -469,7 +465,6 @@ function Array_String_CheckHTMLComponentForSlot(
         var Arrray_String_Temporary = [String_IndexInputTimeStartTemporary, String_IndexInputTimeEndTemporary, String_IndexInputSlotAmountTemporary];
         //Add the array into the main array.
         _Array_String_.push(Arrray_String_Temporary);
-        console.log(String_IndexInputSlotAmount + " " + _Array_String_);
         //Iterate through until the HTML component is null.
         var Number_IndexNext = (_Number_Index + 1);
         Array_String_CheckHTMLComponentForSlot(
@@ -480,13 +475,9 @@ function Array_String_CheckHTMLComponentForSlot(
         );
 
 
-
-
-
     }
     //If the HTML component is a null then "kill" this function.
     else{
-        console.log(String_IndexInputSlotAmount + "array-string:" + _Array_String_);
         return _Array_String_;
     }
 }
