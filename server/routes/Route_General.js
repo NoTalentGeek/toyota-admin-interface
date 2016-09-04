@@ -383,6 +383,7 @@ Object_Router.post("/register_workshop",
                     var Array_String_SlotThursday   = [];
                     var Array_String_SlotTuesday    = [];
                     var Array_String_SlotWednesday  = [];
+                    //Take the value from the form slots.
                     Array_String_CheckHTMLComponentForSlot(Array_String_SlotFriday, 1, _Object_Request, "friday");
                     Array_String_CheckHTMLComponentForSlot(Array_String_SlotMonday, 1, _Object_Request, "monday");
                     Array_String_CheckHTMLComponentForSlot(Array_String_SlotSaturday, 1, _Object_Request, "saturday");

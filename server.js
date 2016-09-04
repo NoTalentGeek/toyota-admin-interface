@@ -512,7 +512,25 @@ function Void_CreateDummy(){
 
 
 
+    var Array_String_TimeSlotTemporary1 = [ "0815", "1015", "5" ];
+    var Array_String_TimeSlotTemporary2 = [ "1015", "1215", "5" ];
+    var Array_String_TimeSlotTemporary3 = [ "1315", "1515", "5" ];
+    var Array_String_WorkshopSlotTemporary = [
+        Array_String_TimeSlotTemporary1,
+        Array_String_TimeSlotTemporary2,
+        Array_String_TimeSlotTemporary3
+    ];
+
+
+
     var Model_Workshop_Temporary1 = new Model_Workshop_();
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotFriday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotMonday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotSaturday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotSunday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotThursday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotTuesday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary1.Workshop_Array_String_SlotWednesday = Array_String_WorkshopSlotTemporary;
     Model_Workshop_Temporary1.Workshop_Number_Latitude = -6.21462;
     Model_Workshop_Temporary1.Workshop_Number_Longitude = 106.84513;
     Model_Workshop_Temporary1.Workshop_String_Name = "workshop1";
@@ -542,6 +560,13 @@ function Void_CreateDummy(){
 
 
     var Model_Workshop_Temporary2 = new Model_Workshop_();
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotFriday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotMonday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotSaturday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotSunday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotThursday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotTuesday = Array_String_WorkshopSlotTemporary;
+    Model_Workshop_Temporary2.Workshop_Array_String_SlotWednesday = Array_String_WorkshopSlotTemporary;
     Model_Workshop_Temporary2.Workshop_Number_Latitude = -6.21462;
     Model_Workshop_Temporary2.Workshop_Number_Longitude = 106.84513;
     Model_Workshop_Temporary2.Workshop_String_Name = "workshop2";
@@ -579,7 +604,7 @@ function Void_CreateDummy(){
 
 
 //Assign back some object.
-Route_General.Model_Admin_ = Model_Admin_;
+//I need to reference my Socket.IO object in the general route.
 Route_General.Object_SocketIO_Server = Object_SocketIO_Server;
 
 
