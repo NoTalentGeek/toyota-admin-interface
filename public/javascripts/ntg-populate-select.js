@@ -139,35 +139,89 @@ for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
 //Here I want to populate how many select out there.
 //First I need to know how many data entry are there per workshop PER DAY.
 //I will use this number to iterate the amount of necessary slot form.
-var Number_SlotFridayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotFriday.length;
-var Number_SlotMondayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotMonday.length;
-var Number_SlotSaturdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotSaturday.length;
-var Number_SlotSundayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotSunday.length;
-var Number_SlotThursdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotThursday.length;
-var Number_SlotTuesdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotTuesday.length;
-var Number_SlotWednesdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotWednesday.length;
+var Array_Object_SlotFridayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotFriday;
+var Array_Object_SlotMondayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotMonday;
+var Array_Object_SlotSaturdayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotSaturday;
+var Array_Object_SlotSundayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotSunday;
+var Array_Object_SlotThursdayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotThursday;
+var Array_Object_SlotTuesdayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotTuesday;
+var Array_Object_SlotWednesdayEdit = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotWednesday;
 //Create array so that it is easy to manage codes.
 //Note that the index must be according to each array.
 //For example "friday" in Array_String_Day is at index 0, hence Number_SlotFridayEditLength
 //    should also at index 0.
 //For practical purpose just sort the day alphabetically.
+var Array_Number_SlotEdit = [
+    Array_Object_SlotFridayEdit,
+    Array_Object_SlotMondayEdit,
+    Array_Object_SlotSaturdayEdit,
+    Array_Object_SlotSundayEdit,
+    Array_Object_SlotThursdayEdit,
+    Array_Object_SlotTuesdayEdit,
+    Array_Object_SlotWednesdayEdit
+];
 var Array_Number_SlotEditLenght = [
-    Number_SlotFridayEditLength,
-    Number_SlotMondayEditLength,
-    Number_SlotSaturdayEditLength,
-    Number_SlotSundayEditLength,
-    Number_SlotThursdayEditLength,
-    Number_SlotTuesdayEditLength,
-    Number_SlotWednesdayEditLength
+    Array_Object_SlotFridayEdit.length,
+    Array_Object_SlotMondayEdit.length,
+    Array_Object_SlotSaturdayEdit.length,
+    Array_Object_SlotSundayEdit.length,
+    Array_Object_SlotThursdayEdit.length,
+    Array_Object_SlotTuesdayEdit.length,
+    Array_Object_SlotWednesdayEdit.length
 ];
 var Array_String_DivSlot = [
-    "#ntg_div_workshop_slot_friday_edit",
-    "#ntg_div_workshop_slot_monday_edit",
-    "#ntg_div_workshop_slot_saturday_edit",
-    "#ntg_div_workshop_slot_sunday_edit",
-    "#ntg_div_workshop_slot_thursday_edit",
-    "#ntg_div_workshop_slot_tuesday_edit",
-    "#ntg_div_workshop_slot_wednesday_edit"
+    "#ntg_div_workshop_slot_" + Array_String_Day[0] + "_edit",
+    "#ntg_div_workshop_slot_" + Array_String_Day[1] + "_edit",
+    "#ntg_div_workshop_slot_" + Array_String_Day[2] + "_edit",
+    "#ntg_div_workshop_slot_" + Array_String_Day[3] + "_edit",
+    "#ntg_div_workshop_slot_" + Array_String_Day[4] + "_edit",
+    "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit",
+    "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit"
+];
+var Array_String_DivSlotButtonAdd = [
+    "#ntg_div_workshop_slot_" + Array_String_Day[0] + "_edit_button_add_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[1] + "_edit_button_add_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[2] + "_edit_button_add_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[3] + "_edit_button_add_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[4] + "_edit_button_add_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit_button_add_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit_button_add_"
+];
+var Array_String_DivSlotButtonDelete = [
+    "#ntg_div_workshop_slot_" + Array_String_Day[0] + "_edit_button_delete_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[1] + "_edit_button_delete_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[2] + "_edit_button_delete_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[3] + "_edit_button_delete_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[4] + "_edit_button_delete_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit_button_delete_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit_button_delete_"
+];
+var Array_String_DivSlotInputSlot = [
+    "#ntg_div_workshop_slot_" + Array_String_Day[0] + "_edit_input_slot_amount_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[1] + "_edit_input_slot_amount_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[2] + "_edit_input_slot_amount_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[3] + "_edit_input_slot_amount_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[4] + "_edit_input_slot_amount_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit_input_slot_amount_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit_input_slot_amount_"
+];
+var Array_String_DivSlotInputTimeEnd = [
+    "#ntg_div_workshop_slot_" + Array_String_Day[0] + "_edit_input_time_end_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[1] + "_edit_input_time_end_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[2] + "_edit_input_time_end_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[3] + "_edit_input_time_end_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[4] + "_edit_input_time_end_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit_input_time_end_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit_input_time_end_"
+];
+var Array_String_DivSlotInputTimeStart = [
+    "#ntg_div_workshop_slot_" + Array_String_Day[0] + "_edit_input_time_start_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[1] + "_edit_input_time_start_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[2] + "_edit_input_time_start_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[3] + "_edit_input_time_start_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[4] + "_edit_input_time_start_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit_input_time_start_",
+    "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit_input_time_start_"
 ];
 //Loop to create slot HTML component.
 for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
@@ -180,6 +234,33 @@ for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
                 "edit"
             ));
         }
+
+        console.log(Number_I);
+
+        //We need to loop again 
+
+        $(Array_String_DivSlotButtonAdd[Number_I] + Number_IDTemporary).click(function(){
+            //Testing variable.
+            console.log(Number_I);
+            console.log($(this).attr("id"));
+            console.log($($(this).parent()).attr("id"));
+            console.log($($($(this).parent()).parent()).attr("id"));
+            console.log($($($($(this).parent()).parent()).parent()).attr("id"));
+            console.log($($($($(this).parent()).parent()).parent()).children().length);
+
+            $($($($(this).parent()).parent()).parent()).append(String_Slot( 
+                $(this).children().length,
+                "test-1",
+                "edit"
+            ));
+        });
+        //$(Array_String_DivSlotButtonDelete[Number_I] + Number_IDTemporary).click();
+
+
+
+        $(Array_String_DivSlotInputSlot[Number_I] + Number_IDTemporary).val(Array_Number_SlotEdit[Number_I][Number_J][2]);
+        $(Array_String_DivSlotInputTimeEnd[Number_I] + Number_IDTemporary).val(Array_Number_SlotEdit[Number_I][Number_J][1]);
+        $(Array_String_DivSlotInputTimeStart[Number_I] + Number_IDTemporary).val(Array_Number_SlotEdit[Number_I][Number_J][0]);
     }
 }
 

@@ -513,9 +513,9 @@ function Void_CreateDummy(){
 
 
     //Create a dummy arrrays of time slot.
-    var Array_String_TimeSlotTemporary1 = [ "0815", "1015", "5" ];
-    var Array_String_TimeSlotTemporary2 = [ "1015", "1215", "5" ];
-    var Array_String_TimeSlotTemporary3 = [ "1315", "1515", "5" ];
+    var Array_String_TimeSlotTemporary1 = ["0815", "1015", "5"];
+    var Array_String_TimeSlotTemporary2 = ["1015", "1215", "5"];
+    var Array_String_TimeSlotTemporary3 = ["1315", "1515", "5"];
     var Array_String_WorkshopSlotTemporary = [
         Array_String_TimeSlotTemporary1,
         Array_String_TimeSlotTemporary2,

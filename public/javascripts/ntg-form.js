@@ -89,7 +89,7 @@ function String_Slot(
 
 
     //HTML compression here, http://www.textfixer.com/html/compress-html-compression.php.
-    return "<div class=' row ' id=" + String_IndexMain + " > <div class=' col-xs-6 ' > <div class=' input-group ' > <span class=' input-group-addon ntg-debug-dimension-width-px-150 ' > " + String_Day + " </span> <input class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputTimeStart + " name=" + String_IndexInputTimeStart + " placeholder='HHMM' type='number' > <span class=' input-group-addon ' > - </span> <input class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputTimeEnd + " name=" + String_IndexInputTimeEnd + " placeholder='HHMM' type='number' > </div> </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <input class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputSlotAmount + " name=" + String_IndexInputSlotAmount + " placeholder='Slot Amount.' type='number' > </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <button class=' btn btn-default btn-success form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexButtonAdd + " type='button' >Add.</button> </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <button class=' btn btn-danger btn-default form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexButtonDelete + " type='button' >Delete.</button> </div> </div>";
+    return "<div class=' row ' id=" + String_IndexMain + " > <div class=' col-xs-6 ' > <div class=' input-group ' > <span class=' input-group-addon ntg-debug-dimension-width-px-150 ' > " + String_Day + " </span> <input class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputTimeStart + " name=" + String_IndexInputTimeStart + " placeholder='HHMM' type='text' > <span class=' input-group-addon ' > - </span> <input class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputTimeEnd + " name=" + String_IndexInputTimeEnd + " placeholder='HHMM' type='text' > </div> </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <input class=' form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexInputSlotAmount + " name=" + String_IndexInputSlotAmount + " placeholder='Slot Amount.' type='number' > </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <button class=' btn btn-default btn-success form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexButtonAdd + " type='button' >Add.</button> </div> <div class=' col-xs-2 ntg-debug-padding-left-px-0 ' > <button class=' btn btn-danger btn-default form-control ntg-debug-dimension-height-px-45 ' id=" + String_IndexButtonDelete + " type='button' >Delete.</button> </div> </div>";
 };
 
 
@@ -104,7 +104,7 @@ function Void_ControlSlot(
     //Function to re - integrate all index if there is a component added or removed.
     function Void_IndexReIntegrate(){
         //Now the messy part!
-        //I need to iterate through all remainding HTML component at set the ID back
+        //I need to iterate through all remainder HTML component at set the ID back
         //    accordingly.
         //Create the loop first!
         var Array_Object_ChildAfterDelete = $("#ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register).children();
@@ -127,20 +127,18 @@ function Void_ControlSlot(
             var Input_SlotAmount1Non    = $($($(Array_Object_ChildAfterDelete[Number_J]).children()[1]).children()[0]);
             var Input_TimeEnd1Non       = $($($($(Array_Object_ChildAfterDelete[Number_J]).children()[0]).children()[0]).children()[3]);
             var Input_TimeStart1Non     = $($($($(Array_Object_ChildAfterDelete[Number_J]).children()[0]).children()[0]).children()[1]);
-            //Button_Add1Non.html       (Number_IndexComponentButton);
-            //Button_Delete1Non.html    (Number_IndexComponentButton);
-            Button_Add1Non.attr         ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_add_" + Number_IndexComponentButton);
-            Button_Add1Non.attr         ("name", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_add_" + Number_IndexComponentButton);
-            Button_Delete1Non.attr      ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_delete_" + Number_IndexComponentButton);
-            Button_Delete1Non.attr      ("name", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_button_delete_" + Number_IndexComponentButton);
-            Div_Main1Non.attr           ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_" + Number_IndexComponentButton);
-            Div_Main1Non.attr           ("name", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_" + Number_IndexComponentButton);
-            Input_SlotAmount1Non.attr   ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_slot_amount_" + Number_IndexComponentButton);
-            Input_SlotAmount1Non.attr   ("name", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_slot_amount_" + Number_IndexComponentButton);
-            Input_TimeEnd1Non.attr      ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_time_end_" + Number_IndexComponentButton);
-            Input_TimeEnd1Non.attr      ("name", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_time_end_" + Number_IndexComponentButton);
-            Input_TimeStart1Non.attr    ("id", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_time_start_" + Number_IndexComponentButton);
-            Input_TimeStart1Non.attr    ("name", "ntg_div_workshop_slot_" + _String_Day + "_"+ _String_Edit_Or_Register +"_input_time_start_" + Number_IndexComponentButton);
+            Button_Add1Non.attr         ("id", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_button_add_" + Number_IndexComponentButton);
+            Button_Add1Non.attr         ("name", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_button_add_" + Number_IndexComponentButton);
+            Button_Delete1Non.attr      ("id", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_button_delete_" + Number_IndexComponentButton);
+            Button_Delete1Non.attr      ("name", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_button_delete_" + Number_IndexComponentButton);
+            Div_Main1Non.attr           ("id", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_" + Number_IndexComponentButton);
+            Div_Main1Non.attr           ("name", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_" + Number_IndexComponentButton);
+            Input_SlotAmount1Non.attr   ("id", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_input_slot_amount_" + Number_IndexComponentButton);
+            Input_SlotAmount1Non.attr   ("name", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_input_slot_amount_" + Number_IndexComponentButton);
+            Input_TimeEnd1Non.attr      ("id", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_input_time_end_" + Number_IndexComponentButton);
+            Input_TimeEnd1Non.attr      ("name", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_input_time_end_" + Number_IndexComponentButton);
+            Input_TimeStart1Non.attr    ("id", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_input_time_start_" + Number_IndexComponentButton);
+            Input_TimeStart1Non.attr    ("name", "ntg_div_workshop_slot_" + _String_Day + "_" + _String_Edit_Or_Register +"_input_time_start_" + Number_IndexComponentButton);
 
 
 
@@ -211,17 +209,17 @@ function Void_ControlSlot(
 
 
 
-Void_ControlSlot(Number_SlotFridayEdit, "friday", "edit");
+//Void_ControlSlot(Number_SlotFridayEdit, "friday", "edit");
 Void_ControlSlot(Number_SlotFridayRegister, "friday", "register");
-Void_ControlSlot(Number_SlotMondayEdit, "monday", "edit");
+//Void_ControlSlot(Number_SlotMondayEdit, "monday", "edit");
 Void_ControlSlot(Number_SlotMondayRegister, "monday", "register");
-Void_ControlSlot(Number_SlotSaturdayEdit, "saturday", "edit");
+//Void_ControlSlot(Number_SlotSaturdayEdit, "saturday", "edit");
 Void_ControlSlot(Number_SlotSaturdayRegister, "saturday", "register");
-Void_ControlSlot(Number_SlotSundayEdit, "sunday", "edit");
+//Void_ControlSlot(Number_SlotSundayEdit, "sunday", "edit");
 Void_ControlSlot(Number_SlotSundayRegister, "sunday", "register");
-Void_ControlSlot(Number_SlotThursdayEdit, "thursday", "edit");
+//Void_ControlSlot(Number_SlotThursdayEdit, "thursday", "edit");
 Void_ControlSlot(Number_SlotThursdayRegister, "thursday", "register");
-Void_ControlSlot(Number_SlotTuesdayEdit, "tuesday", "edit");
+//Void_ControlSlot(Number_SlotTuesdayEdit, "tuesday", "edit");
 Void_ControlSlot(Number_SlotTuesdayRegister, "tuesday", "register");
-Void_ControlSlot(Number_SlotWednesdayEdit, "wednesday", "edit");
+//Void_ControlSlot(Number_SlotWednesdayEdit, "wednesday", "edit");
 Void_ControlSlot(Number_SlotWednesdayRegister, "wednesday", "register");
