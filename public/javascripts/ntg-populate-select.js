@@ -126,7 +126,16 @@ angular.module("ng_app_page_edit_register_workshop", [])
 $("#ntg_select_workshop").change(function(){
     var Number_Index = $("#ntg_select_workshop").prop("selectedIndex");
 
-//PENDING: I need to delete all slot form before adding new ones.
+//Array of days sort in alphabetically.
+var Array_String_Day = ["friday", "monday", "saturday", "sunday", "thursday", "tuesday", "wednesday"];
+//Current elements before new value are chosen.
+//Loop until the children length is only 1.
+//Clear and delete everything.
+for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
+    while($("#ntg_div_workshop_slot_" + Array_String_Day[Number_I] + "_edit").children().length > 1){
+        $($("#ntg_div_workshop_slot_" + Array_String_Day[Number_I] + "_edit").children()[$("#ntg_div_workshop_slot_" + Array_String_Day[Number_I] + "_edit").children().length - 1]).remove();
+    }
+}
 //Here I want to populate how many select out there.
 //First I need to know how many data entry are there per workshop PER DAY.
 //I will use this number to iterate the amount of necessary slot form.
@@ -139,7 +148,9 @@ var Number_SlotTuesdayEditLength = Object_ResultWorkshop[Number_Index - 1].Works
 var Number_SlotWednesdayEditLength = Object_ResultWorkshop[Number_Index - 1].Workshop_Array_String_SlotWednesday.length;
 //Create array so that it is easy to manage codes.
 //Note that the index must be according to each array.
-//For example "friday" is at index 0, hence Number_SlotFridayEditLength should also at index 0.
+//For example "friday" in Array_String_Day is at index 0, hence Number_SlotFridayEditLength
+//    should also at index 0.
+//For practical purpose just sort the day alphabetically.
 var Array_Number_SlotEditLenght = [
     Number_SlotFridayEditLength,
     Number_SlotMondayEditLength,
@@ -149,7 +160,6 @@ var Array_Number_SlotEditLenght = [
     Number_SlotTuesdayEditLength,
     Number_SlotWednesdayEditLength
 ];
-var Array_String_Day = ["friday", "monday", "saturday", "sunday", "thursday", "tuesday", "wednesday"];
 var Array_String_DivSlot = [
     "#ntg_div_workshop_slot_friday_edit",
     "#ntg_div_workshop_slot_monday_edit",
