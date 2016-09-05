@@ -93,7 +93,7 @@ Object_Router.get(String_PageMain, Void_LoggedIn, function(
         _Object_Request, _Object_Respond
     ){
         //Search for this request logged in account and then logged it out.
-        Model_Admin_.findOneAndUpdate({ _id: _Object_Request.session.passport.user }, { $set: { "Admin_Bool_Available": true } },
+        Model_Admin_.findOneAndUpdate({ _id: _Object_Request.session.passport.user }, { $set: { "Admin_Boolean_Available": true } },
             function(_Object_Error, _Model_Admin_){
                 if(_Object_Error){
                     throw(_Object_Error);
@@ -129,7 +129,7 @@ If the logged in admin access this page he/she will redirected into the
 If success his/her session ends.*/
 Object_Router.get(String_LogoutAdmin, function(_Object_Request, _Object_Respond){
     //Search for this request logged in account and then logged it out.
-    Model_Admin_.findOneAndUpdate({ _id: _Object_Request.session.passport.user }, { $set: { "Admin_Bool_Available": false } },
+    Model_Admin_.findOneAndUpdate({ _id: _Object_Request.session.passport.user }, { $set: { "Admin_Boolean_Available": false } },
         function(_Object_Error, _Model_Admin_){
             if(_Object_Error){
                 throw(_Object_Error);

@@ -45,7 +45,7 @@ Object_Router.put("/:model_admin_id", function(_Object_Request, _Object_Respond)
             _Object_Respond.send(_Object_Error);
         } 
  
-        _Model_Admin.Admin_Bool_Available = _Object_Request.body.admin_bool_available;
+        _Model_Admin.Admin_Boolean_Available = _Object_Request.body.Admin_Boolean_Available;
         _Model_Admin.Admin_String_Email = _Object_Request.body.admin_string_email;
         _Model_Admin.Admin_String_WorkshopID = _Object_Request.body.admin_string_workshopid;
         _Model_Admin.Admin_String_Name = _Object_Request.body.admin_string_name;

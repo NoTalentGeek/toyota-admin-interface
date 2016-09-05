@@ -2,6 +2,9 @@ var Object_BCrypt = require("bcrypt-nodejs");
 var Object_Mongoose = require("mongoose");
 var Object_Schema = Object_Mongoose.Schema;
 var Object_Schema_User = new Object_Schema({
+    User_Boolean_AI: { default: false, type: Boolean },
+    User_String_CarID: { default: "", type: String },
+    User_String_CarName: { default: "", type: String },
     User_String_Email: { default: "", type: String },
     User_String_Name: { default: "", type: String },
     User_String_Password: { default: "", type: String }

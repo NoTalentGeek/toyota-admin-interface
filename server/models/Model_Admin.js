@@ -2,7 +2,7 @@ var Object_BCrypt = require("bcrypt-nodejs");
 var Object_Mongoose = require("mongoose");
 var Object_Schema = Object_Mongoose.Schema;
 var Object_Schema_Admin = new Object_Schema({
-    Admin_Bool_Available: { default: false, type: Boolean },
+    Admin_Boolean_Available: { default: false, type: Boolean },
     Admin_String_Email: { default: "", type: String },
     Admin_String_Name: { default: "", type: String },
     Admin_String_Password: { default: "", type: String },
