@@ -65,10 +65,11 @@ $("#ntg_select_car").change(function(){
 
 //User.
 var Object_ResultUser = undefined;
-angular.module("ng_app_page_edit_register_user", [])
-.controller(
-    "ng_controller_page_edit_register_user",
+var Object_ResultUserEditCar = undefined;
+angular.module("ng_app_page_edit_register_user", []).controller(
+    "ng_controller_select_user",
     function($scope, $http){
+        console.log("test-2");
         $scope.ng_model_select_user = null;
         $scope.ng_options_select_user = [];
 
@@ -87,12 +88,37 @@ angular.module("ng_app_page_edit_register_user", [])
         );
     }
 );
+angular.module("ng_app_page_edit_register_user").controller(
+    "ng_controller_select_car",
+    function($scope, $http){
+        console.log("test-1");
+        $scope.ng_model_select_car = null;
+        $scope.ng_options_select_car = [];
+
+        $http(
+            {
+                data: { applicationId: 3 },
+                method: "GET",
+                url: "/api/cars"
+            }
+        )
+        .success(
+            function(_Object_Result){
+                $scope.ng_options_select_car = _Object_Result;
+                Object_ResultUserEditCar = _Object_Result;
+            }
+        );
+    }
+);
 $("#ntg_select_user").change(function(){
     var Number_Index = $("#ntg_select_user").prop("selectedIndex");
     $("#user_string_email_edit").val(Object_ResultUser[Number_Index - 1].User_String_Email);
     $("#user_string_name_edit").val(Object_ResultUser[Number_Index - 1].User_String_Name);
 });
-
+$("#user_string_carname_register").change(function(){
+    var Number_Index = $("#user_string_carname_register").prop("selectedIndex");
+    $("#user_string_carid_register").val(Object_ResultUserEditCar[Number_Index - 1]._id);
+}); 
 
 
 

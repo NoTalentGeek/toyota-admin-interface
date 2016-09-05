@@ -8,7 +8,6 @@
     class="
         ntg-debug-body-setting-2
     "
-    ng-controller="ng_controller_page_edit_register_user"
 >
 
 
@@ -219,6 +218,8 @@
                                                 ntg-debug-dimension-height-px-45
                                             "
                                             id="ntg_select_user"
+                                            name="ntg_select_user"
+                                            ng-controller="ng_controller_select_user"
                                             ng-model="ng_model_select_user"
                                             ng-options="
                                                 item._id as item.User_String_Name
@@ -250,7 +251,7 @@
                                             "
                                             id="user_string_name_edit"
                                             name="user_string_name_edit"
-                                            placeholder="User Name"
+                                            placeholder="User Name."
                                             type="text"
                                         >
                                     </div>
@@ -310,6 +311,57 @@
                                     </div>
 
 
+
+                                    <div
+                                        class="
+                                            form-group
+                                        "
+                                    >
+                                        <select
+                                            class="
+                                                form-control
+                                                ntg-debug-dimension-height-px-45
+                                            "
+                                            id="user_string_carname_register"
+                                            name="user_string_carname_register"
+                                            placeholder="Car used."
+                                            ng-controller="ng_controller_select_car"
+                                            ng-model="ng_model_select_car"
+                                            ng-options="
+                                                item._id as item.Car_String_Name
+                                                for item in ng_options_select_car
+                                            "
+                                        >
+                                            <option
+                                                disabled
+                                                selected
+                                                value=""
+                                            >
+                                                Please select car.
+                                            </option>
+                                        </select>
+                                    </div>
+
+
+
+                                    <div
+                                        class="
+                                            form-group
+                                        "
+                                    >
+                                        <input
+                                            class="
+                                                form-control
+                                            "
+                                            id="user_string_carid_register"
+                                            name="user_string_carid_register"
+                                            placeholder="Car ID (Please Do Not Edit This)."
+                                            type="text"
+                                            value=""
+                                        >
+                                    </div>
+
+
                                     <%
                                         var ntg_btn_edit="ntg_button_edit_user";
                                         var ntg_btn_remove="ntg_button_remove_user";
@@ -361,7 +413,7 @@
                                             "
                                             id="user_string_name_register"
                                             name="user_string_name_register"
-                                            placeholder="User Name"
+                                            placeholder="User Name."
                                             type="text"
                                         >
                                     </div>
