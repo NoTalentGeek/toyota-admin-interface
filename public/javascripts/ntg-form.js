@@ -102,7 +102,7 @@ function Void_ControlSlot(
     _String_Edit_Or_Register
 ){
     //Function to re - integrate all index if there is a component added or removed.
-    function Void_IndexReIntegrate(){
+    function Void_IndexReIntegrateRegister(){
         //Now the messy part!
         //I need to iterate through all remainder HTML component at set the ID back
         //    accordingly.
@@ -176,7 +176,7 @@ function Void_ControlSlot(
             //Run this function again to set the button click controller on newly added
             //    HTML component.
             Void_ControlSlot(_Number_SlotVariable, _String_Day, _String_Edit_Or_Register);
-            Void_IndexReIntegrate();
+            Void_IndexReIntegrateRegister();
         });
         //Controller for delete button.
         //Make sure when the Number_IndexComponent is 1 delete button is to reset the form.
@@ -199,7 +199,7 @@ function Void_ControlSlot(
                 }
                 //Remove slot form block visually.
                 $($($(this).parent()).parent()).remove();
-                Void_IndexReIntegrate();
+                Void_IndexReIntegrateRegister();
             });
         }
     }

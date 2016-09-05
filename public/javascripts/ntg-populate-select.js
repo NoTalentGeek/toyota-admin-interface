@@ -223,6 +223,51 @@ var Array_String_DivSlotInputTimeStart = [
     "#ntg_div_workshop_slot_" + Array_String_Day[5] + "_edit_input_time_start_",
     "#ntg_div_workshop_slot_" + Array_String_Day[6] + "_edit_input_time_start_"
 ];
+//This is a function to re - integrate all index for all buttons in the edit form.
+function Void_IndexReIntegrateEdit(_Number_IndexDay){
+    //First thing is to re arrange the naming convention of id and name of all form in the slot edit form.
+    //Then unbind the click control.
+    for(var Number_K = 0; Number_K < $("#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit").children().length; Number_K ++){
+        var Number_IndexTemporary = Number_K + 1;
+        var Object_SlotTemporary = $($("#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit").children()[Number_K]);
+        Object_SlotTemporary.attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_" + Number_IndexTemporary);
+        Object_SlotTemporary.attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_" + Number_IndexTemporary);
+        $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_start_" + Number_IndexTemporary);
+        $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_start_" + Number_IndexTemporary);
+        $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_end_" + Number_IndexTemporary);
+        $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_end_" + Number_IndexTemporary);
+        $($(Object_SlotTemporary.children()[1]).children()[0]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_slot_amount_" + Number_IndexTemporary);
+        $($(Object_SlotTemporary.children()[1]).children()[0]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_slot_amount_" + Number_IndexTemporary);
+        $(Object_SlotTemporary.children()[2]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_add" + Number_IndexTemporary);
+        $(Object_SlotTemporary.children()[2]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_add" + Number_IndexTemporary);
+        $(Object_SlotTemporary.children()[2]).unbind("click");
+        $(Object_SlotTemporary.children()[3]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_delete" + Number_IndexTemporary);
+        $(Object_SlotTemporary.children()[3]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_delete" + Number_IndexTemporary);
+        $(Object_SlotTemporary.children()[3]).unbind("click");
+
+
+
+        $(Object_SlotTemporary.children()[2]).click(function(){
+            $($("#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit")).append(String_Slot(
+                $("#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit").children().length,
+                Array_String_Day[_Number_IndexDay],
+                "edit"
+            ));
+            Void_IndexReIntegrateEdit(_Number_IndexDay);
+        });
+        $(Object_SlotTemporary.children()[3]).click(function(){
+            if(Number_IndexTemporary == 1){
+                $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).val("");
+                $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).val("");
+                $($(Object_SlotTemporary.children()[1]).children()[0]).val("");
+            }
+            else if(Number_IndexTemporary > 1){
+                $($(this).parent()).remove();
+                Void_IndexReIntegrateEdit(_Number_IndexDay);
+            }
+        });
+    }
+}
 //Loop to create slot HTML component.
 for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
     for(var Number_J = 0; Number_J < Array_Number_SlotEditLenght[Number_I]; Number_J ++){
@@ -235,32 +280,10 @@ for(var Number_I = 0; Number_I < Array_String_Day.length; Number_I ++){
             ));
         }
 
-        console.log(Number_I);
-
-        //We need to loop again 
-
-        $(Array_String_DivSlotButtonAdd[Number_I] + Number_IDTemporary).click(function(){
-            //Testing variable.
-            console.log(Number_I);
-            console.log($(this).attr("id"));
-            console.log($($(this).parent()).attr("id"));
-            console.log($($($(this).parent()).parent()).attr("id"));
-            console.log($($($($(this).parent()).parent()).parent()).attr("id"));
-            console.log($($($($(this).parent()).parent()).parent()).children().length);
-
-            $($($($(this).parent()).parent()).parent()).append(String_Slot( 
-                $(this).children().length,
-                "test-1",
-                "edit"
-            ));
-        });
-        //$(Array_String_DivSlotButtonDelete[Number_I] + Number_IDTemporary).click();
-
-
-
         $(Array_String_DivSlotInputSlot[Number_I] + Number_IDTemporary).val(Array_Number_SlotEdit[Number_I][Number_J][2]);
         $(Array_String_DivSlotInputTimeEnd[Number_I] + Number_IDTemporary).val(Array_Number_SlotEdit[Number_I][Number_J][1]);
         $(Array_String_DivSlotInputTimeStart[Number_I] + Number_IDTemporary).val(Array_Number_SlotEdit[Number_I][Number_J][0]);
+        Void_IndexReIntegrateEdit(Number_I);
     }
 }
 
