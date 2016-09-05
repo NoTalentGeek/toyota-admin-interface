@@ -182,58 +182,6 @@ function Void_Delete_Edit_And_Reset(
 
 
 
-    $(_String_IDButtonReset).click(function(){
-
-
-
-
-
-        $("#car_string_name_edit").prop("value", "");
-        $("#ntg_select_car:nth_child(0)").prop("selected", true);
-        $("#ntg_select_user:nth_child(0)").prop("selected", true);
-        $("#ntg_select_workshop:nth_child(0)").prop("selected", true);
-        $("#user_string_email_edit").prop("value", "");
-        $("#user_string_name_edit").prop("value", "");
-        $("#user_string_password_edit").prop("value", "");
-        $("#user_string_password_confirm_edit").prop("value", "");
-        $("#workshop_number_latitude_edit").prop("value", "");
-        $("#workshop_number_longitude_edit").prop("value", "");
-        $("#workshop_string_name_edit").prop("value", "");
-
-
-
-
-
-    });
-
-
-
-
-
-    $(_String_IDButtonResetRegister).click(function(){
-
-
-
-
-
-        $("#car_string_name_register").prop("value", "");
-        $("#user_string_email_register").prop("value", "");
-        $("#user_string_name_register").prop("value", "");
-        $("#user_string_password_register").prop("value", "");
-        $("#workshop_number_latitude_register").prop("value", "");
-        $("#workshop_number_longitude_register").prop("value", "");
-        $("#workshop_string_name_register").prop("value", "");
-
-
-
-
-
-    });
-
-
-
-
-
 }
 
 
