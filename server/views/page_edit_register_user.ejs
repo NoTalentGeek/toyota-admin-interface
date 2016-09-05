@@ -322,14 +322,14 @@
                                                 form-control
                                                 ntg-debug-dimension-height-px-45
                                             "
-                                            id="user_string_carname_register"
-                                            name="user_string_carname_register"
+                                            id="user_string_carname_edit"
+                                            name="user_string_carname_edit"
                                             placeholder="Car used."
-                                            ng-controller="ng_controller_select_car"
-                                            ng-model="ng_model_select_car"
+                                            ng-controller="ng_controller_select_car_edit"
+                                            ng-model="ng_model_select_car_edit"
                                             ng-options="
                                                 item._id as item.Car_String_Name
-                                                for item in ng_options_select_car
+                                                for item in ng_options_select_car_edit
                                             "
                                         >
                                             <option
@@ -353,8 +353,8 @@
                                             class="
                                                 form-control
                                             "
-                                            id="user_string_carid_register"
-                                            name="user_string_carid_register"
+                                            id="user_string_carid_edit"
+                                            name="user_string_carid_edit"
                                             placeholder="Car ID (Please Do Not Edit This)."
                                             type="text"
                                             value=""
@@ -469,6 +469,57 @@
                                             name="user_string_password_confirm_register"
                                             placeholder="User Confirm Password."
                                             type="password"
+                                        >
+                                    </div>
+
+
+
+                                    <div
+                                        class="
+                                            form-group
+                                        "
+                                    >
+                                        <select
+                                            class="
+                                                form-control
+                                                ntg-debug-dimension-height-px-45
+                                            "
+                                            id="user_string_carname_register"
+                                            name="user_string_carname_register"
+                                            placeholder="Car used."
+                                            ng-controller="ng_controller_select_car_register"
+                                            ng-model="ng_model_select_car_register"
+                                            ng-options="
+                                                item._id as item.Car_String_Name
+                                                for item in ng_options_select_car_register
+                                            "
+                                        >
+                                            <option
+                                                disabled
+                                                selected
+                                                value=""
+                                            >
+                                                Please select car.
+                                            </option>
+                                        </select>
+                                    </div>
+
+
+
+                                    <div
+                                        class="
+                                            form-group
+                                        "
+                                    >
+                                        <input
+                                            class="
+                                                form-control
+                                            "
+                                            id="user_string_carid_register"
+                                            name="user_string_carid_register"
+                                            placeholder="Car ID (Please Do Not Edit This)."
+                                            type="text"
+                                            value=""
                                         >
                                     </div>
 
