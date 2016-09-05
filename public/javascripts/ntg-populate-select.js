@@ -230,19 +230,19 @@ $("#ntg_select_workshop").change(function(){
         for(var Number_K = 0; Number_K < $("#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit").children().length; Number_K ++){
             var Number_IndexTemporary = Number_K + 1;
             var Object_SlotTemporary = $($("#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit").children()[Number_K]);
-            Object_SlotTemporary.attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_" + Number_IndexTemporary);
-            Object_SlotTemporary.attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_" + Number_IndexTemporary);
-            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_start_" + Number_IndexTemporary);
-            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_start_" + Number_IndexTemporary);
-            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_end_" + Number_IndexTemporary);
-            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_end_" + Number_IndexTemporary);
-            $($(Object_SlotTemporary.children()[1]).children()[0]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_slot_amount_" + Number_IndexTemporary);
-            $($(Object_SlotTemporary.children()[1]).children()[0]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_slot_amount_" + Number_IndexTemporary);
-            $(Object_SlotTemporary.children()[2]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_add" + Number_IndexTemporary);
-            $(Object_SlotTemporary.children()[2]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_add" + Number_IndexTemporary);
+            Object_SlotTemporary.attr("id", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_" + Number_IndexTemporary);
+            Object_SlotTemporary.attr("name", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_" + Number_IndexTemporary);
+            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).attr("id", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_start_" + Number_IndexTemporary);
+            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[1]).attr("name", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_start_" + Number_IndexTemporary);
+            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).attr("id", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_end_" + Number_IndexTemporary);
+            $($($(Object_SlotTemporary.children()[0]).children()[0]).children()[3]).attr("name", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_time_end_" + Number_IndexTemporary);
+            $($(Object_SlotTemporary.children()[1]).children()[0]).attr("id", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_slot_amount_" + Number_IndexTemporary);
+            $($(Object_SlotTemporary.children()[1]).children()[0]).attr("name", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_input_slot_amount_" + Number_IndexTemporary);
+            $(Object_SlotTemporary.children()[2]).attr("id", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_add" + Number_IndexTemporary);
+            $(Object_SlotTemporary.children()[2]).attr("name", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_add" + Number_IndexTemporary);
             $(Object_SlotTemporary.children()[2]).unbind("click");
-            $(Object_SlotTemporary.children()[3]).attr("id", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_delete" + Number_IndexTemporary);
-            $(Object_SlotTemporary.children()[3]).attr("name", "#ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_delete" + Number_IndexTemporary);
+            $(Object_SlotTemporary.children()[3]).attr("id", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_delete" + Number_IndexTemporary);
+            $(Object_SlotTemporary.children()[3]).attr("name", "ntg_div_workshop_slot_" + Array_String_Day[_Number_IndexDay] + "_edit_button_delete" + Number_IndexTemporary);
             $(Object_SlotTemporary.children()[3]).unbind("click");
 
 

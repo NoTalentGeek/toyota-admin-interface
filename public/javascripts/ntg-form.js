@@ -209,17 +209,10 @@ function Void_ControlSlot(
 
 
 
-//Void_ControlSlot(Number_SlotFridayEdit, "friday", "edit");
 Void_ControlSlot(Number_SlotFridayRegister, "friday", "register");
-//Void_ControlSlot(Number_SlotMondayEdit, "monday", "edit");
 Void_ControlSlot(Number_SlotMondayRegister, "monday", "register");
-//Void_ControlSlot(Number_SlotSaturdayEdit, "saturday", "edit");
 Void_ControlSlot(Number_SlotSaturdayRegister, "saturday", "register");
-//Void_ControlSlot(Number_SlotSundayEdit, "sunday", "edit");
 Void_ControlSlot(Number_SlotSundayRegister, "sunday", "register");
-//Void_ControlSlot(Number_SlotThursdayEdit, "thursday", "edit");
 Void_ControlSlot(Number_SlotThursdayRegister, "thursday", "register");
-//Void_ControlSlot(Number_SlotTuesdayEdit, "tuesday", "edit");
 Void_ControlSlot(Number_SlotTuesdayRegister, "tuesday", "register");
-//Void_ControlSlot(Number_SlotWednesdayEdit, "wednesday", "edit");
 Void_ControlSlot(Number_SlotWednesdayRegister, "wednesday", "register");

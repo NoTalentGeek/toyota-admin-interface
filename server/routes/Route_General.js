@@ -350,7 +350,7 @@ Object_Router.get(String_PageEditRegisterWorkshop,
         );
     }
 );
-Object_Router.post("/register_workshop",
+Object_Router.post(String_RegisterWorkshop,
     function(
         _Object_Request,
         _Object_Respond,
@@ -384,13 +384,13 @@ Object_Router.post("/register_workshop",
                     var Array_String_SlotTuesday    = [];
                     var Array_String_SlotWednesday  = [];
                     //Take the value from the form slots.
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotFriday, 1, _Object_Request, "friday");
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotMonday, 1, _Object_Request, "monday");
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotSaturday, 1, _Object_Request, "saturday");
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotSunday, 1, _Object_Request, "sunday");
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotThursday, 1, _Object_Request, "thursday");
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotTuesday, 1, _Object_Request, "tuesday");
-                    Array_String_CheckHTMLComponentForSlot(Array_String_SlotWednesday, 1, _Object_Request, "wednesday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotFriday, 1, _Object_Request, "friday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotMonday, 1, _Object_Request, "monday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotSaturday, 1, _Object_Request, "saturday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotSunday, 1, _Object_Request, "sunday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotThursday, 1, _Object_Request, "thursday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotTuesday, 1, _Object_Request, "tuesday");
+                    Array_String_CheckHTMLComponentForSlotRegister(Array_String_SlotWednesday, 1, _Object_Request, "wednesday");
 
 
 
@@ -434,7 +434,7 @@ Object_Router.post("/register_workshop",
 
 
 //First check if the first HTML component is exist.
-function Array_String_CheckHTMLComponentForSlot(
+function Array_String_CheckHTMLComponentForSlotRegister(
     _Array_String_,
     _Number_Index,
     _Object_Request,
@@ -468,7 +468,7 @@ function Array_String_CheckHTMLComponentForSlot(
         _Array_String_.push(Arrray_String_Temporary);
         //Iterate through until the HTML component is null.
         var Number_IndexNext = (_Number_Index + 1);
-        Array_String_CheckHTMLComponentForSlot(
+        Array_String_CheckHTMLComponentForSlotRegister(
             _Array_String_,
             Number_IndexNext,
             _Object_Request,

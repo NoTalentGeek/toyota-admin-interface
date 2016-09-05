@@ -43,11 +43,25 @@ Object_Router.put("/:model_workshop_id", function(_Object_Request, _Object_Respo
         function(_Object_Error, _Model_Workshop){
         if(_Object_Error){
             _Object_Respond.send(_Object_Error);
-        } 
+        }
 
-        _Model_Workshop.Workshop_Number_Latitude = _Object_Request.body.workshop_number_latitude_edit;
-        _Model_Workshop.Workshop_Number_Longitude = _Object_Request.body.workshop_number_longitude_edit;
-        _Model_Workshop.Workshop_String_Name = _Object_Request.body.workshop_string_name_edit;
+
+
+
+
+        //Inputting the model.
+        _Model_Workshop.Workshop_Array_String_SlotFriday    = _Object_Request.body.workshop_array_string_slot_friday;
+        _Model_Workshop.Workshop_Array_String_SlotMonday    = _Object_Request.body.workshop_array_string_slot_monday;
+        _Model_Workshop.Workshop_Array_String_SlotSaturday  = _Object_Request.body.workshop_array_string_slot_saturday;
+        _Model_Workshop.Workshop_Array_String_SlotSunday    = _Object_Request.body.workshop_array_string_slot_sunday;
+        _Model_Workshop.Workshop_Array_String_SlotThursday  = _Object_Request.body.workshop_array_string_slot_thursday;
+        _Model_Workshop.Workshop_Array_String_SlotTuesday   = _Object_Request.body.workshop_array_string_slot_tuesday;
+        _Model_Workshop.Workshop_Array_String_SlotWednesday = _Object_Request.body.workshop_array_string_slot_wednesday;
+        _Model_Workshop.Workshop_Number_Latitude            = _Object_Request.body.workshop_number_latitude_edit;
+        _Model_Workshop.Workshop_Number_Longitude           = _Object_Request.body.workshop_number_longitude_edit;
+        _Model_Workshop.Workshop_String_Name                = _Object_Request.body.workshop_string_name_edit;
+
+
 
         _Model_Workshop.save(function(_Object_Error){
             if(_Object_Error){
@@ -58,5 +72,10 @@ Object_Router.put("/:model_workshop_id", function(_Object_Request, _Object_Respo
         });
     });
 });
+
+
+
+
+
 //Exports all the routes to Object_Router variable. 
 module.exports = Object_Router;
