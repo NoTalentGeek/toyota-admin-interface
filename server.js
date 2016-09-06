@@ -35,11 +35,13 @@ var Object_SocketIO = require("socket.io");
 //Models
 var Model_Admin_ = require("./server/models/Model_Admin");
 var Model_Car_ = require("./server/models/Model_Car");
+var Model_Chat_ =  require("./server/models/Model_Chat");
 var Model_User_ = require("./server/models/Model_User");
 var Model_Workshop_ = require("./server/models/Model_Workshop");
 var Array_Model_ = [
     Model_Admin_,
     Model_Car_,
+    Model_Chat_,
     Model_User_,
     Model_Workshop_
 ];
