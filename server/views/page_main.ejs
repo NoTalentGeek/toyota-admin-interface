@@ -384,6 +384,7 @@
                                 ntg-debug-dimension-width-px-100
                                 ntg-debug-navbar-account-setting-1
                             "
+                            id = "ntg_div_string_name_display"
                         >
                             <%= String_NameDisplay %>.
                         </div>
@@ -703,14 +704,14 @@
                                     class="
                                         collapse in
                                     "
+                                    id="ntg_ul_user"
                                     ng-controller="ng_controller_page_main_repeat_user"
                                 >
                                     <li
                                         ng-repeat="_Model_User in categories"
+                                        ng-attr-id="{{'ntg_li_user_' + _Model_User._id}}"
                                     >
-                                        <a
-                                            href="/page_main"
-                                        >
+                                        <a>
 
 
 
@@ -1109,21 +1110,15 @@
 
 
 
+
                         <div
                             class=" 
                                 ntg-debug-div-background-and-border-setting-1
                                 ntg-debug-overflow-y-auto
+                                ntg-div-chat-box
                             "
                             id="ntg_div_chat_box"
                         >
-                            <ul
-                                class="
-                                    list-group
-                                    ntg-debug-margin-0
-                                "
-                                id="ntg_ul_chat_message"
-                            >
-                            </ul>
                         </div>
 
 

@@ -18,11 +18,6 @@
     margin-right: 3px;
     margin-top: 3px;
 }
-#ntg_div_chat_box{
-    /*The 40px was from 32px text input
-        plus additional manual fix.*/
-    height: calc(100% - 43px);
-}
 #ntg_div_dim_screen{
     background: var(--color-background);
     height: 100%;
@@ -93,6 +88,9 @@
 }
 .ntg-debug-color-red{
     color: red;
+}
+.ntg-debug-display-none{
+    display: none;
 }
 .ntg-debug-div-background-and-border-setting-1{
     background: var(--color-background-panel);
@@ -228,6 +226,11 @@
 .ntg-debug-radius-right{
     /*!important parameter is a must for a reason.*/
     border-radius: 0px 5px 5px 0px !important;
+}
+.ntg-div-chat-box{
+    /*The 40px was from 32px text input
+        plus additional manual fix.*/
+    height: calc(100% - 43px);
 }
 a,
 div,

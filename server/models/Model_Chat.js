@@ -22,4 +22,4 @@ var Object_Schema_Chat = new Object_Schema({
 
 
 //Create the model and then expose it to our application.
-module.exports = Object_Mongoose.model("Car", Object_Schema_Chat);
+module.exports = Object_Mongoose.model("Chat", Object_Schema_Chat);
