@@ -139,8 +139,8 @@ Object_Database = Object_Mongoose.connect(Object_Config_MongoDB.url, function(_O
 
     //For debugging I want so that when the web application starts it drops the
     //    database and then re - create new.
-    console.log("For development purposes I delete database everytime it runs new.");
-    Object_Mongoose.connection.db.dropDatabase();
+    //console.log("For development purposes I delete database everytime it runs new.");
+    //Object_Mongoose.connection.db.dropDatabase();
 
     //If connection is successfull then check to see if
     //    there is an element in database.

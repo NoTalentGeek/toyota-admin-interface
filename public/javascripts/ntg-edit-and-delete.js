@@ -34,7 +34,7 @@ function Void_Delete_Edit_And_Reset(
         //    according to the selected thing id.
         //The result from String_ValueFromSelect is "String:id_here".
         //Hence we need to remove the "String:".
-        $("#form_left").attr("action", _String_URLAPI + String_ValueFromSelect.split("String:").pop());
+        $("#form_left").attr("action", _String_URLAPI + String_ValueFromSelect.toLowerCase().split("string:").pop());
 
 
 
@@ -106,7 +106,6 @@ function Void_Delete_Edit_And_Reset(
                 Array_String_Slot[Number_I].push(String_Array_Temporary);
             }
         }
-        var String_URL = _String_URLAPI + String_ValueFromSelect.toLowerCase().split("string:").pop();
 
 
         $.ajax({
@@ -115,6 +114,8 @@ function Void_Delete_Edit_And_Reset(
             data: ({
 
                 "car_string_name_edit": $("#car_string_name_edit").val(),
+                "user_string_carid_edit": $("#user_string_carid_edit").val(),
+                "user_string_carname_edit": $("#user_string_carname_edit:selected").text(),
                 "user_string_email_edit": $("#user_string_email_edit").val(),
                 "user_string_name_edit": $("#user_string_name_edit").val(),
                 "user_string_password_edit": $("#user_string_password_edit").val(),
@@ -133,7 +134,7 @@ function Void_Delete_Edit_And_Reset(
             dataType: "JSON", //This line is important/
             success: function(_Object_Result){ }, //What happened when the update process success.
             type: "PUT",
-            url: String_URL
+            url: _String_URLAPI + String_ValueFromSelect.toLowerCase().split("string:").pop()
 
         });
 
@@ -165,7 +166,7 @@ function Void_Delete_Edit_And_Reset(
         $.ajax({
             success: function(_Object_Result){ },
             type: "DELETE",
-            url: _String_URLAPI + String_ValueFromSelect.split("String:").pop()
+            url: _String_URLAPI + String_ValueFromSelect.toLowerCase().split("string:").pop()
         });
 
 

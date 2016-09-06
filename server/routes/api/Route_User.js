@@ -45,6 +45,8 @@ Object_Router.put("/:model_user_id", function(_Object_Request, _Object_Respond){
             _Object_Respond.send(_Object_Error);
         } 
 
+        _Model_User.User_String_CarID = _Object_Request.body.user_string_carid_edit;
+        _Model_User.User_String_CarName = _Object_Request.body.user_string_carname_edit;
         _Model_User.User_String_Email = _Object_Request.body.user_string_email_edit;
         _Model_User.User_String_Name = _Object_Request.body.user_string_name_edit;
         _Model_User.User_String_Password = _Model_User.Void_GenerateHash(_Object_Request.body.user_string_password_edit);

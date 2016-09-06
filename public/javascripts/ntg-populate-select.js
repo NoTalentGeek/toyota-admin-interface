@@ -152,6 +152,12 @@ angular.module("ng_app_page_edit_register_user").controller(
 );
 $("#ntg_select_user").change(function(){
     var Number_Index = $("#ntg_select_user").prop("selectedIndex");
+    $("#user_string_carid_edit").val(Object_ResultUser[Number_Index - 1].User_String_CarID);
+    console.log(Object_ResultUser[Number_Index - 1].User_String_CarName);
+    console.log(Object_ResultUser[Number_Index - 1].User_String_CarID);
+    $("#user_string_carname_edit option").filter(function(){
+        return $(this).text() == "car1"; 
+    }).prop("selected", true);
     $("#user_string_email_edit").val(Object_ResultUser[Number_Index - 1].User_String_Email);
     $("#user_string_name_edit").val(Object_ResultUser[Number_Index - 1].User_String_Name);
 });

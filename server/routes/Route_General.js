@@ -7,11 +7,15 @@
 //Variables.
 //Models
 var Model_Admin_ = require("../../server/models/Model_Admin");
+var Model_Car_ = require("../../server/models/Model_Car");
 var Object_Express = require("express");
 //Use passport to handle client session.
 var Object_Passport = require("passport");
 //Router object for routing page request.
 var Object_Router = Object_Express.Router();
+//Take a reference of ObjectID from MongoDB module.
+//I need this to return an ObjectID from String
+var ObjectId_ = require('mongodb').ObjectID;
 //Route variables.
 var String_EditCar = "/edit_car";
 var String_EditUser = "/edit_user";
@@ -305,28 +309,43 @@ Object_Router.post(String_RegisterUser,
                 else{
 
 
-
+console.log("test-2");
 
 
                     //Inputting the model.
                     var Model_User_Temp = new Model_User_();
+                    Model_User_Temp.User_String_CarID = _Object_Request.param("user_string_carid_register");
                     Model_User_Temp.User_String_Email = _Object_Request.param("user_string_email_register");
                     Model_User_Temp.User_String_Name = _Object_Request.param("user_string_name_register");
                     Model_User_Temp.User_String_Password = Model_User_Temp.Void_GenerateHash(_Object_Request.param("user_string_password_register"));
 
 
 
+                    var String_CarID = _Object_Request.param("user_string_carid_register");
 
+                    var String_CarName = undefined;
+                    var ObjectId__Temporary = ObjectId_(String_CarID);
 
-                    Model_User_Temp.save(function(_Object_Error){
+                    Model_Car_.findOne({ _id: ObjectId__Temporary }, function(_Object_Error, _Model_Car_){
+
                         if(_Object_Error){
-                            String_LogError2("user");
                             throw _Object_Error;
                         }
                         else{
-                            String_LogSuccess(_Object_Request.param("user_string_email_register"), "user");
-                            _Object_Respond.redirect(String_PageEditRegisterUser);
+                            String_CarName = _Model_Car_.Car_String_Name;
+                            Model_User_Temp.User_String_CarName = String_CarName;
+                            Model_User_Temp.save(function(_Object_Error){
+                                if(_Object_Error){
+                                    String_LogError2("user");
+                                    throw _Object_Error;
+                                }
+                                else{
+                                    String_LogSuccess(_Object_Request.param("user_string_email_register"), "user");
+                                    _Object_Respond.redirect(String_PageEditRegisterUser);
+                                }
+                            });
                         }
+
                     });
                 }
             });
