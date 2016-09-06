@@ -35,7 +35,7 @@
   "name": "admin-interface-6",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "./node_modules/nodemon/bin/nodemon.js server.js"
   },
   "version": "0.0.1"
 }
