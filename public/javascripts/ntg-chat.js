@@ -60,21 +60,19 @@ Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_D
 
 
     //If this user received its own message, that just sent.
-    /*
     if(String_NameDisplay == Array_String_Received[0]){
-        $("#ntg_ul_chat_message").append($("<li class='list-group-item text-left'><strong>" + Array_String_Received[0] + ":</strong> " + Array_String_Received[1] + "</li>"));
+        Object_ChatBoxCurrent.append($("<li class='list-group-item text-left'><strong>" + Array_String_Received[0] + ":</strong> " + Array_String_Received[1] + "</li>"));
     }
     else if(String_NameDisplay != Array_String_Received[0]){
-        $("#ntg_ul_chat_message").append($("<li class='list-group-item text-right'>" + Array_String_Received[1]  + "<strong> :" + Array_String_Received[0] + "</li>"));
+        Object_ChatBoxCurrent.append($("<li class='list-group-item text-right'>" + Array_String_Received[1]  + "<strong> :" + Array_String_Received[0] + "</li>"));
     }
-    */
     
 
 
 
 
     //These two lines of codes are for scrolling the chat box to the newest chat received.
-    var Object_Element = document.getElementById("ntg_ul_chat_message");
+    var Object_Element = document.getElementById(Object_ChatBoxCurrent.attr("id"));
     Object_Element.scrollTop = Object_Element.scrollHeight;
 
 
@@ -87,55 +85,97 @@ Object_SocketIO_Client.on("ntg_event_message_sent_to_server", function(_Object_D
 
 
 
+//This is the currently selected chat box.
+var Object_ChatBoxCurrent = undefined;
+//Initiate and setting so that when the user <a></a> is clicked
+//    new chat box appeared.
+//At this moment the only way to change chat box is via these buttons.
+//Make sure that everything happens after the Angular components load.
 setTimeout(Void_AfterAngularLoad, 0);
+//This is the HTML code for the chat box.
+//I will populate this with <li></li> everytime there is an incoming chat.
 var String_DivChatBox = "<ul class=' list-group ntg-debug-margin-0 ' > </ul>";
+//Put everything that want to be executed after Angular components load here.
 function Void_AfterAngularLoad(){
 
     Void_ReInitiateUserListButtonChat();
 
 }
+//For everytime there is user added into the database.
+//In case the system is a real time.
+//At this moment 6th September 2016 the system is not yet a real time function.
 function Void_ReInitiateUserListButtonChat(){
-    var Array_Object_NTGDivChat = $("#ntg_div_chat_box");
-    var Array_Object_NTGDivChatChildren = Array_Object_NTGDivChat.children();
+    var Object_NTGDivChat = $("#ntg_div_chat_box");
+    var Array_Object_NTGDivChatChildren = Object_NTGDivChat.children();
     var Array_Object_NTGULUserChildren = $("#ntg_ul_user").children();
     var Number_NTGDivChatChildrenLength = Array_Object_NTGDivChatChildren.length;
     var Number_NTGULUserChildrenLength = Array_Object_NTGULUserChildren.length;
-    for(var Number_I = 0; Number_I < Number_NTGULUserChildrenLength; Number_I ++){
-        //Bind click at the <a></a>.
-        //Assign object to the clicked <a></a>.
-        var Object_AUser = $($(Array_Object_NTGULUserChildren[Number_I]).children()[0]);
-        Object_AUser.click(function(){
+    function Function_ButtonCallback(_Number_Index){
+        return function(){
+            //Set the ID.
+            var String_AdminName = $("#ntg_div_string_name_display").html();
+            var String_UserName = $($($($($(Array_Object_NTGULUserChildren[_Number_Index]).children()[0]).children()[0]).children()[1]).children()[0]).html();
+            var String_ULUserIDRough = ("ntg_ul_chat_" + String_AdminName + "_" + String_UserName).replace(" ", "");
+            var String_ULUserIDTrimmed =
+                String_ULUserIDRough
+                    .replace("(", "") //Remove (.
+                    .replace(")", "") //Remove ).
+                    .replace("@", "") //Remove @.
+                    .replace(/ /g,"") //Remove all spaces.
+                    .replace(/(\r\n|\n|\r)/gm,"") //Remove all line breaks.
+                    .replace(/\s+/, "") //This is also to remove all spaces (honestly, I only used this as safety measures lol).
+                    .split(".").join(""); //Removes all dots.
             //Here I need to add a new chat box.
             //However, I need to add a class of ntg-display-none to all
             //    other chat box.
             //Hence, I need to list all the available chat box first.
+            var Boolean_Exist = false;
+            Array_Object_NTGDivChatChildren = Object_NTGDivChat.children();
+            Number_NTGDivChatChildrenLength = Object_NTGDivChat.children().length;
             for(var Number_J = 0; Number_J < Number_NTGDivChatChildrenLength; Number_J ++){
 
-                $(Array_Object_NTGDivChatChildren[Number_J]).addClass("ntg-display-none");
+                $(Array_Object_NTGDivChatChildren[Number_J]).removeClass("ntg-debug-display-block");
+                $(Array_Object_NTGDivChatChildren[Number_J]).addClass("ntg-debug-display-none");
+                console.log($(Array_Object_NTGDivChatChildren[Number_J]));
+                console.log(Number_J + "__________" + $(Array_Object_NTGDivChatChildren[Number_J]).attr("id") + "__________" + String_ULUserIDTrimmed);
+                if($(Array_Object_NTGDivChatChildren[Number_J]).attr("id") == String_ULUserIDTrimmed){
+                    Boolean_Exist = true;
+                    Object_ChatBoxCurrent = $(Array_Object_NTGDivChatChildren[Number_J]);
+                    Object_ChatBoxCurrent.removeClass("ntg-debug-display-none");
+                    Object_ChatBoxCurrent.addClass("ntg-debug-display-block");
+                    console.log($(Array_Object_NTGDivChatChildren[Number_J]).attr("id"));
+                    console.log("chat-box-changed");
+                }
 
             }
-            //After all chat box is hidden then try to add the new chat box.
-            var Object_NTGDivChat = Array_Object_NTGDivChat.append(String_DivChatBox);
-            //Get the newest appened object.
-            var Object_ULUser = $($(Object_NTGDivChat).children()[0]);
-            //Set the ID.
-            var String_AdminName = $("#ntg_div_string_name_display").html();
-            var String_UserName = $($($(Object_AUser.children()[0]).children()[1]).children()[0]).html();
-            var String_ULUserID = ("ntg_ul_chat_" + String_AdminName + "_" + String_UserName).replace(" ", "");
-            //var String_ULUserIDRemoveLineBreak = String_ULUserID.replace(/(\r\n|\n|\r)/gm,"")
-            //var String_ULUserIDRemoveWhiteSpace = String_ULUserIDRemoveLineBreak.replace("\\s","");
-            Object_ULUser.attr(
-                "id",
-                String_ULUserID
-                    .replace("(", "")
-                    .replace(")", "")
-                    .replace("@", "")
-                    .replace(/ /g,"")
-                    .replace(/(\r\n|\n|\r)/gm,"")
-                    .replace(/\s+/, "")
-                    .split(".").join("")
-            );
-            console.log(Object_ULUser.attr("id"));
-        });
+            //Preventing the application to add multiple chat box.
+            //If there is a chatbox exist with the same name than
+            //    this application should not add additional chat box.
+            console.log(Boolean_Exist);
+            if(Boolean_Exist == false){
+                console.log(Object_NTGDivChat.children().length);
+                //After all chat box is hidden then try to add the new chat box.
+                var Object_NTGDivChatAppend = $(String_DivChatBox).appendTo(Object_NTGDivChat);
+                console.log(Object_NTGDivChat.children().length);
+                Array_Object_NTGDivChatChildren = Object_NTGDivChat.children();
+                Number_NTGDivChatChildrenLength = Object_NTGDivChat.children().length;
+                //Get the newest appened object.
+                Object_ChatBoxCurrent = $(Object_NTGDivChatAppend);
+                Object_ChatBoxCurrent.attr(
+                    "id",
+                    String_ULUserIDTrimmed
+                );
+                Object_ChatBoxCurrent.removeClass("ntg-debug-display-none");
+                Object_ChatBoxCurrent.addClass("ntg-debug-display-block");
+                console.log("added");
+            }
+        }
+    }
+    for(var Number_I = 0; Number_I < Number_NTGULUserChildrenLength; Number_I ++){
+        //Bind click at the <a></a>.
+        //Assign object to the clicked <a></a>.
+        console.log("test");
+        var Object_AUser = $($(Array_Object_NTGULUserChildren[Number_I]).children()[0]);
+        Object_AUser.click(Function_ButtonCallback(Number_I));
     }
 }

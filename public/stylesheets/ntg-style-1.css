@@ -89,6 +89,9 @@
 .ntg-debug-color-red{
     color: red;
 }
+.ntg-debug-display-block{
+    display: block;
+}
 .ntg-debug-display-none{
     display: none;
 }
