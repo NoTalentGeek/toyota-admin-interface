@@ -156,7 +156,7 @@ $("#ntg_select_user").change(function(){
     console.log(Object_ResultUser[Number_Index - 1].User_String_CarName);
     console.log(Object_ResultUser[Number_Index - 1].User_String_CarID);
     $("#user_string_carname_edit option").filter(function(){
-        return $(this).text() == "car1"; 
+        return $(this).text() == Object_ResultUser[Number_Index - 1].User_String_CarName; 
     }).prop("selected", true);
     $("#user_string_email_edit").val(Object_ResultUser[Number_Index - 1].User_String_Email);
     $("#user_string_name_edit").val(Object_ResultUser[Number_Index - 1].User_String_Name);

@@ -472,7 +472,22 @@ function Void_CreateDummy(){
         if(_Object_Error){
             throw _Object_Error;
         }
-        console.log(Model_Car_Temporary1.Car_String_Name + " is created.");
+        else{
+            console.log(Model_Car_Temporary1.Car_String_Name + " is created.");
+
+            var Model_User_Temporary1 = new Model_User_();
+            Model_User_Temporary1.User_String_CarID = Model_Car_Temporary1._id.toString();
+            Model_User_Temporary1.User_String_CarName = Model_Car_Temporary1.Car_String_Name;
+            Model_User_Temporary1.User_String_Email = "user1@user1";
+            Model_User_Temporary1.User_String_Name = "user1";
+            Model_User_Temporary1.User_String_Password = Model_User_Temporary1.Void_GenerateHash("user1");
+            Model_User_Temporary1.save(function(_Object_Error){
+                if(_Object_Error){
+                    throw _Object_Error;
+                }
+                console.log(Model_User_Temporary1.User_String_Name + " is created.");
+            });
+        }
     });
 
 
@@ -482,32 +497,22 @@ function Void_CreateDummy(){
         if(_Object_Error){
             throw _Object_Error;
         }
-        console.log(Model_Car_Temporary2.Car_String_Name + " is created.");
-    });
+        else{
+            console.log(Model_Car_Temporary2.Car_String_Name + " is created.");
 
-
-
-    var Model_User_Temporary1 = new Model_User_();
-    Model_User_Temporary1.User_String_Email = "user1@user1";
-    Model_User_Temporary1.User_String_Name = "user1";
-    Model_User_Temporary1.User_String_Password = Model_User_Temporary1.Void_GenerateHash("user1");
-    Model_User_Temporary1.save(function(_Object_Error){
-        if(_Object_Error){
-            throw _Object_Error;
+            var Model_User_Temporary2 = new Model_User_();
+            Model_User_Temporary2.User_String_CarID = Model_Car_Temporary2._id.toString();
+            Model_User_Temporary2.User_String_CarName = Model_Car_Temporary2.Car_String_Name;
+            Model_User_Temporary2.User_String_Email = "user2@user2";
+            Model_User_Temporary2.User_String_Name = "user2";
+            Model_User_Temporary2.User_String_Password = Model_User_Temporary2.Void_GenerateHash("user2");
+            Model_User_Temporary2.save(function(_Object_Error){
+                if(_Object_Error){
+                    throw _Object_Error;
+                }
+                console.log(Model_User_Temporary2.User_String_Name + " is created.");
+            });
         }
-        console.log(Model_User_Temporary1.User_String_Name + " is created.");
-    });
-
-
-    var Model_User_Temporary2 = new Model_User_();
-    Model_User_Temporary2.User_String_Email = "user2@user2";
-    Model_User_Temporary2.User_String_Name = "user2";
-    Model_User_Temporary2.User_String_Password = Model_User_Temporary2.Void_GenerateHash("user2");
-    Model_User_Temporary2.save(function(_Object_Error){
-        if(_Object_Error){
-            throw _Object_Error;
-        }
-        console.log(Model_User_Temporary2.User_String_Name + " is created.");
     });
 
 
